@@ -1,0 +1,27 @@
+{
+  "name": "Practical Web Development",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server --open=."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morkkis/PWD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/morkkis/PWD/issues"
+  },
+  "homepage": "https://github.com/morkkis/PWD#readme",
+  "devDependencies": {
+    "live-server": "^1.2.0",
+    "local-web-server": "^2.6.0",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {}
+}
