@@ -37,6 +37,10 @@
 			grid-auto-flow: column;
 			font-size: 34px;
 		}
+		
+		.slide-top {
+			top: 0 !important;
+		}
 	</style>
 </head>
 
@@ -320,9 +324,51 @@ _.padStart("Hello TypeScript!", 20, " ");</code></pre></li>
 				</div>
 			</section>
 			<section>
-				<div>
-					<img class="reset-img" height="500" src="../../assets/link.svg" />
-				</div>
+				<section>
+					<div>
+						<img class="reset-img" height="500" src="../../assets/link.svg" />
+					</div>
+				</section>
+				<section>
+					<div>
+						<img class="reset-img" height="500" src="../../assets/yarn-link-1.png" />
+					</div>
+				</section>
+				<section>
+					<div>
+						<img class="reset-img" height="500" src="../../assets/yarn-link-2.png" />
+					</div>
+				</section>
+			</section>
+			<section class="slide-top" style="height: calc(100% - 120px);">
+				<pre style="font-size: 1em; width: 100%;height: 100%;"><code class="language-bash" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>> npm install -g @vue/cli
+> vue create cat-finder
+
+? Please pick a preset:
+	<mark>Manually select features</mark>
+? Check the features needed for your project:
+	<mark>Babel, TS, PWA, Router, Vuex, CSS Pre-processors, Linter, Unit</mark>
+? Use class-style component syntax?
+	<mark>Yes</mark>
+? Use Babel alongside TypeScript for auto-detected polyfills?
+	<mark>Yes</mark>
+? Use history mode for router? (Requires proper server setup for index fallback in production)
+	<mark>Yes</mark>
+? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default):
+	<mark>Less</mark>
+? Pick a linter / formatter config:
+	<mark>TSLint</mark>
+? Pick additional lint features:
+	<mark>Lint and fix on commit</mark>
+? Pick a unit testing solution:
+	<mark>Jest</mark>
+? Where do you prefer placing config for Babel, PostCSS, ESLint, etc.?
+	<mark>In dedicated config files</mark>
+? Save this as a preset for future projects?
+	<mark>No</mark>
+? Pick the package manager to use when installing dependencies:
+	<mark>Yarn</mark>
+</code>
 			</section>
 		</div>
 	</div>
