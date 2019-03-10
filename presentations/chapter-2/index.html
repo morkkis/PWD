@@ -38,14 +38,8 @@
 			font-size: 34px;
 		}
 		
-		.slide-align-top-position {
-			top: 0!important;
-		}
-		.slide-align-top-position .present {
-			top: 0!important;
-		}
-		.specificity-examples table tbody tr td:not(:last-child) {
-			width: 300px;
+		.slide-top {
+			top: 0 !important;
 		}
 	</style>
 </head>
@@ -61,8 +55,139 @@
 				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/oop.jpeg">
 			</section>
 			<section>
-				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/cascading-style-sheets.png">
+				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/js-oop.png">
 			</section>
+			<section>
+				<section>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/global-scope.png">
+				</section>
+				<section>
+					<pre style="width: 100%;">
+					<code class="language-java" style="padding: 20px;" data-trim>int x = 5;
+if (x > 1) {
+	int y = 7;
+};
+
+// Will produce error 
+System.out.println(y);
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;">
+					<code class="language-js" style="padding: 20px;" data-trim>var x = 5;
+
+if (x > 1) {
+	var y = 7;
+};
+
+console.log(y); // Will print 7 
+</code></pre>
+				</section>
+				<section data-transition="none-in">
+					<pre style="width: 100%;">
+					<code class="language-js" style="padding: 20px;" data-trim data-noescape>var x = 5;
+
+if (x > 1) {
+	var y = 7;
+};
+
+console.log(<mark>window</mark>.y); // Will print 7 
+</code></pre>
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/danger.jpg">
+				</section>
+				<section>
+					<span>index.html:</span>
+					<pre style="width: 100%;"><code class="language-html" style="padding: 20px;" data-trim><script src="first.js"></script>
+<script src="second.js"></script></code></pre>
+					<span>first.js:</span>
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var x=10;</code></pre>
+					<span>second.js:</span>
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(x); // 10</code></pre>
+				</section>
+			</section>
+			<section>
+				<h3 style="display: inline-block;">Function scope</h3>
+			</section>
+			<section>
+				<section>
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(carName); // ReferenceError: carName is not defined
+
+function myFunction() {
+  var carName = "Volvo";
+  console.log(carName); // Volvo
+}
+console.log(carName); // ReferenceError: carName is not defined</code></pre>
+				</section>
+				<section>
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var carName = "Volvo";
+
+function myFunction() {
+  console.log(carName); // Volvo
+}</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h4 style="display: inline-block;">IIFE - Immediately Invoked Function Expression</h4>
+					<pre style="width: 100%;">
+						<code class="language-js" style="padding: 20px;" data-trim>(function () {
+	/* code here */
+})();</code></pre>
+				</section>
+				<section>
+					<pre style="width: 100%;">
+						<code class="language-js" style="padding: 20px;" data-trim>(function () {
+	var carName = "Volvo";
+})();
+
+console.log(carName); // ReferenceError: carName is not defined</code></pre>
+				</section>
+			</section>
+			<section>
+				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/closure.jpg">
+			</section>
+			<section>
+					<pre style="width: 100%;">
+						<code class="language-js" style="padding: 20px;" data-trim>function outer() {
+   var b = 10;
+
+   function inner() {
+
+         var a = 20; 
+         console.log(a + b); // 30
+    }
+    inner();
+}
+
+outer();</code></pre>
+			</section>
+			<section class="slide-top" style="height: calc(100% - 120px);">
+				<pre style="height: 100%; width: 100%;">
+					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Cat (name, breed, age, gender) {
+  this.name = name;
+  this.breed = breed;
+  this.age = age;
+  this.gender = gender;
+};
+
+Cat.prototype.getName = function getName () {
+  return this.name;
+};
+
+Cat.prototype.getAge = function getAge () {
+  return this.age;
+};
+
+var cat = new Cat('Garfield', 'Persian', 10, 'Male');
+console.log(cat.getName()); // Garfield
+console.log(cat.getAge()); // 10
+</code></pre>
+			</section>
+			
+			
+			
 			<section>
 				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/cascading.jpg">
 			</section>
