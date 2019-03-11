@@ -127,6 +127,9 @@ function myFunction() {
   console.log(carName); // Volvo
 }</code></pre>
 				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/function-scope.png">
+				</section>
 			</section>
 			<section>
 				<section>
@@ -163,7 +166,727 @@ console.log(carName); // ReferenceError: carName is not defined</code></pre>
 
 outer();</code></pre>
 			</section>
-			<section class="slide-top" style="height: calc(100% - 120px);">
+			<section>
+				<section>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/hoisting.jpg">
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var x; // Declare x
+
+x = 5; // Assign 5 to x
+
+console.log(x); // 5</code></pre></td>
+								<td style="width: 50%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-in">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var x; // Declare x
+
+x = 5; // Assign 5 to x
+
+console.log(x); // 5</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>x = 5; // Assign 5 to x
+
+console.log(x); // 5
+
+var x; // Declare x</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(x);
+
+var x = 5;
+
+// what will be printed?</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out none-in">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(x);
+
+var x = 5;
+
+// undefined</code></pre></td>
+								<td style="width: 50%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-in">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(x);
+
+var x = 5;
+
+// undefined</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var x; // x is undefined
+
+console.log(x); // undefined
+
+x = 5;</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>function cowSays(sound){
+
+  console.log(sound);
+
+}
+
+cowSays('moo');
+
+// moo</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>function cowSays(sound){
+
+  console.log(sound);
+
+}
+
+cowSays('moo');
+
+// moo</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>cowSays('moo');
+
+function cowSays(sound){
+
+  console.log(sound);
+
+}
+
+// What will happend?</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>function cowSays(sound){
+
+  console.log(sound);
+
+}
+
+cowSays('moo');
+
+// moo</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>cowSays('moo');
+
+function cowSays(sound){
+
+  console.log(sound);
+
+}
+
+// moo</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">cowSays('moo');
+
+var cowSays = function(sound) {
+
+  console.log(sound);
+
+}
+
+// What will happend?
+
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>cowSays('moo');
+
+var cowSays = function(sound) {
+
+  console.log(sound);
+
+}
+
+// Uncaught TypeError:
+// cowSays is not a function</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-in">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>cowSays('moo');
+
+var cowSays = function(sound) {
+
+  console.log(sound);
+
+}
+
+// Uncaught TypeError:
+// cowSays is not a function</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">var cowSays; // cowSays is undefined
+
+cowSays('moo');  // invoking undefined varibale
+
+cowSays = function(sound) {
+
+  console.log(sound);
+
+}
+
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">function hoist() {
+
+  console.log(message);
+
+  var message = 'Hoisting is all the rage!';
+
+}
+
+hoist();
+
+
+
+// What will happend?</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out none-in">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">function hoist() {
+
+  console.log(message);
+
+  var message = 'Hoisting is all the rage!';
+
+}
+
+hoist();
+
+
+
+// What will happend?</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">function hoist() {
+
+  var message;
+
+  console.log(message);
+
+  message = 'Hoisting is all the rage!';
+
+}
+
+hoist();
+
+// undefined</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+			<section data-transition="none-out" style="height: calc(100% - 120px);">
+				<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/let-vs-var.jpg">
+			</section>
+			<section data-transition="none-out" style="height: calc(100% - 120px);">
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/let.png">
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/block-scope.jpg">
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">if (true) {
+
+	var x = 2;
+
+}
+
+// x CAN be used here
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">if (true) {
+
+	var x = 2;
+
+}
+
+// x CAN be used here
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">if (true) {
+
+	let x = 2;
+
+}
+
+// x can NOT be used here
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/declare-once.png">
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">var x = 5;
+
+var x = 2;
+
+// It will NOT throw error
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">var x = 5;
+
+var x = 2;
+
+// It will NOT throw error
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">let x = 5;
+
+let x = 2;
+
+// SyntaxError: Identifier 'x' has already been declared
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/hoisting.jpg">
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">console.log(x);
+
+var x = 'The variable has been hoisted.';
+
+// undefined
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">console.log(x);
+
+var x = 'The variable has been hoisted.';
+
+// undefined
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">console.log(x);
+
+let x = 'The variable has been hoisted.';
+
+// ReferenceError: x is not defined
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+			<section data-transition="none-out" style="height: calc(100% - 120px);">
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/const.jpg">
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/block-scope.jpg">
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">if (true) {
+
+	var x = 2;
+
+}
+
+// x CAN be used here
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">if (true) {
+
+	var x = 2;
+
+}
+
+// x CAN be used here
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">if (true) {
+
+	const x = 2;
+
+}
+
+// x can NOT be used here
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/declare-once.png">
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">var x = 5;
+
+var x = 2;
+
+// It will NOT throw error
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">var x = 5;
+
+var x = 2;
+
+// It will NOT throw error
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const x = 5;
+
+const x = 2;
+
+// SyntaxError: Identifier 'x' has already been declared
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/hoisting.jpg">
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">console.log(x);
+
+var x = 'The variable has been hoisted.';
+
+// undefined
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">console.log(x);
+
+var x = 'The variable has been hoisted.';
+
+// undefined
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">console.log(x);
+
+const x = 'The variable has been hoisted.';
+
+// ReferenceError: x is not defined
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/assign.svg">
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const x;
+
+x = 5;
+
+// SyntaxError: Missing initializer in const declaration
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const x = 5;
+
+
+
+
+</code></pre>
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/shallow.jpg">
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const car = {type:"Fiat", model:"500", color:"white"};
+
+car = {type:"Volvo", model:"EX60", color:"red"};
+
+// ERROR
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const car = {type:"Fiat", model:"500", color:"white"};
+
+// You can change a property:
+car.color  = "red";
+car.owner = "Johnson";
+</code></pre>
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/object-freeze.jpg">
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const car = {type:"Fiat", model:"500", color:"white"};
+
+Object.freeze(car);
+
+// changes will not effected
+car.color  = "red";
+car.owner = "Johnson";
+
+console.log(car);
+
+// {type: "Fiat", model: "500", color: "white"}
+</code></pre>
+				</section>
+			</section>
+			
+			<section>
+				<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/arrow-function.jpg">
+			</section>
+			<section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const foo = function() {
+
+	// ...
+
+}
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const foo = function() {
+
+	// ...
+
+}
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const foo = () => {
+
+	// ...
+
+}
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-transition="none-out">
+					<pre style="height: 100%; width: 100%;">
+					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
+	id: 42,
+	counter: function counter() {
+		setTimeout(function() {
+			console.log(this);
+		}, 1000);
+	}
+};
+
+// What will be printed?
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="height: 100%; width: 100%;">
+					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
+	id: 42,
+	counter: function counter() {
+		setTimeout(function() {
+			console.log(this);
+		}, 1000);
+	}
+};
+
+// Window Object
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="height: 100%; width: 100%;">
+					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
+	id: 42,
+	counter: function counter() {
+		const that = this;
+		setTimeout(function() {
+			console.log(that);
+		}, 1000);
+	}
+};
+
+// {id: 42, counter: ƒ}
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="height: 100%; width: 100%;">
+					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
+	id: 42,
+	counter: function counter() {
+		setTimeout(function() {
+			console.log(this);
+		}.bind(this), 1000);
+	}
+};
+
+// {id: 42, counter: ƒ}
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="height: 100%; width: 100%;">
+					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
+	id: 42,
+	counter: function counter() {
+		setTimeout(() => {
+			console.log(this);
+		}, 1000);
+	}
+};
+
+// {id: 42, counter: ƒ}
+</code></pre>
+				</section>
+			</section>
+			
+			
+			<section data-transition="none-out" class="slide-top" style="height: calc(100% - 120px);">
+				<pre style="height: 100%; width: 100%;">
+					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Cat (name, breed, age, gender) {
+  this.name = name;
+  this.breed = breed;
+  this.age = age;
+  this.gender = gender;
+  
+  this.getName = function getName () {
+    return this.name;
+  };
+  this.getAge = function getAge () {
+    return this.age;
+  };
+};
+
+var cat = new Cat('Garfield', 'Persian', 10, 'Male');
+console.log(cat.getName()); // Garfield
+console.log(cat.getAge()); // 10
+</code></pre>
+			</section>
+			<section data-transition="none-in" class="slide-top" style="height: calc(100% - 120px);">
 				<pre style="height: 100%; width: 100%;">
 					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Cat (name, breed, age, gender) {
   this.name = name;
@@ -184,706 +907,6 @@ var cat = new Cat('Garfield', 'Persian', 10, 'Male');
 console.log(cat.getName()); // Garfield
 console.log(cat.getAge()); // 10
 </code></pre>
-			</section>
-			
-			
-			
-			<section>
-				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/cascading.jpg">
-			</section>
-			<section>
-				<h2 style="display: inline-block;">Origin and Importance</h3>
-			</section>
-			<section>
-				<ol>
-					<li>Transition declarations</li>
-					<li>Important user agent declarations</li>
-					<li>Important user declarations</li>
-					<li>Important author declarations</li>
-					<li>Animation declarations</li>
-					<li>Normal author declarations</li>
-					<li>Normal user declarations</li>
-					<li>Normal user agent declarations</li>
-				</ol>
-			</section>
-			<section>
-				<h2 style="display: inline-block;">Scope</h3>
-			</section>
-			<section>
-				<h2 style="display: inline-block;">Specificity</h3>
-			</section>
-			<section class="slide-align-top-position" data-transition="none-out">
-				<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
-				<table>
-					<thead>
-						<tr>
-							<th>Selector</th>
-							<th></th>
-							<th>Specificity</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Element, Pseudo Element</td>
-							<td>d = 1</td>
-							<td>(0,0,0,1)</td>
-						</tr>
-						<tr>
-							<td>Class, Pseudo class, Attribute</td>
-							<td>c = 1</td>
-							<td>(0,0,1,0)</td>
-						</tr>
-						<tr>
-							<td>Id</td>
-							<td>b = 1</td>
-							<td>(0,1,0,0)</td>
-						</tr>
-						<tr>
-							<td>Inline Style</td>
-							<td>a = 1</td>
-							<td>(1,0,0,0)</td>
-						</tr>
-					</tbody>
-				</table>
-				<h4 style="margin-top: 20px;">!important – override specificity rules</h4>
-			</section>
-			<section class="slide-align-top-position specificity-examples"  data-transition="none-in">
-				<section data-transition="none">
-					<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
-					<table>
-						<thead>
-							<tr>
-								<th>Selector</th>
-								<th>Style</th>
-								<th>Specificity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>p</td>
-								<td>color: <span style="color: yellow;">yellow</span>;</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section data-transition="none">
-					<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
-					<table>
-						<thead>
-							<tr>
-								<th>Selector</th>
-								<th>Style</th>
-								<th>Specificity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>p</td>
-								<td>color: <span style="color: yellow;">yellow</span>;</td>
-								<td>(0,0,0,1)</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section data-transition="none">
-					<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
-					<table>
-						<thead>
-							<tr>
-								<th>Selector</th>
-								<th>Style</th>
-								<th>Specificity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>p</td>
-								<td>color: <span style="color: yellow;">yellow</span>;</td>
-								<td>(0,0,0,1)</td>
-							</tr>
-							<tr>
-								<td>p a</td>
-								<td>color: <span style="color: red;">red</span>;</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section data-transition="none">
-					<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
-					<table>
-						<thead>
-							<tr>
-								<th>Selector</th>
-								<th>Style</th>
-								<th>Specificity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>p</td>
-								<td>color: <span style="color: yellow;">yellow</span>;</td>
-								<td>(0,0,0,1)</td>
-							</tr>
-							<tr>
-								<td>p a</td>
-								<td>color: <span style="color: red;">red</span>;</td>
-								<td>(0,0,0,2)</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section data-transition="none">
-					<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
-					<table>
-						<thead>
-							<tr>
-								<th>Selector</th>
-								<th>Style</th>
-								<th>Specificity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>p</td>
-								<td>color: <span style="color: yellow;">yellow</span>;</td>
-								<td>(0,0,0,1)</td>
-							</tr>
-							<tr>
-								<td>p a</td>
-								<td>color: <span style="color: red;">red</span>;</td>
-								<td>(0,0,0,2)</td>
-							</tr>
-							<tr>
-								<td>.foo</td>
-								<td>color: <span style="color: green;">green</span>;</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section data-transition="none">
-					<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
-					<table>
-						<thead>
-							<tr>
-								<th>Selector</th>
-								<th>Style</th>
-								<th>Specificity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>p</td>
-								<td>color: <span style="color: yellow;">yellow</span>;</td>
-								<td>(0,0,0,1)</td>
-							</tr>
-							<tr>
-								<td>p a</td>
-								<td>color: <span style="color: red;">red</span>;</td>
-								<td>(0,0,0,2)</td>
-							</tr>
-							<tr>
-								<td>.foo</td>
-								<td>color: <span style="color: green;">green</span>;</td>
-								<td>(0,0,1,0)</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section data-transition="none">
-					<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
-					<table>
-						<thead>
-							<tr>
-								<th>Selector</th>
-								<th>Style</th>
-								<th>Specificity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>p</td>
-								<td>color: <span style="color: yellow;">yellow</span>;</td>
-								<td>(0,0,0,1)</td>
-							</tr>
-							<tr>
-								<td>p a</td>
-								<td>color: <span style="color: red;">red</span>;</td>
-								<td>(0,0,0,2)</td>
-							</tr>
-							<tr>
-								<td>.foo</td>
-								<td>color: <span style="color: green;">green</span>;</td>
-								<td>(0,0,1,0)</td>
-							</tr>
-							<tr>
-								<td>#vader</td>
-								<td>color: <span style="color: blue;">blue</span>;</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section data-transition="none">
-					<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
-					<table>
-						<thead>
-							<tr>
-								<th>Selector</th>
-								<th>Style</th>
-								<th>Specificity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>p</td>
-								<td>color: <span style="color: yellow;">yellow</span>;</td>
-								<td>(0,0,0,1)</td>
-							</tr>
-							<tr>
-								<td>p a</td>
-								<td>color: <span style="color: red;">red</span>;</td>
-								<td>(0,0,0,2)</td>
-							</tr>
-							<tr>
-								<td>.foo</td>
-								<td>color: <span style="color: green;">green</span>;</td>
-								<td>(0,0,1,0)</td>
-							</tr>
-							<tr>
-								<td>#vader</td>
-								<td>color: <span style="color: blue;">blue</span>;</td>
-								<td>(0,1,0,0)</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section data-transition="none">
-					<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
-					<table>
-						<thead>
-							<tr>
-								<th>Selector</th>
-								<th>Style</th>
-								<th>Specificity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>p</td>
-								<td>color: <span style="color: yellow;">yellow</span>;</td>
-								<td>(0,0,0,1)</td>
-							</tr>
-							<tr>
-								<td>p a</td>
-								<td>color: <span style="color: red;">red</span>;</td>
-								<td>(0,0,0,2)</td>
-							</tr>
-							<tr>
-								<td>.foo</td>
-								<td>color: <span style="color: green;">green</span>;</td>
-								<td>(0,0,1,0)</td>
-							</tr>
-							<tr>
-								<td>#vader</td>
-								<td>color: <span style="color: blue;">blue</span>;</td>
-								<td>(0,1,0,0)</td>
-							</tr>
-							<tr>
-								<td>#vader .foo</td>
-								<td>color: <span style="color: magenta;">magenta</span>;</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section data-transition="none">
-					<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
-					<table>
-						<thead>
-							<tr>
-								<th>Selector</th>
-								<th>Style</th>
-								<th>Specificity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>p</td>
-								<td>color: <span style="color: yellow;">yellow</span>;</td>
-								<td>(0,0,0,1)</td>
-							</tr>
-							<tr>
-								<td>p a</td>
-								<td>color: <span style="color: red;">red</span>;</td>
-								<td>(0,0,0,2)</td>
-							</tr>
-							<tr>
-								<td>.foo</td>
-								<td>color: <span style="color: green;">green</span>;</td>
-								<td>(0,0,1,0)</td>
-							</tr>
-							<tr>
-								<td>#vader</td>
-								<td>color: <span style="color: blue;">blue</span>;</td>
-								<td>(0,1,0,0)</td>
-							</tr>
-							<tr>
-								<td>#vader .foo</td>
-								<td>color: <span style="color: magenta;">magenta</span>;</td>
-								<td>(0,1,1,0)</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section data-transition="none">
-					<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
-					<table>
-						<thead>
-							<tr>
-								<th>Selector</th>
-								<th>Style</th>
-								<th>Specificity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>p</td>
-								<td>color: <span style="color: yellow;">yellow</span>;</td>
-								<td>(0,0,0,1)</td>
-							</tr>
-							<tr>
-								<td>p a</td>
-								<td>color: <span style="color: red;">red</span>;</td>
-								<td>(0,0,0,2)</td>
-							</tr>
-							<tr>
-								<td>.foo</td>
-								<td>color: <span style="color: green;">green</span>;</td>
-								<td>(0,0,1,0)</td>
-							</tr>
-							<tr>
-								<td>#vader</td>
-								<td>color: <span style="color: blue;">blue</span>;</td>
-								<td>(0,1,0,0)</td>
-							</tr>
-							<tr>
-								<td>#vader .foo</td>
-								<td>color: <span style="color: magenta;">magenta</span>;</td>
-								<td>(0,1,1,0)</td>
-							</tr>
-							<tr>
-								<td>.darth .maul a</td>
-								<td>color: <span style="color: orange;">orange</span>;</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section data-transition="none">
-					<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
-					<table>
-						<thead>
-							<tr>
-								<th>Selector</th>
-								<th>Style</th>
-								<th>Specificity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>p</td>
-								<td>color: <span style="color: yellow;">yellow</span>;</td>
-								<td>(0,0,0,1)</td>
-							</tr>
-							<tr>
-								<td>p a</td>
-								<td>color: <span style="color: red;">red</span>;</td>
-								<td>(0,0,0,2)</td>
-							</tr>
-							<tr>
-								<td>.foo</td>
-								<td>color: <span style="color: green;">green</span>;</td>
-								<td>(0,0,1,0)</td>
-							</tr>
-							<tr>
-								<td>#vader</td>
-								<td>color: <span style="color: blue;">blue</span>;</td>
-								<td>(0,1,0,0)</td>
-							</tr>
-							<tr>
-								<td>#vader .foo</td>
-								<td>color: <span style="color: magenta;">magenta</span>;</td>
-								<td>(0,1,1,0)</td>
-							</tr>
-							<tr>
-								<td>.darth .maul a</td>
-								<td>color: <span style="color: orange;">orange</span>;</td>
-								<td>(0,0,2,1)</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-			</section>
-			
-			<section>
-				<h3><a href="http://css-fun.surge.sh/" target="_blank">CSS Specificity Test</a></h3>
-				<iframe width="100%" height="560px" src="http://css-fun.surge.sh/"></iframe>
-			</section>
-			
-			<section>
-				<h3 style="display: inline-block;">Source Order</h3>
-			</section>
-			
-			<section>
-				<h2 style="display: inline-block;">CSS Mindset</h3>
-			</section>
-			
-			<section>
-				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/resilient.jpg">
-			</section>
-			
-			<section>
-				<pre style="width:950px;">
-					<code class="language-css" style="padding: 20px;" data-trim>.photo-album {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-}
-
-.photo-item {
-	display: inline-block;
-	max-width: 300px;
-}
-</code></pre>
-			</section>
-			
-			<section>
-				<h3 style="display: inline-block;">Declarative</h3>
-			</section>
-			
-			<section>
-				<pre style="width:950px;">
-					<code class="language-css" style="padding: 20px;" data-trim>.example {
-	font-size: 2em;
-	display: grid;
-}
-</code></pre>
-			</section>
-			
-			<section>
-				<h3 style="display: inline-block;">Contextual</h3>
-			</section>
-			
-			<section>
-				<pre style="width:950px;">
-					<code class="language-css" style="padding: 20px;" data-trim>.some-element {
-	position: absolute;
-	top: 100px;
-	left: 100px;
-}
-</code></pre>
-			</section>
-			
-			<section>
-				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/css-thinking.jpg">
-			</section>
-			<section data-transition="none-in none-out">
-				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/css-inheritance.jpg">
-			</section>
-			<section data-transition="none-in none-out">
-				<h3 style="text-align: left">ES2015 ► ES2016 ► ES2017 ► ES2018</h3>
-			</section>
-			<section data-transition="none-in none-out">
-				<h3 style="text-align: left">ES2015 ► ES2016 ► ES2017 ► ES2018 ► ES.Next</h3>
-			</section>
-			<section>
-				<img class="reset-img" src="../../assets/js-tc39-es.png">
-			</section>
-			<section>
-				<img class="reset-img" src="../../assets/tc39-approval-flow.png">
-			</section>
-			<section>
-				<h3>We have a Problem</h3>
-			</section>
-			<section>
-				<h3>Example</h3>
-				<pre style="width:950px;">
-					<code class="language-javascript" style="padding: 20px;" data-trim>[1, 2, 3].map((n) => n + 1);</code></pre>
-			</section>
-			<section>
-				<img class="reset-img" width="500px" src="../../assets/babel.svg">
-			</section>
-			<section data-transition="none-out">
-				<pre style="width:950px;">
-					<code class="language-javascript" style="padding: 20px;" data-trim>[1, 2, 3].map((n) => n + 1);</code></pre>
-			</section>
-			<section data-transition="none-in">
-				<pre style="width:950px;">
-					<code class="language-javascript" style="padding: 20px;" data-trim>[1, 2, 3].map(function(n) { return n + 1 });</code></pre>
-			</section>
-			<section>
-				<h3>ES* feature is supported in what browser?</h3>
-			</section>
-			<section>
-				<section>
-					<h3>Compatibility Table</h3>
-					<p>http://kangax.github.io/compat-table/es6/</p>
-					<iframe width="100%" height="500px" src="http://kangax.github.io/compat-table/es6/#test-arrow_functions"></iframe>
-				</section>
-				<section>
-					<h3>Compatibility Table</h3>
-					<p>http://kangax.github.io/compat-table/es6/</p>
-					<img class="reset-img" width="100%" height="500px" src="../../assets/compatibility-table-arrow-function.png" />
-				</section>
-			</section>
-			<section>
-				<img style="display: inline-block; margin: 0;" class="reset-img" width="70px" src="../../assets/ts-logo.png">
-				<h3 style="display: inline-block;">Typescript</h3>
-				<h4 style=" font-size: 0.85em; text-align: start;">
-					TypeScript is a typed superset of JavaScript that compiles to plain JavaScript (It’s a bit like what SCSS is for CSS.)
-				</h4>
-				<div style="display:flex;justify-content: center; text-align: left; font-size: 26px; margin: auto; margin-top: 60px;">
-					<ul>
-						<li>Created by Microsoft</li>
-						<li>Open source language, developed in public at
-							<a href="https://github.com/Microsoft/TypeScript" target="_blank">TypeScript Git</a>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section>
-				<h3 style="display: inline-block;">Why Typescript?</h3>
-			</section>
-			<section data-transition="none-out">
-				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
-					<ul>
-						<li>Provide an optional type system for JavaScript </li>
-						<li style="visibility: hidden;">Provide planned features from future JavaScript editions to current JavaScript engines</li>
-					</ul>
-				</div>
-			</section>
-			<section data-transition="none-in">
-				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
-					<ul>
-						<li>Provide an optional type system for JavaScript </li>
-						<li>Provide planned features from future JavaScript editions to current JavaScript engines</li>
-					</ul>
-				</div>
-			</section>
-			<section data-transition="none-out">
-				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
-					<ul>
-						<li>IDE auto completion</li>
-						<li style="visibility: hidden;">Object-oriented</li>
-						<li style="visibility: hidden;">AOT compilation</li>
-						<li style="visibility: hidden;">Types are documentation</li>
-						<li style="visibility: hidden;">Not locked in</li>
-						<li style="visibility: hidden;">Ability to choose ECMAScript version</li>
-					</ul>
-				</div>
-			</section>
-			<section data-transition="none-out none-in">
-				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
-					<ul>
-						<li>IDE auto completion</li>
-						<li>Object-oriented</li>
-						<li style="visibility: hidden;">AOT compilation</li>
-						<li style="visibility: hidden;">Types are documentation</li>
-						<li style="visibility: hidden;">Not locked in</li>
-						<li style="visibility: hidden;">Ability to choose ECMAScript version</li>
-					</ul>
-				</div>
-			</section>
-			<section data-transition="none-out none-in">
-				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
-					<ul>
-						<li>IDE auto completion</li>
-						<li>Object-oriented</li>
-						<li>AOT compilation</li>
-						<li style="visibility: hidden;">Types are documentation</li>
-						<li style="visibility: hidden;">Not locked in</li>
-						<li style="visibility: hidden;">Ability to choose ECMAScript version</li>
-					</ul>
-				</div>
-			</section>
-			<section data-transition="none-out none-in">
-				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
-					<ul>
-						<li>IDE auto completion</li>
-						<li>Object-oriented</li>
-						<li>AOT compilation</li>
-						<li>Types are documentation</li>
-						<li style="visibility: hidden;">Not locked in</li>
-						<li style="visibility: hidden;">Ability to choose ECMAScript version</li>
-					</ul>
-				</div>
-			</section>
-			<section data-transition="none-out none-in">
-				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
-					<ul>
-						<li>IDE auto completion</li>
-						<li>Object-oriented</li>
-						<li>AOT compilation</li>
-						<li>Types are documentation</li>
-						<li>Not locked in</li>
-						<li style="visibility: hidden;">Ability to choose ECMAScript version</li>
-					</ul>
-				</div>
-			</section>
-			<section data-transition="none-out none-in">
-				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
-					<ul>
-						<li>IDE auto completion</li>
-						<li>Object-oriented</li>
-						<li>AOT compilation</li>
-						<li>Types are documentation</li>
-						<li>Not locked in</li>
-						<li>Ability to choose ECMAScript version</li>
-					</ul>
-				</div>
-			</section>
-			<section data-transition="slide-in none-out">
-				<div style="display:inline-block;">
-					<img class="reset-img" height="100" src="../../assets/angular.svg" />
-					<img class="reset-img" height="100" src="../../assets/nest-js.svg" />
-					<img class="reset-img" height="100" src="../../assets/vue-js.svg" />
-					<img class="reset-img" height="100" src="../../assets/react.svg" />
-				</div>
-			</section>
-			<section>
-				<section>
-					<h3><a href="https://2018.stateofjs.com/javascript-flavors/overview/" target="_blank">The State of JavaScript 2018 Survey</a></h3>
-					<iframe width="100%" height="500px" src="https://2018.stateofjs.com/javascript-flavors/overview/"></iframe>
-				</section>
-				<section>
-					<h3><a href="https://2018.stateofjs.com/javascript-flavors/overview/" target="_blank">The State of JavaScript 2018 Survey</a></h3>
-					<img class="reset-img" width="100%" height="500px" src="../../assets/js-survey.png" />
-				</section>
-			</section>
-			<section style="filter: invert(1);">
-				<img class="reset-img" width="500px" src="../../assets/dts.svg">
-			</section>
-			<section>
-				<h5>Example</h5>
-				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
-					<ul style="width: 100%;">
-						<li><pre style="font-size: 1em; width: 100%;"><code class="language-bash" style="padding: 20px;" data-trim>yarn add lodash</code></pre></li>
-						<li><pre style="font-size: 1em; width: 100%;"><code class="language-bash" style="padding: 20px;" data-trim>yarn add -D @types/lodash</code></pre></li>
-						<li><pre style="font-size: 1em; width: 100%;" class="language-javascript" data-trim><code  style="max-height:300px; padding: 20px;">import * as _ from 'lodash';
-_.padStart("Hello TypeScript!", 20, " ");</code></pre></li>
-					</ul>
-				</div>
-			</section>
-			<section>
-				<img class="reset-img" src="../../assets/lodash-autocomplition.png">
-			</section>
-			<section>
-				<img class="reset-img" width="500px" src="../../assets/es-ts.png">
-			</section>
-			<section>
-				<img class="reset-img" width="500px" src="../../assets/evergreen-browsers.png">
 			</section>
 		</div>
 	</div>
