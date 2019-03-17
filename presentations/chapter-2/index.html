@@ -58,8 +58,127 @@
 				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/js-oop.png">
 			</section>
 			<section>
+				<h5>Falsy values in JS</h5>
+				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
+					<ul style="width: 100%;">
+						<li>false</li>
+						<li>null</li>
+						<li>undefined</li>
+						<li>'' - The empty string</li>
+						<li>0 - Number zero</li>
+						<li>NaN - Number</li>
+					</ul>
+				</div>
+				<div style="margin-top: 30px;">'false' string is truthy value</div> 
+			</section>
+			<section>
+				<section>
+					<h3>&& operator</h3>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-java" style="padding: 20px;" data-trim>function foo() {
+	var a = 3;
+	var b = 9;
+	return a && b;
+}
+
+var fooValue = foo();
+
+if (fooValue) {
+	console.log(fooValue);
+}
+
+// what will be print?</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-java" style="padding: 20px;" data-trim>function foo() {
+	var a = 3;
+	var b = 9;
+	return a && b;
+}
+
+var fooValue = foo();
+
+if (fooValue) {
+	console.log(fooValue);
+}
+
+// 9</code></pre>
+				</section>				
+			</section>
+			<section>
+				<section>
+					<h3>Object Literal</h3>
+				</section>
+				<section>
+					<pre style="width: 100%;"><code class="language-java" style="padding: 20px;" data-trim>var empty_object = {};
+
+var stooge = {
+	"first-name": "Tom",
+	last_name: "Howard"
+};</code></pre>
+				</section>
+				<section>
+					<h3>When to use qutes and when not for property's name?</h3>
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/check-solid.svg">
+				</section>
+				<section>
+					<div>Start:   [a-z], [A-Z], $, _</div>
+					<div>Contain: [a-z], [A-Z], $, _, [0-9]</div>
+				</section>
+				<section>
+					<h3>How to access object property?</h3>
+				</section>
+				<section>
+					<pre style="width: 100%;"><code class="language-java" style="padding: 20px;" data-trim>var stooge = {
+	"first-name": "Tom",
+	last_name: "Howard"
+};
+
+console.log(stooge.last_name); // "Howard"
+console.log(stooge["first-name"]); // "Tom"
+</code></pre>
+				</section>
+				<section>
+					<h3>When to use dot notation and when parentheses?</h3>
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/check-solid.svg">
+				</section>
+			</section>
+			<section>
 				<section>
 					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/global-scope.png">
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/js-window.png">
+				</section>
+				<section>
+					<pre style="width: 100%;">
+					<code class="language-java" style="padding: 20px;" data-trim>console.log(window);
+
+// Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;">
+					<code class="language-java" style="padding: 20px;">var x = 5;
+
+console.log(x); // 5
+
+
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;">
+					<code class="language-java" style="padding: 20px;" data-trim>var x = 5;
+
+console.log(x); // 5
+
+console.log(window.x); // 5
+</code></pre>
 				</section>
 				<section>
 					<pre style="width: 100%;">
@@ -154,17 +273,18 @@ console.log(carName); // ReferenceError: carName is not defined</code></pre>
 			<section>
 					<pre style="width: 100%;">
 						<code class="language-js" style="padding: 20px;" data-trim>function outer() {
-   var b = 10;
+	var b = 10;
 
-   function inner() {
-
-         var a = 20; 
-         console.log(a + b); // 30
-    }
-    inner();
+	function inner() {
+		var a = 20; 
+		console.log(a + b); // 30
+	}
+	
+	return inner;
 }
 
-outer();</code></pre>
+var innerFn = outer();
+innerFn();</code></pre>
 			</section>
 			<section>
 				<section>
@@ -796,6 +916,7 @@ console.log(car);
 					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
 	id: 42,
 	counter: function counter() {
+		console.log(this);
 		setTimeout(function() {
 			console.log(this);
 		}, 1000);
@@ -803,6 +924,7 @@ console.log(car);
 };
 
 obj.counter();
+
 // What will be printed?
 </code></pre>
 				</section>
@@ -811,6 +933,7 @@ obj.counter();
 					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
 	id: 42,
 	counter: function counter() {
+		console.log(this);
 		setTimeout(function() {
 			console.log(this);
 		}, 1000);
@@ -818,6 +941,7 @@ obj.counter();
 };
 
 obj.counter();
+// {id: 42, counter: ƒ}
 // Window Object
 </code></pre>
 				</section>
@@ -834,6 +958,7 @@ obj.counter();
 };
 
 obj.counter();
+
 // {id: 42, counter: ƒ}
 </code></pre>
 				</section>
@@ -842,6 +967,7 @@ obj.counter();
 					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
 	id: 42,
 	counter: function counter() {
+	
 		setTimeout(function() {
 			console.log(this);
 		}.bind(this), 1000);
@@ -849,6 +975,7 @@ obj.counter();
 };
 
 obj.counter();
+
 // {id: 42, counter: ƒ}
 </code></pre>
 				</section>
@@ -857,6 +984,7 @@ obj.counter();
 					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
 	id: 42,
 	counter: function counter() {
+	
 		setTimeout(() => {
 			console.log(this);
 		}, 1000);
@@ -864,6 +992,7 @@ obj.counter();
 };
 
 obj.counter();
+
 // {id: 42, counter: ƒ}
 </code></pre>
 				</section>
