@@ -838,44 +838,196 @@ x = 5;
 					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/shallow.jpg">
 				</section>
 				<section data-transition="none-out">
-					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const car = {type:"Fiat", model:"500", color:"white"};
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const car = {type: 'Fiat', model: '500', color: 'white'};
 
-car = {type:"Volvo", model:"EX60", color:"red"};
+car = {type: 'Volvo', model: 'EX60', color: 'red'};
 
 // ERROR
 </code></pre>
 				</section>
 				<section data-transition="none-out">
-					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const car = {type:"Fiat", model:"500", color:"white"};
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const car = {type: 'Fiat', model: '500', color: 'white'};
 
 // You can change a property:
-car.color  = "red";
-car.owner = "Johnson";
+car.color = 'red';
+car.owner = 'Johnson';
 </code></pre>
 				</section>
 				<section>
 					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/object-freeze.jpg">
 				</section>
 				<section data-transition="none-out">
-					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const car = {type:"Fiat", model:"500", color:"white"};
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;">const car = {type: 'Fiat', model: '500', color: 'white'};
 
 Object.freeze(car);
 
 // changes will not effected
-car.color  = "red";
-car.owner = "Johnson";
+car.color = 'red';
+car.owner = 'Johnson';
 
 console.log(car);
 
-// {type: "Fiat", model: "500", color: "white"}
+// {type: 'Fiat', model: '500', color: 'white'}
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">const order = {
+	created_at: '2017-01-05',
+	car: {
+		type: 'Fiat',
+		model: '500', 
+		color: 'white',
+	},
+};
+
+Object.freeze(order);
+
+order.car.color = 'red'; // changes will effected
+
+console.log(order.car);
+// {type: 'Fiat', model: '500', color: 'red'}
 </code></pre>
 				</section>
 			</section>
-			
 			<section>
-				<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/arrow-function.jpg">
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/invocation.svg">
+				</section>
+				<section>
+					<div>function receives - this & arguments</div>
+				</section>
+				<section class="slide-top">
+					<h3>Four Patterns of Invocation:</h3>
+					<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
+						<ul style="width: 100%;">
+							<li>Method Invocation Pattern</li>
+							<li>Function Invocation Pattern</li>
+							<li>Constructor Invocation Pattern</li>
+							<li>Apply/Call Invocation Pattern</li>
+						</ul>
+					</div>
+				</section>
+				<section class="slide-top">
+					<h4>Method Invocation Pattern</h4>
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">var counter = {
+	value: 0;
+	increment: function () {
+		this.value += 1;
+		console.log(this);
+	}
+};
+
+counter.increment();
+
+// {value: 1, increment: ƒ}
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top">
+					<h4>Function Invocation Pattern</h4>
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">function add(a, b) {
+	console.log(this);
+
+	return a + b;
+
+}
+
+var sum = add(3, 5);
+
+// what will be print?
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top">
+					<h4>Function Invocation Pattern</h4>
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">function add(a, b) {
+	console.log(this);
+
+	return a + b;
+
+}
+
+var sum = add(3, 5);
+
+// Window Object
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top">
+					<h4>Function Invocation Pattern</h4>
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">var counter = {
+	value: 0;
+	increment: function () {
+		this.value += 1;
+		console.log(this);
+	}
+};
+
+var _increment = counter.increment;
+counter.increment();
+_increment();
+
+// what will be print?
+
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top">
+					<h4>Function Invocation Pattern</h4>
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">var counter = {
+	value: 0;
+	increment: function () {
+		this.value += 1;
+		console.log(this);
+	}
+};
+
+var _increment = counter.increment;
+counter.increment();
+_increment();
+
+// {value: 1, increment: ƒ}
+// Window Object
+</code></pre>
+				</section>
+				<section class="slide-top">
+					<h4>Constructor Invocation Pattern</h4>
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">function Cat (name, breed, age) {
+	console.log(this);
+	
+	this.name = name;
+	this.breed = breed;
+	this.age = age;
+	
+	console.log(this);
+};
+
+var cat = new Cat('Garfield', 'Persian', 10);
+
+// Cat {}
+// Cat {name: "Garfield", breed: "Persian", age: 10}
+</code></pre>
+				</section>
+				<section class="slide-top">
+					<h4>Apply/Call Invocation Pattern</h4>
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">function add(a, b) {
+	console.log(this);
+	return a + b;
+}
+
+add.apply('My new context', [3, 5]);
+add.apply(false, [3, 5]);
+
+add.call(555, 3, 5);
+add.call({count: 0}, 3, 5);
+
+// String {"My new context"}
+// Boolean {false}
+// Number {555}
+// {test: 0}
+</code></pre>
+				</section>
 			</section>
 			<section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/arrow-function.jpg">
+				</section>
 				<section data-transition="none-out">
 					<table style="width: 100%;">
 						<tbody>
@@ -994,6 +1146,40 @@ obj.counter();
 obj.counter();
 
 // {id: 42, counter: ƒ}
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="height: 100%; width: 100%;">
+					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
+	id: 42,
+	clickListener: function counter() {
+		const myButton = document.getElementById("myBtn");
+		myButton.addEventListener("click", function(event){
+			console.log(this);
+		});
+	}
+};
+
+obj.clickListener();
+
+// HTMLElement - <button id="myBtn">...</button>
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="height: 100%; width: 100%;">
+					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
+	id: 42,
+	clickListener: function counter() {
+		const myButton = document.getElementById("myBtn");
+		myButton.addEventListener("click", _ => {
+			console.log(this);
+		});
+	}
+};
+
+obj.clickListener();
+
+// {id: 42, clickListener: ƒ}
 </code></pre>
 				</section>
 				<section data-transition="none-out">
