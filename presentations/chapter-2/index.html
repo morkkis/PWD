@@ -295,6 +295,7 @@ console.log(carName); // ReferenceError: carName is not defined</code></pre>
 }
 
 var innerFn = outer();
+
 setTimeout(innerFn, 5000);</code></pre>
 			</section>
 			<section>
@@ -1037,6 +1038,14 @@ add.call({count: 0}, 3, 5);
 			</section>
 			<section>
 				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/invocation.svg">
+				</section>
+				<section>
+					<div>Bind</div>
+				</section>
+			</section>
+			<section>
+				<section>
 					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/arrow-function.jpg">
 				</section>
 				<section data-transition="none-out">
@@ -1182,7 +1191,7 @@ obj.clickListener();
 	id: 42,
 	clickListener: function counter() {
 		const myButton = document.getElementById('myBtn');
-		myButton.addEventListener("'click', _ => {
+		myButton.addEventListener('click', _ => {
 			console.log(this);
 		});
 	}
@@ -1201,8 +1210,31 @@ obj.clickListener();
 			
 			
 			<section data-transition="none-out" class="slide-top" style="height: calc(100% - 120px);">
-				<pre style="height: 100%; width: 100%;">
-					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Cat (name, breed, age, gender) {
+				<section data-transition="none-out" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Cat (name, breed, age, gender) {
+  this.name = name;
+  this.breed = breed;
+  this.age = age;
+  this.gender = gender;
+
+  this.getName = function() {
+	return this.name;
+  };
+
+  this.getAge = function() {
+	return this.age;
+  };
+};
+
+var cat = new Cat('Garfield', 'Persian', 10, 'Male');
+console.log(cat.getName()); // Garfield
+console.log(cat.getAge()); // 10
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">function Cat (name, breed, age, gender) {
   this.name = name;
   this.breed = breed;
   this.age = age;
@@ -1217,10 +1249,33 @@ obj.clickListener();
   };
 };
 
-var cat = new Cat('Garfield', 'Persian', 10, 'Male');
-console.log(cat.getName()); // Garfield
-console.log(cat.getAge()); // 10
+var garfieldCat = new Cat('Garfield', 'Persian', 10, 'Male');
+var tomCat = new Cat('Tom', 'Persian', 10, 'Male');
+console.log(garfieldCat.getName === tomCat.getName); // Are they equal?
 </code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">function Cat (name, breed, age, gender) {
+  this.name = name;
+  this.breed = breed;
+  this.age = age;
+  this.gender = gender;
+
+  this.getName = function() {
+    return this.name;
+  };
+
+  this.getAge = function() {
+    return this.age;
+  };
+};
+
+var garfieldCat = new Cat('Garfield', 'Persian', 10, 'Male');
+var tomCat = new Cat('Tom', 'Persian', 10, 'Male');
+console.log(garfieldCat.getName === tomCat.getName); // false
+</code></pre>
+				</section>
 			</section>
 			<section>
 				<section>
@@ -1325,6 +1380,28 @@ Cat.prototype.getAge = function() {
 var cat = new Cat('Garfield', 'Persian', 10, 'Male');
 console.log(cat.getName()); // Garfield
 console.log(cat.getAge()); // 10
+</code></pre>
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Cat (name, breed, age, gender) {
+  this.name = name;
+  this.breed = breed;
+  this.age = age;
+  this.gender = gender;
+};
+
+Cat.prototype.getName = function() {
+  return this.name;
+};
+
+Cat.prototype.getAge = function() {
+  return this.age;
+};
+
+var garfieldCat = new Cat('Garfield', 'Persian', 10, 'Male');
+var tomCat = new Cat('Tom', 'Persian', 10, 'Male');
+console.log(garfieldCat.getName === tomCat.getName); // true
 </code></pre>
 				</section>
 			</section>
