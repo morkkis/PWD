@@ -76,7 +76,7 @@
 					<h3>&& operator</h3>
 				</section>
 				<section data-transition="none-out">
-					<pre style="width: 100%;"><code class="language-java" style="padding: 20px;" data-trim>function foo() {
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>function foo() {
 	var a = 3;
 	var b = 9;
 	return a && b;
@@ -91,7 +91,7 @@ if (fooValue) {
 // what will be print?</code></pre>
 				</section>
 				<section data-transition="none-out">
-					<pre style="width: 100%;"><code class="language-java" style="padding: 20px;" data-trim>function foo() {
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>function foo() {
 	var a = 3;
 	var b = 9;
 	return a && b;
@@ -111,7 +111,7 @@ if (fooValue) {
 					<h3>Object Literal</h3>
 				</section>
 				<section>
-					<pre style="width: 100%;"><code class="language-java" style="padding: 20px;" data-trim>var empty_object = {};
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var empty_object = {};
 
 var stooge = {
 	"first-name": "Tom",
@@ -119,7 +119,7 @@ var stooge = {
 };</code></pre>
 				</section>
 				<section>
-					<h3>When to use qutes and when not for property's name?</h3>
+					<h3>When to use quotes and when not for property's name?</h3>
 				</section>
 				<section>
 					<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/check-solid.svg">
@@ -132,7 +132,7 @@ var stooge = {
 					<h3>How to access object property?</h3>
 				</section>
 				<section>
-					<pre style="width: 100%;"><code class="language-java" style="padding: 20px;" data-trim>var stooge = {
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var stooge = {
 	"first-name": "Tom",
 	last_name: "Howard"
 };
@@ -147,6 +147,17 @@ console.log(stooge["first-name"]); // "Tom"
 				<section>
 					<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/check-solid.svg">
 				</section>
+				<section>
+					<h4>When property name is dynamic</h4>
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var stooge = {
+	"first-name": "Tom",
+	last_name: "Howard"
+};
+
+var propertyName = "last_name";
+console.log(stooge[propertyName]); // "Howard"
+</code></pre>
+				</section>
 			</section>
 			<section>
 				<section>
@@ -157,14 +168,14 @@ console.log(stooge["first-name"]); // "Tom"
 				</section>
 				<section>
 					<pre style="width: 100%;">
-					<code class="language-java" style="padding: 20px;" data-trim>console.log(window);
+					<code class="language-js" style="padding: 20px;" data-trim>console.log(window);
 
 // Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
 </code></pre>
 				</section>
 				<section data-transition="none-out">
 					<pre style="width: 100%;">
-					<code class="language-java" style="padding: 20px;">var x = 5;
+					<code class="language-js" style="padding: 20px;">var x = 5;
 
 console.log(x); // 5
 
@@ -173,7 +184,7 @@ console.log(x); // 5
 				</section>
 				<section data-transition="none-out">
 					<pre style="width: 100%;">
-					<code class="language-java" style="padding: 20px;" data-trim>var x = 5;
+					<code class="language-js" style="padding: 20px;" data-trim>var x = 5;
 
 console.log(x); // 5
 
@@ -284,7 +295,7 @@ console.log(carName); // ReferenceError: carName is not defined</code></pre>
 }
 
 var innerFn = outer();
-innerFn();</code></pre>
+setTimeout(innerFn, 5000);</code></pre>
 			</section>
 			<section>
 				<section>
@@ -990,11 +1001,11 @@ _increment();
 					<h4>Constructor Invocation Pattern</h4>
 					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">function Cat (name, breed, age) {
 	console.log(this);
-	
+
 	this.name = name;
 	this.breed = breed;
 	this.age = age;
-	
+
 	console.log(this);
 };
 
@@ -1020,7 +1031,7 @@ add.call({count: 0}, 3, 5);
 // String {"My new context"}
 // Boolean {false}
 // Number {555}
-// {test: 0}
+// {count: 0}
 </code></pre>
 				</section>
 			</section>
@@ -1153,8 +1164,8 @@ obj.counter();
 					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
 	id: 42,
 	clickListener: function counter() {
-		const myButton = document.getElementById("myBtn");
-		myButton.addEventListener("click", function(event){
+		const myButton = document.getElementById('myBtn');
+		myButton.addEventListener('click', function(event){
 			console.log(this);
 		});
 	}
@@ -1170,8 +1181,8 @@ obj.clickListener();
 					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
 	id: 42,
 	clickListener: function counter() {
-		const myButton = document.getElementById("myBtn");
-		myButton.addEventListener("click", _ => {
+		const myButton = document.getElementById('myBtn');
+		myButton.addEventListener("'click', _ => {
 			console.log(this);
 		});
 	}
@@ -1183,7 +1194,7 @@ obj.clickListener();
 </code></pre>
 				</section>
 				<section data-transition="none-out">
-					<h3><a href="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=G4QwTgBA9gRgVhAvBA3gKAhAlgEwFwQAsATADQYQDGUArgHYAuApmAQGb2UNZR1W2MWACgCUqCpgDOTBgBUsAWya0GQ0UgB84zDv51JUADZMAdIagBzIQwAWWSSdwiA3BIgBfUhACMABn8uFO5o7s5AA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose&prettier=false&targets=&version=7.3.4" target="_blank">Babel Online Compiler</a></h3>
+					<h3><a href="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=G4QwTgBA9gRgVhAvBA3gKAhAlgEwFwQAsATADQYQDGUArgHYAuApmAQGb2UNZR1W2MWACgCUqCpgDOTBgBUsAWya0GQ0UgB84zDv51JUADZMAdIagBzIQwAWWSSdwiA3BIgBfUhACMABn8uFO5o7s5AA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose&prettier=false&targets=&version=7.3.4" target="_blank">Babel Online Transpile</a></h3>
 					<iframe width="100%" height="560px" src="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=G4QwTgBA9gRgVhAvBA3gKAhAlgEwFwQAsATADQYQDGUArgHYAuApmAQGb2UNZR1W2MWACgCUqCpgDOTBgBUsAWya0GQ0UgB84zDv51JUADZMAdIagBzIQwAWWSSdwiA3BIgBfUhACMABn8uFO5o7s5AA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose&prettier=false&targets=&version=7.3.4"></iframe>
 				</section>
 			</section>
@@ -1196,11 +1207,12 @@ obj.clickListener();
   this.breed = breed;
   this.age = age;
   this.gender = gender;
-  
-  this.getName = function getName () {
+
+  this.getName = function() {
     return this.name;
   };
-  this.getAge = function getAge () {
+
+  this.getAge = function() {
     return this.age;
   };
 };
@@ -1210,20 +1222,103 @@ console.log(cat.getName()); // Garfield
 console.log(cat.getAge()); // 10
 </code></pre>
 			</section>
-			<section data-transition="none-in" class="slide-top" style="height: calc(100% - 120px);">
-				<pre style="height: 100%; width: 100%;">
-					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Cat (name, breed, age, gender) {
+			<section>
+				<section>
+					<h3>Prototype</h3>
+				</section>
+				<section data-transition="none-out">
+					<pre style="height: 100%; width: 100%;">
+					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Person(first, last, age) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+}
+
+const myFather = new Person('John', 'Doe', 50);
+const me = new Person('Bob', 'Smith', 32)
+
+console.log(myFather.firstName); // John
+console.log(me.firstName); // Bob
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="height: 100%; width: 100%;">
+					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Person(first, last, age) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+}
+
+const myFather = new Person('John', 'Doe', 50);
+const me = new Person('Bob', 'Smith', 32)
+Person.prototype.nationality = 'English';
+console.log(myFather.nationality); // English
+console.log(me.nationality);  // English
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="height: 100%; width: 100%;">
+					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Person(first, last, age) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+}
+
+Person.prototype.fullName = function() {
+  return this.firstName + ' ' + this.lastName;
+};
+
+const myFather = new Person('John', 'Doe', 50);
+const me = new Person('Bob', 'Smith', 32)
+console.log(myFather.fullName()); // John Doe
+console.log(me.fullName());  // Bob Smith
+</code></pre>
+				</section>
+				<section>
+					<pre style="height: 100%; width: 100%;">
+					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>String.prototype.reverse = function() {
+  return this.split('').reverse().join('');
+};
+
+'abcd'.reverse() // 'dcba'
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Cat (name, breed, age, gender) {
+  this.name = name;
+  this.breed = breed;
+  this.age = age;
+  this.gender = gender;
+
+  this.getName = function() {
+    return this.name;
+  };
+
+  this.getAge = function() {
+    return this.age;
+  };
+};
+
+var cat = new Cat('Garfield', 'Persian', 10, 'Male');
+console.log(cat.getName()); // Garfield
+console.log(cat.getAge()); // 10
+</code></pre>
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Cat (name, breed, age, gender) {
   this.name = name;
   this.breed = breed;
   this.age = age;
   this.gender = gender;
 };
 
-Cat.prototype.getName = function getName () {
+Cat.prototype.getName = function() {
   return this.name;
 };
 
-Cat.prototype.getAge = function getAge () {
+Cat.prototype.getAge = function() {
   return this.age;
 };
 
@@ -1231,6 +1326,271 @@ var cat = new Cat('Garfield', 'Persian', 10, 'Male');
 console.log(cat.getName()); // Garfield
 console.log(cat.getAge()); // 10
 </code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Class</h3>
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>class Cat {
+	constructor(name, breed, age, gender) {
+		this.name = name;
+		this.breed = breed;
+		this.age = age;
+		this.gender = gender;
+	}
+ 
+	getName() {
+		return this.name;
+	};
+	
+	getAge() {
+		return this.age;
+	};
+};
+
+var cat = new Cat('Garfield', 'Persian', 10, 'Male');
+console.log(cat.getName()); // Garfield
+console.log(cat.getAge()); // 10
+</code></pre>
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>class Cat {
+	constructor(name, breed, age, gender) {
+		this.name = name;
+		this.breed = breed;
+		this.age = age;
+		this.gender = gender;
+	}
+ 
+	getName() {
+		return this.name;
+	};
+	
+	getAge() {
+		return this.age;
+	};
+};
+
+console.log(Cat.prototype);
+// {constructor: ƒ, getName: ƒ, getAge: ƒ}
+</code></pre>
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>class Cat {
+	constructor(name, breed, age, gender) {
+		this.name = name;
+		this.breed = breed;
+		this.age = age;
+		this.gender = gender;
+	}
+ 
+	getName() {
+		return this.name;
+	};
+	
+	getAge() {
+		return this.age;
+	};
+};
+
+console.log(typeof Cat);
+// What will be returned?
+</code></pre>
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>class Cat {
+	constructor(name, breed, age, gender) {
+		this.name = name;
+		this.breed = breed;
+		this.age = age;
+		this.gender = gender;
+	}
+ 
+	getName() {
+		return this.name;
+	};
+	
+	getAge() {
+		return this.age;
+	};
+};
+
+console.log(typeof Cat);
+// "function"
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<h3><a href="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYGwhgzhAEDCYBdoG8BQBIYB7AdhBATgK7AJYEAUOYAtgKYA00ARgXXQCZNgDmj0fHBzoEAlCgzoEACwCWEAHTV60ALzRldANySZ8ha3Yc1LNpx3opcxbzonbFq_sHCCJlyIsBfVNAx8EADlaOgpxNEs2BCICHGg9RU1vC386BABBPjCJSLSYuISFBwwvHVKgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose&prettier=false&targets=&version=7.4.2" target="_blank">Babel Online Transpile</a></h3>
+					<iframe width="100%" height="560px" src="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYGwhgzhAEDCYBdoG8BQBIYB7AdhBATgK7AJYEAUOYAtgKYA00ARgXXQCZNgDmj0fHBzoEAlCgzoEACwCWEAHTV60ALzRldANySZ8ha3Yc1LNpx3opcxbzonbFq_sHCCJlyIsBfVNAx8EADlaOgpxNEs2BCICHGg9RU1vC386BABBPjCJSLSYuISFBwwvHVKgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose&prettier=false&targets=&version=7.4.2"></iframe>
+				</section>
+			</section>
+			<section>
+				<section>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/css-inheritance.jpg">
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">function Mammal(name) {
+	this.name = name;
+};
+Mammal.prototype.getName = function() {
+	return this.name;
+};
+Mammal.prototype.says = function() {
+	return this.saying || '';
+};
+
+
+
+
+
+
+
+
+</code></pre>
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Mammal(name) {
+	this.name = name;
+};
+Mammal.prototype.getName = function() {
+	return this.name;
+};
+Mammal.prototype.says = function() {
+	return this.saying || '';
+};
+
+function Cat(name) {
+	Mammal.call(this, name);
+	this.saying = 'meow';
+};
+Cat.prototype = new Mammal();
+var myCat = new Cat('Tom');
+console.log(myCat.says()); // 'meow'
+</code></pre>
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Mammal(name) {
+	this.name = name;
+};
+Mammal.prototype.getName = function() {
+	return this.name;
+};
+Mammal.prototype.says = function() {
+	return this.saying || '';
+};
+
+function Cat(name) {
+	Mammal.call(this, name);
+	this.saying = 'meow';
+};
+Cat.prototype = Object.create(Mammal.prototype);
+var myCat = new Cat('Tom');
+console.log(myCat.says()); // 'meow'
+</code></pre>
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>class Mammal {
+	constructor (name) {
+		this.name = name;
+	}
+	getName() {
+		return this.name;
+	}
+	says() {
+		return this.saying || '';
+	}
+};
+
+class Cat extends Mammal {
+	constructor(name) {
+		super(name);
+		this.saying = 'meow';
+	}
+};
+
+var myCat = new Cat('Tom');
+console.log(myCat.says()); // 'meow'
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<h3><a href="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYGwhgzhAECyYFsFhNA3gKAJDAPYDsIAXAJwFdgjcToAKfRAUwEp0NoPOuOiALASwgA6BgkbQAvNFGMA3NgC-2AOaMiAOSa1WmbpxJqyJfND6CRTeViVYIYAJ4RtbLFgNEjJs8Lv3--ZWgAHyDoAHIwqyUFeQxQSBgAYTAiaEYADyJGfAATGHgkFBc8QlIKKhJ6Jh12PWgIMgAHRkqZZissbyFff0CpMLFcAHdIxQwYoA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose%2Ctypescript&prettier=false&targets=&version=7.4.2" target="_blank">Babel Online Transpile</a></h3>
+					<iframe width="100%" height="560px" src="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYGwhgzhAECyYFsFhNA3gKAJDAPYDsIAXAJwFdgjcToAKfRAUwEp0NoPOuOiALASwgA6BgkbQAvNFGMA3NgC-2AOaMiAOSa1WmbpxJqyJfND6CRTeViVYIYAJ4RtbLFgNEjJs8Lv3--ZWgAHyDoAHIwqyUFeQxQSBgAYTAiaEYADyJGfAATGHgkFBc8QlIKKhJ6Jh12PWgIMgAHRkqZZissbyFff0CpMLFcAHdIxQwYoA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose%2Ctypescript&prettier=false&targets=&version=7.4.2"></iframe>
+				</section>
+			</section>
+			<section>
+				<section>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/encapsulation.png">
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Person(first, last, age) {
+	this.firstName = first;
+	this.lastName = last;
+	this.age = age;
+  
+	const fullName = this.firstName + ' ' + this.lastName;
+	this.getFullName = () => fullName;
+}
+
+const myFather = new Person('John', 'Doe', 50);
+const me = new Person('Bob', 'Smith', 32)
+console.log(myFather.getFullName()); // John Doe
+console.log(me.getFullName());  // Bob Smith
+</code></pre>
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim>class Person {
+	private fullName;
+
+	constructor(public firstName, public lastName, public age) {
+		this.fullName = this.firstName + ' ' + this.lastName;
+	}
+
+	getFullName() {
+		return this.fullName;
+	}
+}
+
+const myFather = new Person('John', 'Doe', 50);
+const me = new Person('Bob', 'Smith', 32)
+console.log(myFather.getFullName()); // John Doe
+console.log(me.getFullName());  // Bob Smith
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<h3><a href="https://www.typescriptlang.org/play/#src=class%20Person%20%7B%0D%0A%09private%20fullName%3B%0D%0A%0D%0A%09constructor(public%20firstName%2C%20public%20lastName%2C%20public%20age)%20%7B%0D%0A%09%09this.fullName%20%3D%20this.firstName%20%2B%20'%20'%20%2B%20this.lastName%3B%0D%0A%09%7D%0D%0A%09%0D%0A%09getFullName()%20%7B%0D%0A%09%09return%20this.fullName%3B%0D%0A%09%7D%0D%0A%7D%0D%0A%0D%0Aconst%20myFather%20%3D%20new%20Person('John'%2C%20'Doe'%2C%2050)%3B%0D%0Aconst%20me%20%3D%20new%20Person('Bob'%2C%20'Smith'%2C%2032)%0D%0Aconsole.log(myFather.getFullName())%3B%20%2F%2F%20John%20Doe%0D%0Aconsole.log(me.getFullName())%3B%20%20%2F%2F%20Bob%20Smith" target="_blank">TypeScript Online Transpile</a></h3>
+					<iframe width="100%" height="560px" src="https://www.typescriptlang.org/play/#src=class%20Person%20%7B%0D%0A%09private%20fullName%3B%0D%0A%0D%0A%09constructor(public%20firstName%2C%20public%20lastName%2C%20public%20age)%20%7B%0D%0A%09%09this.fullName%20%3D%20this.firstName%20%2B%20'%20'%20%2B%20this.lastName%3B%0D%0A%09%7D%0D%0A%09%0D%0A%09getFullName()%20%7B%0D%0A%09%09return%20this.fullName%3B%0D%0A%09%7D%0D%0A%7D%0D%0A%0D%0Aconst%20myFather%20%3D%20new%20Person('John'%2C%20'Doe'%2C%2050)%3B%0D%0Aconst%20me%20%3D%20new%20Person('Bob'%2C%20'Smith'%2C%2032)%0D%0Aconsole.log(myFather.getFullName())%3B%20%2F%2F%20John%20Doe%0D%0Aconsole.log(me.getFullName())%3B%20%20%2F%2F%20Bob%20Smith"></iframe>
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>class Person {
+	constructor(first, last, age) {
+		this.firstName = first;
+		this.lastName = last;
+		this.age = age;
+
+		const fullName = this.firstName + ' ' + this.lastName;
+		this.getFullName = () => fullName;
+	}
+}
+
+const myFather = new Person('John', 'Doe', 50);
+const me = new Person('Bob', 'Smith', 32)
+console.log(myFather.getFullName()); // John Doe
+console.log(me.getFullName());  // Bob Smith
+</code></pre>
+				</section>
 			</section>
 		</div>
 	</div>
