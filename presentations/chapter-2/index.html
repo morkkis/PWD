@@ -1038,10 +1038,41 @@ add.call({count: 0}, 3, 5);
 			</section>
 			<section>
 				<section>
-					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/invocation.svg">
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/bind.jpg">
 				</section>
-				<section>
-					<div>Bind</div>
+				<section data-transition="none-out">
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">function add(a, b) {
+	console.log(this);
+	return a + b;
+}
+
+add(3, 5);
+
+var newAdd = add.bind({count: 0});
+newAdd(3, 5);
+console.log(add === newAdd);
+
+// Window Object
+// {count: 0}
+// false
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">function add(a, b) {
+	console.log(this);
+	return a + b;
+}
+
+add(3, 5);
+
+var newAdd = add.bind({count: 0}, 3, 5);
+newAdd();
+console.log(add === newAdd);
+
+// Window Object
+// {count: 0}
+// false
+</code></pre>
 				</section>
 			</section>
 			<section>
@@ -1207,8 +1238,226 @@ obj.clickListener();
 					<iframe width="100%" height="560px" src="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=G4QwTgBA9gRgVhAvBA3gKAhAlgEwFwQAsATADQYQDGUArgHYAuApmAQGb2UNZR1W2MWACgCUqCpgDOTBgBUsAWya0GQ0UgB84zDv51JUADZMAdIagBzIQwAWWSSdwiA3BIgBfUhACMABn8uFO5o7s5AA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose&prettier=false&targets=&version=7.3.4"></iframe>
 				</section>
 			</section>
-			
-			
+			<section data-transition="none-out" class="slide-top" style="height: calc(100% - 120px);">
+				<section>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/use-strict.jpg">
+				</section>
+				<section class="slide-top">
+					<h4>"use strict"; Defines that JavaScript code should be executed in "strict mode".</h4>
+					<div style="display:flex;justify-content: center; text-align: left; font-size: 30px; margin: auto; margin-top: 20px;">
+						<ul style="width: 100%;">
+							<li style="margin-bottom: 15px;">Eliminates some JavaScript silent errors by changing them to throw errors.</li>
+							<li style="margin-bottom: 15px;">Fixes mistakes that make it difficult for JavaScript engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that's not strict mode.</li>
+							<li>Prohibits some syntax likely to be defined in future versions of ECMAScript.</li>
+						</ul>
+					</div>
+					<div style="margin-top: 20px; font-size: 20px;">In short, Strict mode throws more errors and disables some features in an effort to make your code more robust, readable, and accurate.</div>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Declaration Required</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+x = 17; 
+
+console.log(window.x);
+// 17</code></pre></td>
+								<td style="width: 50%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Declaration Required</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+x = 17; 
+
+console.log(window.x);
+// 17</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">"use strict";
+
+x = 17;
+// Throw Error: x is not defined
+console.log(window.x);
+
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5 style="white-space: nowrap;">Assignment to a non-writable global will throw error</h5>
+					<div>
+						<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>"use strict";
+						
+var undefined = 5;
+// throws a TypeError
+
+var Infinity = 5;
+// throws a TypeError
+</code></pre>
+					<div>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Syntax Error</h5>
+					<div>
+						<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>function sum(a, a, c) {
+	'use strict';
+	return a + a + c;
+}
+
+// Uncaught SyntaxError: Invalid or unexpected token
+</code></pre>
+					</div>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Undetermined context will be undefined</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+function fun() { return this; }
+
+console.log(fun());
+
+console.log(fun.call(2));
+
+console.log(fun.apply(null));
+
+console.log(fun.call(undefined));
+
+console.log(fun.bind(true)());
+
+</code></pre></td>
+								<td style="width: 50%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Undetermined context will be undefined</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+function fun() { return this; }
+
+console.log(fun());
+// Window {postMessage: ƒ, …}
+console.log(fun.call(2));
+// Number {2}
+console.log(fun.apply(null));
+// Window {postMessage: ƒ, …}
+console.log(fun.call(undefined));
+// Window {postMessage: ƒ, …}
+console.log(fun.bind(true)());
+// Boolean {true}
+</code></pre></td>
+								<td style="width: 50%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Undetermined context will be undefined</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+function fun() { return this; }
+
+console.log(fun());
+// Window {postMessage: ƒ, …}
+console.log(fun.call(2));
+// Number {2}
+console.log(fun.apply(null));
+// Window {postMessage: ƒ, …}
+console.log(fun.call(undefined));
+// Window {postMessage: ƒ, …}
+console.log(fun.bind(true)());
+// Boolean {true}
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">'use strict';
+
+function fun() { return this; }
+
+console.log(fun());
+
+console.log(fun.call(2));
+
+console.log(fun.apply(null));
+
+console.log(fun.call(undefined));
+
+console.log(fun.bind(true)());
+
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Undetermined context will be undefined</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+function fun() { return this; }
+
+console.log(fun());
+// Window {postMessage: ƒ, …}
+console.log(fun.call(2));
+// Number {2}
+console.log(fun.apply(null));
+// Window {postMessage: ƒ, …}
+console.log(fun.call(undefined));
+// Window {postMessage: ƒ, …}
+console.log(fun.bind(true)());
+// Boolean {true}
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">'use strict';
+
+function fun() { return this; }
+
+console.log(fun());
+// undefined
+console.log(fun.call(2));
+// 2
+console.log(fun.apply(null));
+// null
+console.log(fun.call(undefined));
+// undefined
+console.log(fun.bind(true)());
+// true
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Silent errors</h5>
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;">'use strict';
+
+const object = { property1: 42 };
+
+Object.freeze(object);
+
+object.property1 = 33;
+
+// TypeError: Cannot assign to read only property 'property1' of object...
+</code></pre>
+				</section>
+			</section>
 			<section data-transition="none-out" class="slide-top" style="height: calc(100% - 120px);">
 				<section data-transition="none-out" class="slide-top">
 					<pre style="height: 100%; width: 100%;">
@@ -1241,11 +1490,11 @@ console.log(cat.getAge()); // 10
   this.gender = gender;
 
   this.getName = function() {
-    return this.name;
+	return this.name;
   };
 
   this.getAge = function() {
-    return this.age;
+	return this.age;
   };
 };
 
@@ -1263,11 +1512,11 @@ console.log(garfieldCat.getName === tomCat.getName); // Are they equal?
   this.gender = gender;
 
   this.getName = function() {
-    return this.name;
+	return this.name;
   };
 
   this.getAge = function() {
-    return this.age;
+	return this.age;
   };
 };
 
@@ -1279,7 +1528,7 @@ console.log(garfieldCat.getName === tomCat.getName); // false
 			</section>
 			<section>
 				<section>
-					<h3>Prototype</h3>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/prototype.jpg">
 				</section>
 				<section data-transition="none-out">
 					<pre style="height: 100%; width: 100%;">
@@ -1335,7 +1584,7 @@ console.log(me.fullName());  // Bob Smith
   return this.split('').reverse().join('');
 };
 
-'abcd'.reverse() // 'dcba'
+'abcd'.reverse(); // 'dcba'
 </code></pre>
 				</section>
 				<section data-transition="none-out" class="slide-top">
@@ -1407,7 +1656,7 @@ console.log(garfieldCat.getName === tomCat.getName); // true
 			</section>
 			<section>
 				<section>
-					<h3>Class</h3>
+					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/classes.jpg">
 				</section>
 				<section data-transition="none-in" class="slide-top">
 					<pre style="height: 100%; width: 100%;">
@@ -1668,6 +1917,477 @@ console.log(myFather.getFullName()); // John Doe
 console.log(me.getFullName());  // Bob Smith
 </code></pre>
 				</section>
+			</section>
+			<section>
+				<section>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/class-with-arrow-function.jpg">
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim data-noescape>class Person {
+	constructor(first, last, age) {
+		this.firstName = first;
+		this.lastName = last;
+		this.age = age;
+	}
+
+	<mark style="background: rgb(100, 100, 100); color: inherit;">getFullName = () => {</mark>
+		return this.firstName + ' ' + this.lastName;
+	}
+}
+
+const myFather = new Person('John', 'Doe', 50);
+const me = new Person('Bob', 'Smith', 32)
+console.log(myFather.getFullName()); // John Doe
+console.log(me.getFullName());  // Bob Smith
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<h3><a href="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYGwhgzhAEAKCmAnCB7AdtA3gKAJDHQgBdEBXYIlRACgDMBLZIgGmnGNbAHN4BKLPLiIALehAB0DJgDkwAW3jQAvNCnEA3IJFjx7IrIXK2kIptxDRE7opXWzAXzw8iAMVIgQBm9Gr8lAPgFzRHgiUkQMbQk1fXlFAGpoAHJk6ESo3RMvTWhc6EdHIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose&prettier=false&targets=&version=7.4.2" target="_blank">Babel Online Transpile</a></h3>
+					<iframe width="100%" height="560px" src="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYGwhgzhAEAKCmAnCB7AdtA3gKAJDHQgBdEBXYIlRACgDMBLZIgGmnGNbAHN4BKLPLiIALehAB0DJgDkwAW3jQAvNCnEA3IJFjx7IrIXK2kIptxDRE7opXWzAXzw8iAMVIgQBm9Gr8lAPgFzRHgiUkQMbQk1fXlFAGpoAHJk6ESo3RMvTWhc6EdHIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose&prettier=false&targets=&version=7.4.2"></iframe>
+				</section>
+				<section data-transition="none-out">
+					<h3><a href="https://www.typescriptlang.org/play/#src=class%20Person%20%7B%0D%0A%09private%20fullName%3B%0D%0A%0D%0A%09constructor(public%20firstName%2C%20public%20lastName%2C%20public%20age)%20%7B%0D%0A%09%09this.fullName%20%3D%20this.firstName%20%2B%20'%20'%20%2B%20this.lastName%3B%0D%0A%09%7D%0D%0A%09getFullName%20%3D%20()%20%3D%3E%20%7B%0D%0A%09%09return%20this.firstName%20%2B%20'%20'%20%2B%20this.lastName%3B%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A" target="_blank">TypeScript Online Transpile</a></h3>
+					<iframe width="100%" height="560px" src="https://www.typescriptlang.org/play/#src=class%20Person%20%7B%0D%0A%09private%20fullName%3B%0D%0A%0D%0A%09constructor(public%20firstName%2C%20public%20lastName%2C%20public%20age)%20%7B%0D%0A%09%09this.fullName%20%3D%20this.firstName%20%2B%20'%20'%20%2B%20this.lastName%3B%0D%0A%09%7D%0D%0A%09getFullName%20%3D%20()%20%3D%3E%20%7B%0D%0A%09%09return%20this.firstName%20%2B%20'%20'%20%2B%20this.lastName%3B%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A"></iframe>
+				</section>
+				<section data-transition="none-out">
+					<h3>Bind or Arrow function?</h3>
+				</section>
+				<section data-transition="none-out">
+					<h3><a href="http://jsben.ch/YSsGu" target="_blank">Bind vs Arrow benchmark</a></h3>
+					<iframe width="100%" height="560px" src="http://jsben.ch/YSsGu"></iframe>
+				</section>
+			</section>	
+			<section style="height: calc(100% - 60px);">
+				<section>
+					<h2>Reuse Code Example</h2>
+				</section>
+				<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 110%; overflow: auto;">
+						<code class="language-ts" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential) {
+    return this.haveAccountCredential(accountCredential)
+      ? this._makePayment(orderId, paymentMethodId);
+      : this.createAccountCredential(orderId, paymentMethodId)
+  }
+}
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 110%; overflow: auto;">
+						<code class="language-ts" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential) {
+    return this.haveAccountCredential(accountCredential)
+      ? this._makePayment(orderId, paymentMethodId);
+      : this.createAccountCredential(orderId, paymentMethodId)
+  }
+
+  private haveAccountCredential(accountCredential) { ... }
+
+  private _makePayment(orderId, paymentMethodId) { ... }
+}
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 110%; overflow: auto;">
+						<code class="language-ts" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential) {
+    return this.haveAccountCredential(accountCredential)
+      ? this._makePayment(orderId, paymentMethodId);
+      : this.createAccountCredential(orderId, paymentMethodId)
+  }
+
+  createAccountCredential(orderId, paymentMethodId) {
+    return this.http.post('api/create-account').then(() => {
+      return this._makePayment(orderId, paymentMethodId);
+    });
+  }
+
+  private haveAccountCredential(accountCredential) { ... }
+
+  private _makePayment(orderId, paymentMethodId) { ... }
+}
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 110%; overflow: auto;">
+						<code class="language-ts" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential) {
+    return this.haveAccountCredential(accountCredential)
+      ? this._makePayment(orderId, paymentMethodId)
+      : this.createAccountCredential(orderId, paymentMethodId);
+  }
+
+  createAccountCredential(orderId, paymentMethodId) {
+    return this.http.post('api/create-account').then(() => {
+      return this._makePayment(orderId, paymentMethodId);
+    });
+  }
+  
+  createSubscription(planId, accountCredential) {
+    return this.haveAccountCredential(accountCredential)
+      ? this._createSubscription(planId)
+      : this.createAccountForSubscription(planId);
+  }
+
+  createAccountForSubscription(planId) {
+    return this.http.post('api/create-account').then(() => {
+      return this._createSubscription(planId);
+    });
+  }
+  
+  private _createSubscription(planId) { ... }
+
+  private haveAccountCredential(accountCredential) { ... }
+
+  private _makePayment(orderId, paymentMethodId) { ... }
+}
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 110%; overflow: auto;">
+						<code class="language-ts" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim data-noescape>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential) {
+    return this.haveAccountCredential(accountCredential)
+      ? this._makePayment(orderId, paymentMethodId)
+      : this.createAccountCredential(orderId, paymentMethodId);
+  }
+
+  createAccountCredential(orderId, paymentMethodId) {
+    return this.http.post('api/create-account').then(() => {
+      return <mark style="background: rgb(100, 100, 100); color: inherit;">this._makePayment(orderId, paymentMethodId);</mark>
+    });
+  }
+  
+  createSubscription(planId, accountCredential) {
+    return this.haveAccountCredential(accountCredential)
+      ? this._createSubscription(planId)
+      : this.createAccountForSubscription(planId);
+  }
+
+  createAccountForSubscription(planId) {
+    return this.http.post('api/create-account').then(() => {
+      return <mark style="background: rgb(100, 100, 100); color: inherit;">this._createSubscription(planId);</mark>
+    });
+  }
+  
+  private _createSubscription(planId) { ... }
+
+  private haveAccountCredential(accountCredential) { ... }
+
+  private _makePayment(orderId, paymentMethodId) { ... }
+}
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 110%; overflow: auto;">
+						<code class="language-ts" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim data-noescape>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential) {
+    return this.haveAccountCredential(accountCredential)
+      ? this._makePayment(orderId, paymentMethodId)
+      : this.createAccountCredential(orderId, paymentMethodId);
+  }
+
+  createAccountCredential(<mark style="background: rgb(100, 100, 100); color: inherit;">nextRequest</mark>) {
+    return this.http.post('api/create-account').then(() => {
+      return <mark style="background: rgb(100, 100, 100); color: inherit;">nextRequest();</mark>
+    });
+  }
+  
+  createSubscription(planId, accountCredential) {
+    return this.haveAccountCredential(accountCredential)
+      ? this._createSubscription(planId)
+      : this.createAccountForSubscription(planId);
+  }
+
+  createAccountForSubscription(planId) {
+    return this.http.post('api/create-account').then(() => {
+      return this._createSubscription(planId);
+    });
+  }
+  
+  private _createSubscription(planId) { ... }
+
+  private haveAccountCredential(accountCredential) { ... }
+
+  private _makePayment(orderId, paymentMethodId) { ... }
+}
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 110%; overflow: auto;">
+						<code class="language-ts" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim data-noescape>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential) {
+    return this.haveAccountCredential(accountCredential)
+      ? this._makePayment(orderId, paymentMethodId)
+      : this.createAccountCredential(orderId, paymentMethodId);
+  }
+
+  createAccountCredential(<mark style="background: rgb(100, 100, 100); color: inherit;">nextRequest</mark>) {
+    return this.http.post('api/create-account').then(() => {
+      return <mark style="background: rgb(100, 100, 100); color: inherit;">nextRequest();</mark>
+    });
+  }
+  
+  createSubscription(planId, accountCredential) {
+    return this.haveAccountCredential(accountCredential)
+      ? this._createSubscription(planId)
+      : <mark style="background: rgb(100, 100, 100); color: inherit;">this.createAccountCredential(planId);</mark>
+  }
+  
+  private _createSubscription(planId) { ... }
+
+  private haveAccountCredential(accountCredential) { ... }
+
+  private _makePayment(orderId, paymentMethodId) { ... }
+}
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 110%; overflow: auto;">
+						<code class="language-ts" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim data-noescape>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential) {
+    <mark style="background: rgb(100, 100, 100); color: inherit;">const makePaymentCallback = () => {
+      this._makePayment(orderId, paymentMethodId);
+    }</mark>
+    return this.haveAccountCredential(accountCredential)
+      ? this._makePayment(orderId, paymentMethodId)
+      : <mark style="background: rgb(100, 100, 100); color: inherit;">this.createAccountCredential(makePaymentCallback);</mark>
+  }
+
+  createAccountCredential(nextRequest) {
+    return this.http.post('api/create-account').then(() => {
+      return nextRequest();
+    });
+  }
+  
+  createSubscription(planId, accountCredential) {
+    <mark style="background: rgb(100, 100, 100); color: inherit;">const createSubscriptionCallback = () => {
+      this._createSubscription(planId);
+    }</mark>
+    return this.haveAccountCredential(accountCredential)
+      ? this._createSubscription(planId)
+      : <mark style="background: rgb(100, 100, 100); color: inherit;">this.createAccountCredential(createSubscriptionCallback);</mark>
+  }
+  
+  private _createSubscription(planId) { ... }
+
+  private haveAccountCredential(accountCredential) { ... }
+
+  private _makePayment(orderId, paymentMethodId) { ... }
+}
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 110%; overflow: auto;">
+						<code class="language-ts" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim data-noescape>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential) {
+    <mark style="background: rgb(100, 100, 100); color: inherit;">const makePaymentCallback = this._makePayment.bind(this, orderId, paymentMethodId);</mark>
+    return this.haveAccountCredential(accountCredential)
+      ? this._makePayment(orderId, paymentMethodId)
+      : <mark style="background: rgb(100, 100, 100); color: inherit;">this.createAccountCredential(makePaymentCallback);</mark>
+  }
+
+  createAccountCredential(nextRequest) {
+    return this.http.post('api/create-account').then(() => {
+      return nextRequest();
+    });
+  }
+  
+  createSubscription(planId, accountCredential) {
+    <mark style="background: rgb(100, 100, 100); color: inherit;">const createSubscriptionCallback = this._createSubscription.bind(this, planId);</mark>
+    return this.haveAccountCredential(accountCredential)
+      ? this._createSubscription(planId)
+      : <mark style="background: rgb(100, 100, 100); color: inherit;">this.createAccountCredential(createSubscriptionCallback);</mark>
+  }
+  
+  private _createSubscription(planId) { ... }
+
+  private haveAccountCredential(accountCredential) { ... }
+
+  private _makePayment(orderId, paymentMethodId) { ... }
+}
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 110%; overflow: auto;">
+						<code class="language-ts" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim data-noescape>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential) {
+    const makePaymentCallback = this._makePayment.bind(this, orderId, paymentMethodId);
+    return this.haveAccountCredential(accountCredential)
+      ? this._makePayment(orderId, paymentMethodId)
+      : this.createAccountCredential(makePaymentCallback);
+  }
+
+  createAccountCredential(nextRequest) {
+    return this.http.post('api/create-account').then(<mark style="background: rgb(100, 100, 100); color: inherit;">nextRequest</mark>);
+  }
+  
+  createSubscription(planId, accountCredential) {
+    const createSubscriptionCallback = this._createSubscription.bind(this, planId);
+    return this.haveAccountCredential(accountCredential)
+      ? this._createSubscription(planId)
+      : this.createAccountCredential(createSubscriptionCallback);
+  }
+  
+  private _createSubscription(planId) { ... }
+
+  private haveAccountCredential(accountCredential) { ... }
+
+  private _makePayment(orderId, paymentMethodId) { ... }
+}
+</code></pre>
+				</section>
+				<!--<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 100%; overflow: auto;">
+						<code class="language-js" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential, userId) {
+    return this.notHavingAccountCredential(accountCredential)
+      ? this.createAccountCredential(orderId, paymentMethodId, userId)
+      : this._makePayment(orderId, paymentMethodId);
+  }
+
+  _makePayment(externalOrderNumber, paymentMethodId) {
+    const url = 'api/make-order/' + externalOrderNumber;
+    const body = {payment_method_id: paymentMethodId};
+    return this.http.post(url, body);
+  }
+
+  createAccountCredential(externalOrderNumber, paymentMethodId, userId) {
+    this.http.post('api/create-account/' + userId).then(() => {
+      this._makePayment(externalOrderNumber, paymentMethodId);
+    });
+  }
+
+  notHavingAccountCredential(accountCredential) {
+    return Object.keys(accountCredential).length === 0;
+  }
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 100%; overflow: auto;">
+						<code class="language-js" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential, userId) {
+    return this.notHavingAccountCredential(accountCredential)
+      ? this.createAccountCredential(orderId, paymentMethodId, userId)
+      : this._makePayment(orderId, paymentMethodId);
+  }
+
+  _makePayment(externalOrderNumber, paymentMethodId) {
+    const url = 'api/make-order/' + externalOrderNumber;
+    const body = {payment_method_id: paymentMethodId};
+    return this.http.post(url, body);
+  }
+
+  createAccountCredential(externalOrderNumber, paymentMethodId, userId) {
+    this.http.post('api/create-account/' + userId).then(() => {
+      this._makePayment(externalOrderNumber, paymentMethodId);
+    });
+  }
+
+  notHavingAccountCredential(accountCredential) {
+    return Object.keys(accountCredential).length === 0;
+  }
+
+  createSubscription(planId, accountCredential, userId) {
+    return this.notHavingAccountCredential(accountCredential)
+      ? this.createAccountForSubscription(planId, userId)
+      : this._createSubscription(planId);
+  }
+
+  _createSubscription(planId) {
+    const url = 'api/create-subscription/' + planId;
+    return this.http.post(url);
+  }
+
+  createAccountForSubscription(planId, userId) {
+    this.http.post('api/create-account/' + userId).then(() => {
+      this._createSubscription(planId);
+    });
+  }
+}
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 100%; overflow: auto;">
+						<code class="language-js" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential, userId) {
+    const makePaymentCallback = this._makePayment.bind(this, orderId, paymentMethodId);
+    return this.notHavingAccountCredential(accountCredential)
+      ? this.createAccountCredential(makePaymentCallback, userId)
+      : makePaymentCallback();
+  }
+
+  _makePayment(externalOrderNumber, paymentMethodId) {
+    const url = 'api/make-order/' + externalOrderNumber;
+    const body = {payment_method_id: paymentMethodId};
+    return this.http.post(url, body);
+  }
+
+  createAccountCredential(nextRequest, userId) {
+    this.http.post('api/create-account/' + userId).then(() => {
+      nextRequest();
+    });
+  }
+
+  notHavingAccountCredential(accountCredential) {
+    return Object.keys(accountCredential).length === 0;
+  }
+
+  createSubscription(planId, accountCredential, userId) {
+    const createSubscriptionCallback = this._createSubscription.bind(this, planId);
+    return this.notHavingAccountCredential(accountCredential)
+      ? this.createAccountCredential(createSubscriptionCallback, userId)
+      : createSubscriptionCallback();
+  }
+
+  _createSubscription(planId) {
+    const url = 'api/create-subscription/' + planId;
+    return this.http.post(url);
+  }
+}
+</code></pre>
+				</section>
+				<section data-transition="none-out" class="slide-top" style="height: 100%;padding: 0px;">
+					<pre style="height: 100%; width: 100%; overflow: auto;">
+						<code class="language-js" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim>class paymentService {
+  makePayment(orderId, paymentMethodId, accountCredential, userId) {
+    const makePaymentCallback = this._makePayment.bind(this, orderId, paymentMethodId);
+    return this.notHavingAccountCredential(accountCredential)
+      ? this.createAccountCredential(makePaymentCallback, userId)
+      : makePaymentCallback();
+  }
+
+  _makePayment(externalOrderNumber, paymentMethodId) {
+    const url = 'api/make-order/' + externalOrderNumber;
+    const body = {payment_method_id: paymentMethodId};
+    return this.http.post(url, body);
+  }
+
+  createAccountCredential(nextRequest, userId) {
+    this.http.post('api/create-account/' + userId).then(nextRequest);
+
+
+  }
+
+  notHavingAccountCredential(accountCredential) {
+    return Object.keys(accountCredential).length === 0;
+  }
+
+  createSubscription(planId, accountCredential, userId) {
+    const createSubscriptionCallback = this._createSubscription.bind(this, planId);
+    return this.notHavingAccountCredential(accountCredential)
+      ? this.createAccountCredential(createSubscriptionCallback, userId)
+      : createSubscriptionCallback();
+  }
+
+  _createSubscription(planId) {
+    const url = 'api/create-subscription/' + planId;
+    return this.http.post(url);
+  }
+}
+</code></pre>
+				</section>-->
 			</section>
 		</div>
 	</div>
