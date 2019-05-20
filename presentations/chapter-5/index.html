@@ -852,6 +852,149 @@
 					</video>
 				</section>
 			</section>
+			<section class="slide-align-top-position">
+				<h4 style="margin: 0;" ><a href="https://blog.teamtreehouse.com/perceived-performance" target="_blank">Perceived Performance</a></h4>
+				<img style="height: 590px;" class="reset-img" src="../../assets/loading-animation-demo.gif">
+			</section>
+			<section data-autoslide="2000">
+				<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/next.jpg">
+			</section>
+			<section>
+				<h3 style="margin: 0;">Iframe</h3>
+			</section>
+			<section>
+				<pre style="height: 100%; width: 100%; margin: 0;">
+					<code class="language-html" style="max-height: 100%; padding: 20px;" data-trim><iframe src="URL" height="200" width="300"></iframe>
+
+<iframe src="my-source.htm" class="same-origin"></iframe>
+
+<iframe src="http://www.google.com" class="other-origin"></iframe>
+					</code>
+				</pre>
+			</section>
+			<section class="slide-align-top-position">
+				<section>
+					<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/communication.jpg">
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out" >
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><iframe src="URL" height="200" width="300"></iframe>
+
+<iframe src="my-source.htm" class="same-origin"></iframe>
+
+<iframe src="http://www.google.com" class="other-origin"></iframe>
+
+
+
+
+
+
+
+
+						</code>
+					</pre>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><iframe src="URL" height="200" width="300"></iframe>
+
+<iframe src="my-source.htm" class="same-origin"></iframe>
+
+<iframe src="http://www.google.com" class="other-origin"></iframe>
+
+<script>
+	const sameOriginIframe = document.querySelector('.same-origin');
+	sameOriginIframe.contentDocument.body.append('Hey there!');
+
+
+
+
+</script></code></pre>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;" data-trim ><iframe src="URL" height="200" width="300"></iframe>
+
+<iframe src="my-source.htm" class="same-origin"></iframe>
+
+<iframe src="http://www.google.com" class="other-origin"></iframe>
+
+<script>
+	const sameOriginIframe = document.querySelector('.same-origin');
+	sameOriginIframe.contentDocument.body.append('Hey there!');
+
+	const otherOriginIframe = document.querySelector('.other-origin');
+	otherOriginIframe.contentDocument.body.append('Hey there!');
+	// SECURITY ERROR!
+</script></code></pre>
+				</section>
+				<section class="slide-align-top-position">
+					<h4>Same Origin Iframe</h4>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim data-noescape><mark style="background: rgb(100, 100, 100); color: inherit;">window.parent</mark>.dispatchEvent( /*...*/ );</code></pre>
+				</section>
+			</section>
+			<section class="slide-align-top-position" data-transition="none-out">
+				<h4 style="margin: 0;">Ebay Payment via PayPal</h4>
+				<video height="600" autoplay loop muted controls>
+					<source src="../../assets/ebay-via-paypal-order.mp4" type="video/mp4"/>
+				</video>
+			</section>
+			<section class="slide-align-top-position" data-transition="none-out">
+				<h4 style="margin: 0;">Vendor Payment via Iframe</h4>
+				<video height="600" autoplay loop muted controls>
+					<source src="../../assets/iframe-base.mp4" type="video/mp4"/>
+				</video>
+			</section>
+			<section class="slide-align-top-position" data-transition="none-out">
+				<h4 style="margin: 0;">Vendor Payment via Iframe - Old Behavior</h4>
+				<video height="600" autoplay loop muted controls>
+					<source src="../../assets/iframe-old-behavior.mp4" type="video/mp4"/>
+				</video>
+			</section>
+			<section>
+				<h3 style="margin: 0;">What is the issue?</h3>
+			</section>
+			<section class="slide-align-top-position" data-transition="none-out">
+				<h4 style="margin: 0;">Vendor Payment via Iframe - New Behavior</h4>
+				<video height="600" autoplay loop muted controls>
+					<source src="../../assets/iframe-new-behavior.mp4" type="video/mp4"/>
+				</video>
+			</section>
+			<section data-autoslide="2000">
+				<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/next.jpg">
+			</section>
+			<section class="slide-align-top-position">
+				<img style="height: 600px;" class="reset-img" src="../../assets/event-tabel.jpg">
+			</section>
+			<section class="slide-align-top-position" style="padding: 0;">
+				<pre style="height: 100%; width: 100%; margin: 0;">
+					<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim >@Directive({ selector: '[clickOutside]' })
+export class ClickOutsideDirective implements OnChanges, OnDestroy {
+  @Input() isActive: boolean;
+  // ...
+  ngOnChanges(changes: SimpleChanges): void {
+	const isActive = changes.isActive.currentValue;
+	if (isActive) {
+	  this.startClickListening();
+	} else if (isActive !== undefined) {
+	  this.stopClickListening();
+	}
+  }
+  private startClickListening() {
+    document.body.addEventListener('click', this.onClickBody);
+  }
+  private stopClickListening() {
+    document.body.removeEventListener('click', this.onClickBody);
+  }
+  ngOnDestroy(): void {
+    this.stopClickListening();
+  }
+  // ...
+}
+
+</code></pre>
+			</section>
 		</div>
 	</div>
 
