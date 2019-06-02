@@ -377,7 +377,204 @@
 			margin-right: 20px;
 		}
 		
+		.instagram-container {
+			display: flex;
+			margin-top: -20px;
+			height: 500px;
+		}
 		
+		.instagram-step {
+			margin: 0;
+			flex: 1 1 auto;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+		
+		.instagram-step-1 {
+			background-image: url(../../assets/instagram/instagram-step1.png);
+		}
+		
+		.instagram-step-2 {
+			background-image: url(../../assets/instagram/instagram-step2.png);
+		}
+		
+		.instagram-step-3 {
+			background-image: url(../../assets/instagram/instagram-step3.png);
+		}
+		
+		.instagram-step-4 {
+			background-image: url(../../assets/instagram/instagram-step4.png);
+		}
+		
+		.instagram-step-note-position {
+			position: absolute;
+			top: 90%;
+			transform: translateX(-48%);
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.instagram-step-with-note-position {
+			position: relative;
+		}
+		
+		.da-pulse-steps-container {
+			display: flex;
+			height: 285px;
+		}
+		
+		.da-pulse-steps-container .da-pulse-step {
+			margin: 0 10px 0 0;
+			width: calc((100% - 50px) / 3);
+		}
+		
+		
+		.da-pulse-steps-container .da-pulse-step.focusout {
+			opacity: 0.5;
+		}
+		
+		.da-pulse-steps-container .da-pulse-step-1 {
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-image: url(../../assets/daPulse-step1.png);
+		}
+		
+		.da-pulse-steps-container .da-pulse-step-2 {
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-image: url(../../assets/daPulse-step2.png);
+		}
+		
+		.da-pulse-steps-container .da-pulse-step-3 {
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-image: url(../../assets/daPulse-step3.png);
+		}
+		
+		.da-pulse > .present .da-pulse-steps-container .da-pulse-step-2-animation {
+			animation: da-pulse-start-step-2-animation 3s forwards;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-image: url(../../assets/daPulse-step2.png);
+		}
+		
+		
+		@keyframes da-pulse-start-step-2-animation {
+		  0%{
+			background-image: url(../../assets/daPulse-step2.png);
+		  }
+		  10%{
+			background-image: url(../../assets/daPulse-step2.png);
+		  }
+		  15%{
+			background-image: url(../../assets/daPulse-step2-a.png);
+		  }
+		  45%{
+			background-image: url(../../assets/daPulse-step2-a.png);
+		  }
+		  50%{
+			background-image: url(../../assets/daPulse-step2-ab.png);
+		  }
+		  80%{
+			background-image: url(../../assets/daPulse-step2-ab.png);
+		  }
+		  85%{
+			background-image: url(../../assets/daPulse-step2-abc.png);
+		  }
+		  100%{
+			background-image: url(../../assets/daPulse-step2-abc.png);
+		  }
+		}
+		
+		.da-pulse .tlv-loader {
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+		}
+		
+		.da-pulse .rest-success {
+			margin: 0;
+			height: 48px;
+			width: 48px;
+			position: absolute;
+			opacity: 0;
+		}
+		
+		.da-pulse .rest-container {
+			position: relative;
+			display: flex;
+			opacity: 0;
+			margin-bottom: 10px;
+		}
+		
+		.da-pulse > .present .tlv-loader {
+			animation: da-pulse-start-show-end-hide 4s forwards;
+		}
+		
+		.da-pulse > .present .rest-success {
+			animation: da-pulse-start-hide-end-show 4s forwards;
+		}
+		
+		.da-pulse > .present .rest1 {
+			animation: opacity 1s 0.2s forwards;
+		}
+		
+		.da-pulse > .present .rest1 .tlv-loader {
+			animation-delay: 0.2s;
+		}
+		
+		.da-pulse > .present .rest1 .rest-success {
+			animation-delay: 0.5s;
+		}
+		
+		.da-pulse > .present .rest2 {
+			animation: opacity 1s 1.2s forwards;
+		}
+		
+		.da-pulse > .present .rest2 .tlv-loader {
+			animation-delay: 1.2s;
+		}
+		
+		.da-pulse > .present .rest2 .rest-success {
+			animation-delay: 1.5s;
+		}
+		
+		.da-pulse > .present .rest3 {
+			animation: opacity 1s 2.2s forwards;
+		}
+		
+		.da-pulse > .present .rest3 .tlv-loader {
+			animation-delay: 2.2s;
+		}
+		
+		.da-pulse > .present .rest3 .rest-success {
+			animation-delay: 2.5s;
+		}
+		
+		@keyframes da-pulse-start-show-end-hide {
+		  0%{
+			opacity: 1;
+		  }
+		  50%{
+			opacity: 1;
+		  }
+		  100%{
+			opacity: 0;
+		  }
+		}
+		
+		@keyframes da-pulse-start-hide-end-show {
+		  0%{
+			opacity: 0;
+		  }
+		  50%{
+			opacity: 0;
+		  }
+		  100%{
+			opacity: 1;
+		  }
+		}
 	</style>
 </head>
 
@@ -764,55 +961,49 @@
 			<section data-autoslide="2000">
 				<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/next.jpg">
 			</section>
-			<section class="slide-align-top-position">
-				<section class="slide-align-top-position" data-transition="none-out">
-					<h4 style="margin: 0;">Instagram Example</h4>
+			<section>
+				<section data-transition="none-out">
+					<h3 style="margin: 0;">Instagram Example</h3>
 				</section>
 				<section class="slide-align-top-position" data-transition="none-out">
-					<h4 style="margin: 0;">Instagram Example</h4>
-					<div style="display: flex; margin-top: -20px;">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step1.png">
-						<div style=" flex: 1; "></div>
-						<div style=" flex: 1; "></div>
-						<div style=" flex: 1; "></div>
+					<div class="instagram-container">
+						<div class="instagram-step instagram-step-1"></div>
+						<div class="instagram-step"></div>
+						<div class="instagram-step"></div>
+						<div class="instagram-step"></div>
 					</div>
 				</section>
 				<section class="slide-align-top-position" data-transition="none-out">
-					<h4 style="margin: 0;">Instagram Example</h4>
-					<div style="display: flex; margin-top: -20px;">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step1.png">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step2.png">
-						<div style=" flex: 1; "></div>
-						<div style=" flex: 1; "></div>
+					<div class="instagram-container">
+						<div class="instagram-step instagram-step-1"></div>
+						<div class="instagram-step instagram-step-2"></div>
+						<div class="instagram-step"></div>
+						<div class="instagram-step"></div>
 					</div>
 				</section>
 				<section class="slide-align-top-position" data-transition="none-out">
-					<h4 style="margin: 0;">Instagram Example</h4>
-					<div style="display: flex; margin-top: -20px;">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step1.png">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step2.png">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step3.png">
-						<div style=" flex: 1; "></div>
+					<div class="instagram-container">
+						<div class="instagram-step instagram-step-1"></div>
+						<div class="instagram-step instagram-step-2"></div>
+						<div class="instagram-step instagram-step-3"></div>
+						<div class="instagram-step"></div>
 					</div>
 				</section>
 				<section class="slide-align-top-position" data-transition="none-out">
-					<h4 style="margin: 0;">Instagram Example</h4>
-					<div style="display: flex; margin-top: -20px;">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step1.png">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step2.png">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step3.png">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step4.png">
+					<div class="instagram-container">
+						<div class="instagram-step instagram-step-1"></div>
+						<div class="instagram-step instagram-step-2"></div>
+						<div class="instagram-step instagram-step-3"></div>
+						<div class="instagram-step instagram-step-4"></div>
 					</div>
 				</section>
 				<section class="slide-align-top-position" data-transition="none-out">
-					<h4 style="margin: 0;">Instagram Example</h4>
-					<div style="display: flex; margin-top: -20px;">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step1.png">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step2.png">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step3.png">
-						<div style="flex: 1; display: flex; position: relative;">
-							<img style="margin: 0;flex: 1;max-height: 100%; max-width: 100%;" class="reset-img" src="../../assets/instagram-step4.png">
-							<div style=" position: absolute; top: 100%; transform: translateX(-48%); display: flex; flex-direction: column;">
+					<div class="instagram-container">
+						<div class="instagram-step instagram-step-1"></div>
+						<div class="instagram-step instagram-step-2"></div>
+						<div class="instagram-step instagram-step-3"></div>
+						<div class="instagram-step instagram-step-4 instagram-step-with-note-position">
+							<div class="instagram-step-note-position">
 								<img style=" margin: 0; height: 70px;" class="reset-img" src="../../assets/up-arrow.svg">
 								<span style="font-size: 25px;">Most apps start uploading here</span>
 							</div>
@@ -820,20 +1011,17 @@
 					</div>
 				</section>
 				<section class="slide-align-top-position" data-transition="none-out">
-					<h4 style="margin: 0;">Instagram Example</h4>
-					<div style="display: flex; margin-top: -20px;">
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step1.png">
-						<div style="flex: 1; display: flex; position: relative;">
-							<img style="margin: 0;flex: 1;max-height: 100%; max-width: 100%;" class="reset-img" src="../../assets/instagram-step2.png">
-							<div style=" position: absolute; top: 100%; transform: translateX(-48%); display: flex; flex-direction: column;">
+					<div class="instagram-container">
+						<div class="instagram-step instagram-step-1"></div>
+						<div class="instagram-step instagram-step-2 instagram-step-with-note-position">
+							<div class="instagram-step-note-position">
 								<img style=" margin: 0; height: 70px;" class="reset-img" src="../../assets/up-arrow.svg">
 								<span style="font-size: 25px;">Instagram starts uploading here</span>
 							</div>
 						</div>
-						<img style=" margin: 0; height: 500px; flex: 1" class="reset-img" src="../../assets/instagram-step3.png">
-						<div style="flex: 1; display: flex; position: relative;">
-							<img style="margin: 0;flex: 1;max-height: 100%; max-width: 100%;" class="reset-img" src="../../assets/instagram-step4.png">
-							<div style=" position: absolute; top: 100%; transform: translateX(-48%); display: flex; flex-direction: column;">
+						<div class="instagram-step instagram-step-3"></div>
+						<div class="instagram-step instagram-step-4 instagram-step-with-note-position">
+							<div class="instagram-step-note-position">
 								<img style=" margin: 0; height: 70px;" class="reset-img" src="../../assets/up-arrow.svg">
 								<span style="font-size: 25px;">Most apps start uploading here</span>
 							</div>
@@ -841,20 +1029,208 @@
 					</div>
 				</section>
 			</section>
-			<section class="slide-align-top-position">
-				<section class="slide-align-top-position" data-transition="none-out">
-					<h4 style="margin: 0;">Facebook Example</h4>
+			<section>
+				<section data-transition="none-out">
+					<h3>Facebook Example</h3>
 				</section>
-				<section class="slide-align-top-position" data-transition="none-out">
-					<h4 style="margin: 0;">Facebook Example</h4>
-					<video height="600" autoplay loop muted controls>
+				<section data-transition="none-out">
+					<video height="600" loop muted controls>
 						<source src="../../assets/facebook-instant.mov" type="video/mp4"/>
+					</video>
+				</section>
+			</section>
+			<section>
+				<section data-transition="none-out">
+					<h3>WhatApp Example</h3>
+				</section>
+				<section data-transition="none-out">
+					<video height="600" loop muted controls>
+						<source src="../../assets/whatapp-sending.mp4" type="video/mp4"/>
+					</video>
+				</section>
+				<section data-transition="none-out">
+					<video height="600" loop muted controls>
+						<source src="../../assets/whatapp-no-internet.mp4" type="video/mp4"/>
+					</video>
+				</section>
+			</section>
+			<section>
+				<section data-transition="none-out">
+					<h3>Predict Example</h3>
+				</section>
+				<section data-transition="none-out">
+					<video height="600" loop muted controls>
+						<source src="../../assets/typeahead.mov" type="video/mp4"/>
 					</video>
 				</section>
 			</section>
 			<section class="slide-align-top-position">
 				<h4 style="margin: 0;" ><a href="https://blog.teamtreehouse.com/perceived-performance" target="_blank">Perceived Performance</a></h4>
 				<img style="height: 590px;" class="reset-img" src="../../assets/loading-animation-demo.gif">
+			</section>
+			<section data-autoslide="2000">
+				<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/next.jpg">
+			</section><section>
+				<section>
+					<h3>Don’t wait for success. Operate</h3>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out" >
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">// Make AJAX request to create post for user
+$.ajax('/user/post', {
+	type: 'POST',
+	data: { from_date: this.from_date },
+	dataType: 'json',
+	success: function(data) {
+		// Render new post in the UI
+		... ... ...
+		... ...
+	},
+	error: function(data) {
+		// Notify the user on error
+		...
+		...
+	}
+});
+						</code>
+					</pre>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out" >
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">// Make AJAX request to create post for user
+$.ajax('/user/post', {
+	type: 'POST',
+	data: { from_date: this.from_date },
+	dataType: 'json',
+	success: function(data) {
+		
+		
+		
+	},
+	error: function(data) {
+		// Notify the user on error
+		...
+		...
+	}
+});
+						</code>
+					</pre>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out" >
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">// Make AJAX request to create post for user
+$.ajax('/user/post', {
+	type: 'POST',
+	data: { from_date: this.from_date },
+	dataType: 'json',
+	success: function(data) {},
+	error: function(data) {
+		// Notify the user on error
+		...
+		...
+	}
+});
+						</code>
+					</pre>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out" >
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">// Render new post in the UI
+... ... ...
+... ...
+
+// Make AJAX request to create post for user
+$.ajax('/user/post', {
+	type: 'POST',
+	data: { from_date: this.from_date },
+	dataType: 'json',
+	success: function(data) {},
+	error: function(data) {
+		// Notify the user on error
+		...
+		...
+	}
+});
+						</code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section data-transition="none-out">
+					<h3>Order Flow</h3>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<video height="600" loop muted controls>
+						<source src="../../assets/payment-flow-wait-for-transaction-completion.mp4" type="video/mp4"/>
+					</video>
+				</section>
+				<section data-transition="none-out">
+					<h4>What is the issue?</h4>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<video height="600" loop muted controls>
+						<source src="../../assets/payment-flow-dont-wait-for-transaction-completion.mp4" type="video/mp4"/>
+					</video>
+				</section>
+			</section>
+			<section class="da-pulse">
+				<section data-transition="none-out">
+					<h3>daPulse Signup Example</h3>
+				</section>
+				<section data-transition="none-out">
+					<div class="da-pulse-steps-container">
+						<div class="da-pulse-step da-pulse-step-1"></div>
+						<div class="da-pulse-step"></div>
+						<div class="da-pulse-step"></div>
+					</div>
+				</section>
+				<section data-transition="none-out">
+					<div class="da-pulse-steps-container">
+						<div class="da-pulse-step da-pulse-step-1"></div>
+						<div class="da-pulse-step da-pulse-step-2"></div>
+						<div class="da-pulse-step"></div>
+					</div>
+				</section>
+				<section data-transition="none-out">
+					<div class="da-pulse-steps-container">
+						<div class="da-pulse-step da-pulse-step-1"></div>
+						<div class="da-pulse-step da-pulse-step-2"></div>
+						<div class="da-pulse-step da-pulse-step-3"></div>
+					</div>
+				</section>
+				<section data-transition="none-out">
+					<div class="da-pulse-steps-container">
+						<div class="da-pulse-step da-pulse-step-1 focusout"></div>
+						<div class="da-pulse-step da-pulse-step-2"></div>
+						<div class="da-pulse-step da-pulse-step-3 focusout"></div>
+					</div>
+				</section>
+				<section data-transition="none-out">
+					<div style="position: relative;">
+						<div style="position: absolute; top: auto; bottom: 100%; left: 0;">
+							<div class="rest-container rest3">
+								<div class="tlv-loader"></div>
+								<img class="rest-success reset-img" src="../../assets/check-solid.svg">
+								<div style="margin-left: 70px;">[GET]  check-sub-domain/abc</div>
+							</div>
+							<div class="rest-container rest2">
+								<div class="tlv-loader"></div>
+								<img class="rest-success reset-img" src="../../assets/check-solid.svg">
+								<div style="margin-left: 70px;">[GET]  check-sub-domain/ab</div>
+							</div>
+							<div class="rest-container rest1">
+								<div class="tlv-loader"></div>
+								<img class="rest-success reset-img" src="../../assets/check-solid.svg">
+								<div style="margin-left: 70px;">[GET]  check-sub-domain/a</div>
+							</div>
+						</div>
+						<div class="da-pulse-steps-container">
+							<div class="da-pulse-step da-pulse-step-1 focusout"></div>
+							<div class="da-pulse-step da-pulse-step-2-animation"></div>
+							<div class="da-pulse-step da-pulse-step-3 focusout"></div>
+						</div>
+					</div>
+				</section>
 			</section>
 			<section data-autoslide="2000">
 				<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/next.jpg">
