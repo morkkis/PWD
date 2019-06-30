@@ -23,39 +23,44 @@
 	</script>
 	<style>
 		.reset-img {
-		  border: 0 !important;
-		  background: none !important;
-		  box-shadow: none !important;
+			border: 0 !important;
+			background: none !important;
+			box-shadow: none !important;
 		}
-        #chapters {
-            margin: 0;
-            list-style-type: none;
-            display: grid;
-            grid-template-columns: 50% 50%;
-            grid-template-rows: 20% 20% 20% 20% 20%;
+
+		#chapters {
+			margin: 0;
+			list-style-type: none;
+			display: grid;
+			grid-template-columns: 50% 50%;
+			grid-template-rows: 20% 20% 20% 20% 20%;
 			grid-auto-flow: column;
 			font-size: 34px;
-        }
+		}
+		
+		.slide-top {
+			top: 0 !important;
+		}
 	</style>
 </head>
 
 <body>
 	<div class="reveal">
 		<div class="slides">
-            <section>
-                <ul id="chapters">
-                    <li><a href="presentations/chapter-0">Chapter 0: Introduction</a></li>
-                    <li><a href="presentations/chapter-1">Chapter 1: CSS, how does it work</a></li>
-                    <li><a href="presentations/chapter-2">Chapter 2: JS OOP & more</a></li>
-                    <li><a href="presentations/chapter-3">Chapter 3: Transition to SPA</a></li>
-                    <li><a href="presentations/chapter-4">Chapter 4: Components Base Development</a></li>
-                    <li><a href="presentations/chapter-5">Chapter 5: Optimistic Programing</a></li>
-                    <li><a href="presentations/chapter-6">Chapter 6: Responsive web design</a></li>
-                    <li><a href="presentations/chapter-7">Chapter 7: Web App Optimization</a></li>
-                </ul>
-                <i style="margin: 40px 0; float: left; font-size: 22px; text-align: left">By Dan Nahari & Ivan Zelenovsky</i>
-            </section>
-        </div>
+			<section>
+				<p style="height:450px;">Responsive web design</p>
+				<h3>Practical Web Development</h3>
+			</section>
+			<section>
+				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/oop.jpeg">
+			</section>
+			<section>
+				<div style="display: flex; flex-direction: column; line-height: 140px; font-size: 80px;">
+					<a href="/presentations/chapter-7">Next Chapter</a>
+					<a href="/">Back to Index</a>
+				</div>
+			</section>
+		</div>
 	</div>
 
 	<script src="../../revealjs/lib/js/head.min.js"></script>
