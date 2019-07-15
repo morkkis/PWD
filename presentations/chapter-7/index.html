@@ -208,7 +208,67 @@ loading so <picture> and srcset fall off of that -->
 				</section>
 			</section>
 			<section>
-				<h3>CSS critical path</h3>
+				<section>
+					<h3>CSS Critical Path</h3>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/css-critical-path.png">
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/css-critical-path-network-request.png">
+				</section>
+				<section>
+					<h5>Critical CSS In Action</h5>
+					<ol>
+						<li style="margin: 20px 0;">Extract minimum set of CSS required to render the above-the-fold content</li>
+						<li style="margin: 20px 0;">Inline it in the web page</li>
+						<li style="margin: 20px 0;">Load asynchronously non-critical CSS (it will not block the web page.)</li>
+					</ol>
+				</section>
+				<section>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;">< !doctype html>
+	< head>
+		<style> /* inlined critical CSS */ </style>
+		<script> loadCSS('non-critical.css');</script>
+	< /head>
+
+	< body>
+		/* ...body goes here */
+	< /body>
+
+< /html></code></pre>
+				</section>
+				<section>
+					<a target="_blank" href="https://addyosmani.com/critical-path-css-demo/output/normal/">Before Critical</a>
+					<video height="600" loop muted controls>
+					  <source src="../../assets/css-critical-path-before.mp4" type="video/mp4"/>
+					</video>
+				</section>
+				<section>
+					<a target="_blank" href="https://addyosmani.com/critical-path-css-demo/output/critical/">After Critical</a>
+					<video height="600" loop muted controls>
+					  <source src="../../assets/css-critical-path-after.mp4" type="video/mp4"/>
+					</video>
+				</section>
+				<section>
+					<a target="_blank" href="https://addyosmani.com/critical-path-css-demo/output/normal/">Coverage Before Critical</a>
+					<video height="600" loop muted controls>
+					  <source src="../../assets/css-critical-path-coverage-before.mp4" type="video/mp4"/>
+					</video>
+				</section>
+				<section>
+					<a target="_blank" href="https://addyosmani.com/critical-path-css-demo/output/critical/">Coverage After Critical</a>
+					<video height="600" loop muted controls>
+					  <source src="../../assets/css-critical-path-coverage-after.mp4" type="video/mp4"/>
+					</video>
+				</section>
+				<section>
+					<h5>Packges</h5>
+					<ol>
+						<li style="margin: 20px 0;">Node.js module - <a target="_blank" href="https://github.com/addyosmani/critical">critical</a></li>
+						<li style="margin: 20px 0;">Webpack plugin - <a target="_blank" href="https://github.com/anthonygore/html-critical-webpack-plugin">HTML Critical Webpack Plugin</a></li>
+						<li style="margin: 20px 0;">Grunt task - <a target="_blank" href="https://github.com/bezoerb/grunt-critical">grunt-critical</a></li>
+					</ol>
+				</section>
 			</section>
 			<section>
 				<h3>Network</h3>
