@@ -332,7 +332,8 @@ loading so <picture> and srcset fall off of that -->
 					  <source src="../../assets/http2-no-push-vs-push.mp4" type="video/mp4"/>
 					</video>
 				</section>
-			</section><section>
+			</section>
+			<section>
 				<section>
 					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/resource-hints.webp">
 				</section>
@@ -378,10 +379,10 @@ loading so <picture> and srcset fall off of that -->
 					<img style="display: inline-block; margin: 0;" class="reset-img fragment" src="../../assets/font-request-example.jpg">
 					<img style="display: inline-block; margin: 0;" class="reset-img fragment" src="../../assets/preconnect-example.jpg">
 				</section>
-				<section>
+				<section class="slide-top">
 					<h3>DNS Prefetching or Preconnect</h3>
 				</section>
-				<section>
+				<section class="slide-top">
 					<h3>Combine DNS Prefetching and Preconnect</h3>
 					<pre style="height: 100%; width: 100%; margin: 0; white-space: pre-wrap;">
 						<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com" crossorigin></code>
@@ -438,6 +439,52 @@ loading so <picture> and srcset fall off of that -->
 						<li>No media queries</li>
 						<li>No load callback</li>
 					</ul>
+				</section>
+			</section>
+			<section>
+				<section class="slide-top" data-transition="none-out">
+					<h3>Defer/Async</h3>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;">< html >
+  < head >
+    <title>Title</title>
+    <script src="script.js"></script>
+  < /head >
+  < body >
+    ...
+  < /body >
+< /html ></code>
+					</pre>
+					<img style="display: inline-block; margin: 0;" class="reset-img fragment" src="../../assets/script-without-defer-async-head.png">
+				</section>
+				<section class="slide-top" data-transition="none-in">
+					<h3>Defer/Async</h3>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;">< html >
+  < head >
+    <title>Title</title>
+  < /head >
+  < body >
+    ...
+    <script src="script.js"></script>
+  < /body >
+< /html ></code>
+					</pre>
+					<img style="display: inline-block; margin: 0;" class="reset-img fragment" src="../../assets/script-without-defer-async-end-body.png">
+				</section>
+				<section class="slide-top">
+					<h3>Async</h3>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><script async src="script.js"></script></code>
+					</pre>
+					<img style="display: inline-block; margin: 0;" class="reset-img fragment" src="../../assets/script-with-async.png">
+				</section>
+				<section class="slide-top">
+					<h3>Defer</h3>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><script defer  src="script.js"></script></code>
+					</pre>
+					<img style="display: inline-block; margin: 0;" class="reset-img fragment" src="../../assets/script-with-defer.png">
 				</section>
 			</section>
 			<section>
