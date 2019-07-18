@@ -56,7 +56,7 @@
 			</section>
 			<section>
 				<ul>
-					<li class="fragment" style="margin: 0 0 20px 0;">
+					<li style="margin: 0 0 20px 0;">
 						Bundle Size
 						<ul style="font-size: 70%;">
 							<li class="fragment">
@@ -82,7 +82,7 @@
 			</section>
 			<section>
 				<ul>
-					<li class="fragment" style="margin: 0 0 20px 0;">
+					<li style="margin: 0 0 20px 0;">
 						Media Size
 						<ul style="font-size: 70%;">
 							<li class="fragment">Check for extra-large downloads</li>
@@ -331,6 +331,113 @@ loading so <picture> and srcset fall off of that -->
 					<video height="580" loop muted controls>
 					  <source src="../../assets/http2-no-push-vs-push.mp4" type="video/mp4"/>
 					</video>
+				</section>
+			</section><section>
+				<section>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/resource-hints.webp">
+				</section>
+				<section>
+					<h3>HTTP Connection</h3>
+					<img style="display: inline-block; margin: 0; height: 560px;" class="reset-img" src="../../assets/http-connection.png">
+				</section>
+				<section>
+					<h3 style="white-space: nowrap;margin-left: -50px;">Chrome Coonnection Measurements</h3>
+					<img style="display: inline-block; margin: 0; height: 530px;" class="reset-img" src="../../assets/chrome-coonnection-measurements.png">
+				</section>
+				<section class="slide-top">
+					<h3>DNS Prefetching</h3>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="dns-prefetch" href="//cdn.domain.com"></code>
+					</pre>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/dns-prefetch-records.webp">
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h3>Preconnect</h3>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="preconnect" href="https://cdn.domain.com" crossorigin></code>
+					</pre>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/preconnect-lg.webp">
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h3>Preconnect</h3>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><link href="fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"></code>
+					</pre>
+					<pre style="height: 100%; width: 100%; margin: 0;" class="fragment">
+						<code class="language-css" style="max-height: 100%; padding: 20px;">@font-face {
+  font-family: 'Indie Flower';
+  src:  url(https://fonts.gstatic.com/10JVD[...].woff2) format('woff2');
+}						</code>
+					</pre>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h3>Preconnect</h3>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></code>
+					</pre>
+					<img style="display: inline-block; margin: 0;" class="reset-img fragment" src="../../assets/font-request-example.jpg">
+					<img style="display: inline-block; margin: 0;" class="reset-img fragment" src="../../assets/preconnect-example.jpg">
+				</section>
+				<section>
+					<h3>DNS Prefetching or Preconnect</h3>
+				</section>
+				<section>
+					<h3>Combine DNS Prefetching and Preconnect</h3>
+					<pre style="height: 100%; width: 100%; margin: 0; white-space: pre-wrap;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com" crossorigin></code>
+					</pre>
+				</section>
+				<section class="slide-top">
+					<h3>Prefetch</h3>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="prefetch" href="/uploads/images/pic.png"></code>
+					</pre>
+					<p class="fragment">Examples:</p>
+					<ul>
+						<li class="fragment">product pages -> cart -> checkout -> payment
+							<pre class="fragment" style="height: 100%; width: 100%; margin: 0;">
+							<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="prefetch" href="/checkout.js">
+<link rel="prefetch" href="/checkout.css"></code></pre>
+						</li>
+						<li class="fragment">Login page
+							<div style="font-size: 70%;" class="fragment">Prefetch assets needed for logged in app</div>
+						</li>
+					</ul>
+				</section>
+				<section class="slide-top">
+					<h3>Preload</h3>
+					<pre style="height: 100%; width: 100%; margin: 0; white-space: pre-wrap;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="preload" href="https://example.com/fonts/font.woff" as="font" crossorigin></code>
+					</pre>
+					<img style="display: inline-block; margin: 0;" class="reset-img fragment" src="../../assets/font-request-example.jpg">
+					<img style="display: inline-block; margin: 0;" class="reset-img fragment" src="../../assets/preload-example.jpg">
+				</section>
+				<section class="slide-top">
+					<h3>Responsive design</h3>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-css" style="max-height: 100%; padding: 20px;">.img {
+  @media (max-width: 320px) {
+    background-image: url(small.jpg);
+  }
+  @media (min-width: 321px) {
+    background-image: url(large.jpg); 
+  }
+}</code>
+					</pre>
+					<pre class="fragment" style="height: 100%; width: 100%; margin: -40px 0 0 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="preload"media="(max-width: 320px)" as="image"href="small.jpg" ></code>
+					</pre>
+					<pre class="fragment" style="height: 100%; width: 100%; margin: -40px 0 0 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="preload"media="(min-width: 321px)" as="image"href="large.jpg" ></code>
+					</pre>
+				</section>
+				<section class="slide-top">
+					<h3>HTTP2 push?</h3>
+					<ul>
+						<li>No third party resources</li>
+						<li>No media queries</li>
+						<li>No load callback</li>
+					</ul>
 				</section>
 			</section>
 			<section>
