@@ -52,7 +52,151 @@
 				<h3>Practical Web Development</h3>
 			</section>
 			<section>
-				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/oop.jpeg">
+				<ul>
+					<li><a href="http://info.cern.ch/hypertext/WWW/TheProject.html" target="_blank">August 6, 1991 (http://info.cern.ch/)</a></li>
+					<li><a href="https://marketplace.att.com/" target="_blank">At&t Marketplace</a></li>
+				</ul>
+			</section>
+			<section class="slide-top">
+				<h5>Web Application</h5>
+				<p>“The use case of an application is always to DO something with it”.</p>
+				<ul>
+					<li>Rich/interactive user interface</li>
+					<li>Action-oriented rather than information oriented.</li>
+					<li>Creation versus Consumption</li>
+					<li>Not relying heavily on (or hiding when possible) the browser chrome (back button, reload button, address bar)</li>
+				</ul>
+			</section>
+			<section class="slide-top">
+				<h5>Why Web Application? </h5>
+				<ul>
+					<li>Better UX</li>
+					<li>Ease of development</li>
+					<li>Ease of Maintenance</li>
+					<li>Cross-platform</li>
+					<li>Mobility</li>
+					<li>No need for “Market Place”</li>
+					<li>Etc.</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<img class="reset-img" height="400px" src="../../assets/box-model.png" />
+					<ul style=" font-size: 26px; ">
+						<li>Content - The content of the box, where text and images appear</li>
+						<li>Padding - Clears an area around the content. The padding is transparent</li>
+						<li>Border - A border that goes around the padding and content</li>
+						<li>Margin - Clears an area outside the border. The margin is transparent</li>
+					</ul>
+				</section>
+				<section>
+					<img class="reset-img" width="100%" src="../../assets/box-sizing-comparison.png" />
+				</section>
+				<section>
+					<iframe width="100%" height="600px"  style=" background-color: white; " src="https://codepen.io/team/css-tricks/full/970f26f621cfa3ae3eec7e2a6b0e8c97"></iframe>
+				</section>
+				<section style="line-height: 1;">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-css" style="max-height: 100%; padding: 20px;">* {
+  box-sizing: border-box;
+}</code>
+					</pre>
+					<div class="fragment">
+						<div style="font-size: 28px;">#Universal Box Sizing</div>
+						<pre style="height: 100%; width: 100%; margin: 0;">
+							<code class="language-css" style="max-height: 100%; padding: 20px;">*, *::before, *::after {
+  box-sizing: border-box;
+}</code>
+						</pre>
+					</div>
+					
+					<div class="fragment">
+						<div style="font-size: 28px;">#Universal Box Sizing with Inheritance</div>
+						<pre style="height: 100%; width: 100%; margin: 0;">
+							<code class="language-css" style="max-height: 100%; padding: 20px;">html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}</code>
+						</pre>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<img class="reset-img" width="100%" height="500px" src="../../assets/ruler.jpg" />
+				</section>
+				<section>
+					<h5>ABSOLUTE UNITS</h5>
+					<ul >
+						<li>cm</li>
+						<li>mm</li>
+						<li>Q</li>
+						<li>in</li>
+						<li>pc</li>
+						<li>pt</li>
+						<li>px</li>
+					</ul>
+				</section>
+				<section>
+					<h5>RELATIVE LENGTHS</h5>
+					<ul>
+						<li>em</li>
+						<li>ex</li>
+						<li>ch</li>
+						<li>rem</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Viewport units</h5>
+					<ul>
+						<li>vw</li>
+						<li>vh</li>
+						<li>vmin</li>
+						<li>vmax</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>CSS Display</h5>
+					<ul >
+						<li>display: block</li>
+						<li>display: inline</li>
+						<li>display: inline-block</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Display: block</h5>
+					<ul >
+						<li>Take full-width (100% width) by default</li>
+						<li>Each gets displayed in a new line</li>
+						<li>Width & height properties can be set</li>
+						<li>Can contain other block or inline elements</li>
+					</ul>
+					<img class="reset-img" src="../../assets/display-block.png" />
+				</section>
+				<section>
+					<h5>Display: inline</h5>
+					<ul >
+						<li>Take only as much space as they need</li>
+						<li>Displayed side by side</li>
+						<li>Don’t accept width or height properties, and top-bottom margin</li>
+						<li>Can be a parent of other inline elements</li>
+					</ul>
+					<img class="reset-img" src="../../assets/display-inline.png" />
+				</section>
+				<section>
+					<h5>Display: inline-block</h5>
+					<img class="reset-img" src="../../assets/display-inline-block.png" />
+				</section>
+				<section>
+					<h5>Display: Flex</h5>
+					<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">https://css-tricks.com/snippets/css/a-guide-to-flexbox</a>
+					<h5 style="margin-top: 80px;">Display: Grid</h5>
+					<a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">https://css-tricks.com/snippets/css/complete-guide-grid</a>
+				</section>
 			</section>
 			<section>
 				<div style="display: flex; flex-direction: column; line-height: 140px; font-size: 80px;">
