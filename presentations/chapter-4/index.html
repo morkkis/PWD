@@ -162,7 +162,61 @@
 				
 			</section>
 			<section data-transition="none-in">
-				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/thinking-in-component-breaks.png">
+				<section data-transition="none-in">
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/css-encapsulation.png">
+				</section>
+				<section data-transition="none-in">
+					<h5>CSS Issues</h5>
+					<ul>
+						<li>CSS is a global scope</li>
+						<li>Specificity War, Inheritance issues</li>
+						<li>Name clashing</li>
+					</ul>
+				</section>
+				<section data-transition="none-in">
+					<h5>First Solutions</h5>
+					<ul>
+						<li>No more ID's in selectors</li>
+						<li>No "brute-force" values (as that z-index)</li>
+						<li>No more !important or exotic CSS properties</li>
+						<li>No strict bindings between CSS and the DOM structure</li>
+						<li>Keep the specifity as low as possible, ideally 0.1.0</li>
+						<li>Use namespaces for your classes.</li>
+					</ul>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Scoping the style</h5>
+					<img class="reset-img" width="100%" height="500px" src="../../assets/scoping-the-style.jpg" />
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Scoping the style</h5>
+					<pre style="font-size: 0.5em; width: 100%;"><code class="language-html" style="padding: 20px;" data-trim><div class="content-card">
+  <header class="content-card__header">...</header>
+  <picture class="content-card__picture">
+    <img src="..." class="content-card__image">
+  </picture>
+  <section class="content-card__abstract">
+    <p>...</p>
+  </section>
+  <footer class="content-card__footer">
+    <button type="button" class="content-card__favorite">☆</button>
+    <nav class="content-card__actions">
+      <a href="#" class="content-card__action">Read later</a>
+      <a href="#" class="content-card__action content-card__action--view">View</a>
+    </nav>
+  </footer>
+</div></code></pre>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Emulated Scope</h5>
+					<div style="display: flex;">
+						<img class="reset-img" height="450px" style="margin-right: 20px;" src="../../assets/emulated-scope-angular.png" />
+						<img class="reset-img" height="450px" src="../../assets/emulated-scope-react.png" />
+					</div>
+				</section>
+				<section>
+					<div>Shadow DOM</div>
+				</section>
 			</section>
 			<section>
 				<div style="display: flex; flex-direction: column; line-height: 140px; font-size: 80px;">

@@ -52,7 +52,189 @@
 				<h3>Practical Web Development</h3>
 			</section>
 			<section>
-				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/oop.jpeg">
+				<section>
+					<div>63% of all US online traffic comes from smartphones and tablets.</div>
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/rwd-chinese-statistic.jpg">
+				</section>
+			</section>
+			<section>
+				<a href="https://marketplace.att.com/" target="_blank">Example: AT&T Marketplace</a>
+			</section>
+			<section>
+				<section>
+					<div>“Desktop First” or “Mobile First”?</div>
+				</section>
+				<section>
+					<div>What is the best way?</div>
+					<div>We will get to it soon.</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>View Port</h5>
+					<pre class="fragment" style="width: 100%;"><code class="language-bash" style="padding: 20px;" data-trim><meta name="viewport" content="width=device-width, initial-scale=1.0"></code></pre>
+					<div class="fragment" ><a href="https://www.w3schools.com/css/example_withoutviewport.htm" target="_blank">Without the viewport meta tag</a></div>
+					<div class="fragment" ><a href="https://www.w3schools.com/css/example_withviewport.htm" target="_blank">With the viewport meta tag </a></div>
+				</section>
+				<section>
+					<h5 style="margin: 0;">View Port - Without Meta</h5>
+					<video height="580" loop muted controls>
+					  <source src="../../assets/view-port-without-meta.mp4" type="video/mp4"/>
+					</video>
+				</section>
+				<section>
+					<h5 style="margin: 0;">View Port - With Meta</h5>
+					<video height="580" loop muted controls>
+					  <source src="../../assets/view-port-with-meta.mp4" type="video/mp4"/>
+					</video>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>Media Query</h5>
+					<div>Media queries is a CSS3 module allowing content rendering to adapt to conditions such as screen resolution (e.g. smartphone screen vs. computer screen).</div>
+				</section>
+				<section>
+					<pre style="width: 100%;"><code class="language-css" style="padding: 20px;" data-trim>@media screen and (min-width: 480px) {
+  body {
+    background-color: lightgreen;
+  }
+}</code></pre>
+					<a href="https://www.w3schools.com/css/tryit.asp?filename=trycss3_media_queries1" target="_blank">Open</a>
+				</section>
+				<section>
+					<pre style="width: 100%;"><code class="language-css" style="padding: 20px;" data-trim>@media screen and (max-width: 900px) and (min-width: 600px) {
+  div.example {
+    font-size: 50px;
+    padding: 50px;
+    border: 8px solid black;
+    background: yellow;
+  }
+}</code></pre>
+					<a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_mediaqueries_minmax" target="_blank">Open</a>
+				</section>
+				<section>
+					<h5>Options list:</h5>
+					<ul>
+						<li>Min Width</li>
+						<li>Max Width</li>
+						<li>Min Height</li>
+						<li>Max Height</li>
+						<li>Orientation (landscape|portrait)</li>
+					</ul>
+					<div><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">And More</a></div>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Where to put it?</h5>
+					<img style="display: inline-block; margin: 0;" class="reset-img fragment" src="../../assets/media-query-in-class.png">
+				</section>
+				<section class="slide-top" data-transition="none-in">
+					<h5>Where to put it?</h5>
+					<img style="display: inline-block; margin: 0; height: 550px;" class="reset-img" src="../../assets/media-query-in-class-generate-result.png">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>What is the problem of putting the media queries in every component?</h5>
+				</section>
+				<section class="slide-top" data-transition="none-in">
+					<div style=" display: flex; ">
+						<img style="display: inline-block; margin: 0 20px 0 0; height: 500px;" class="reset-img" src="../../assets/media-query-redundant-1.png">
+						<img style="display: inline-block; margin: 0; height: 350px;" class="reset-img" src="../../assets/media-query-redundant-2.png">
+					</div>
+				</section>
+				<section>
+					<h5>Solution?</h5>
+					<div>
+						<div>Create media queries variables.</div>
+						<pre style="width: 100%;"><code class="language-scss" style="padding: 20px;" data-trim>$break1: "(max-width: 767px)";
+$break2: "(min-width: 768px) and (max-width: 1185px)";
+$break3: "(min-width: 1186px)";</code></pre>
+					</div>
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 0; height: 450px;" class="reset-img" src="../../assets/media-quey-use-breakpoint.png">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h4>Open or Closed Breakpoints?</h4>
+				</section>
+				<section>
+					<div>Open Breakpoints</div>
+					<pre style="width: 100%;"><code class="language-css" style="padding: 20px;" data-trim>@media (min-width: 500px) {
+  /*our styles*/
+}</code></pre>
+				<div class="fragment" style="margin-top: 40px;">
+					<div>Close Breakpoints</div>
+					<pre style="width: 100%;"><code class="language-css" style="padding: 20px;" data-trim>@media (min-width: 500px) and (max-width: 1000px)  {
+  /*our styles*/
+}</code></pre>
+				</div>
+				</section>
+				<section>
+					<h4>Open or Closed Breakpoints?</h4>
+				</section>
+				<section class="slide-top">
+					<div>Don't use Open Breakpoints</div>
+					<img style="display: inline-block; margin: 40px 0 0 0; height: 500px;" class="reset-img" src="../../assets/css-overrides.png">
+				</section>
+				<section>
+					<div>Use only Closed Breakpoints!</div>
+					<small>unless it is the last breakpoint</small>
+				</section>
+				<section>
+					<div>Use the the same styles in more than 1 breakpoint</div>
+					<pre style="width: 100%;"><code class="language-scss" style="padding: 20px;" data-trim>.other-component {
+  /*some styles*/
+  /*tablet and desktop*/
+  @media #{$break2}, #{$break3} {
+    color: green;
+  }
+  /*tablet*/
+  @media #{$break2} {
+    font-size: 22px;
+  }
+  /*desktop*/
+  @media #{$break3} {
+    font-size: 18px;
+  }
+}</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h4>“Desktop First” or “Mobile First”?</h4>
+				</section>
+				<section>
+					<img style="display: inline-block; margin: 40px 0 0 0; height: 500px;" class="reset-img" src="../../assets/css-base-first.jpg">
+				</section>
+				<section>
+					<pre style="width: 100%;"><code class="language-scss" style="padding: 20px;" data-trim>.other-component {
+  /*common style only!*/
+  
+  /*tablet and desktop*/
+  @media #{$break2}, #{$break3} {...}
+  
+  /*only mobile*/
+  @media #{$break1} {...}
+  
+  /*only tablet*/
+  @media #{$break2} {...}
+  
+  /*only desktop*/
+  @media #{$break3} {...}
+}</code></pre>
+				</section>
+			</section>
+			<section>
+				<h4>How many breakpoints?</h4>
+				<ul>
+					<li>How many breakpoints the web designer wants.</li>
+					<li>2–4 breakpoints, Will be sufficient in most cases.</li>
+				</ul>
 			</section>
 			<section>
 				<div style="display: flex; flex-direction: column; line-height: 140px; font-size: 80px;">
