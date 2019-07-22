@@ -218,6 +218,133 @@
 					<div>Shadow DOM</div>
 				</section>
 			</section>
+			<section class="slide-top" style="height: calc(100% - 120px);">
+				<section class="slide-top" style="height: calc(100% - 120px);">
+					<h5>Add Proxy to Mock Server</h5>
+					<ul style=" font-size: 26px; ">
+						<li>Create proxy.conf.json file under root folder (near package.json)</li>
+						<li class="fragment">At "proxy.conf.json" config  proxy to all "/api/*" to http://localhost:4202:
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-json" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>{
+  "/api/*": {
+	"target": "http://localhost:4202",
+	"secure": false,
+	"logLevel": "debug"
+  }
+}</code></pre>
+						</li>
+						<li class="fragment" >Add proxyConfig to proxy.conf.json at angular.json file.
+							<div class="fragment" style="margin-top: 10px;">
+								<div>Open angular.json file,  under projects -> architect -> serve -> options add "proxyConfig": "proxy.conf.json"</div>
+								<pre style="width: 100%;height: 100%;"><code class="language-json" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>{
+  "serve": {
+	  "options": {
+		"browserTarget": "cat-finder:build",
+		"proxyConfig": "proxy.conf.json"
+	  },
+  },
+}</code></pre></div>
+						</li>
+					</ul>
+	</code>
+				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-out">
+					<h5>Create Cat Interface</h5>
+					<ul style="font-size: 26px; ">
+						<li>Create interface for cat item in "cat-finder\src\app\interfaces\cat.interface.ts" with:
+							<div>"age, breed, coat, gender ('Male' | 'Female'), id, imgUrl, like, name"</div>
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-ts" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>export interface ICat {
+  age: number;
+  breed: string;
+  coat: string;
+  gender: 'Male' | 'Female';
+  id: number;
+  imgUrl: string;
+  like: boolean;
+  name: string;
+}</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-out">
+					<h5>Create Service</h5>
+					<ul style="font-size: 26px; ">
+						<li>Create app service
+							<div class="fragment" style="margin-top: 10px;">ng g s app</div>
+						</li>
+						<li class="fragment" >At app.module.ts, add "HttpClientModule" and AppService
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-ts" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>import { HttpClientModule } from '@angular/common/http';
+@NgModule({
+  ...,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+  ],
+  providers: [AppService],
+})</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-in">
+					<h5>Create Service</h5>
+					<ul style="font-size: 26px; ">
+						<li>At app.service.ts, inject HttpClient and create "getCatList" function for retriving cat list ('api/getCatList')
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-ts" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ICat } from './interfaces/cat.interface';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AppService {
+
+  constructor(private http: HttpClient) { }
+
+  getCatList(): Observable< ICat[]> {
+    return this.http.get< ICat[]>('api/getCatList');
+  }
+}</code></pre>
+						</li>
+					</ul>
+	</code>
+				</section>
+			</section>
+			<section class="slide-top" style="height: calc(100% - 120px);">
+				<pre style="font-size: 1em; width: 100%;height: 100%;"><code class="language-bash" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>> Open angular.json file
+> create proxy.conf.json file
+> put config
+> angular json under serve->options add "proxyConfig": "proxy.conf.json"
+> import HttpClientModule,
+> ng g s app and add to provider
+
+
+? Please pick a preset:
+	<mark>Manually select features</mark>
+? Check the features needed for your project:
+	<mark>Babel, TS, PWA, Router, Vuex, CSS Pre-processors, Linter, Unit</mark>
+? Use class-style component syntax?
+	<mark>Yes</mark>
+? Use Babel alongside TypeScript for auto-detected polyfills?
+	<mark>Yes</mark>
+? Use history mode for router? (Requires proper server setup for index fallback in production)
+	<mark>Yes</mark>
+? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default):
+	<mark>Less</mark>
+? Pick a linter / formatter config:
+	<mark>TSLint</mark>
+? Pick additional lint features:
+	<mark>Lint and fix on commit</mark>
+? Pick a unit testing solution:
+	<mark>Jest</mark>
+? Where do you prefer placing config for Babel, PostCSS, ESLint, etc.?
+	<mark>In dedicated config files</mark>
+? Save this as a preset for future projects?
+	<mark>No</mark>
+? Pick the package manager to use when installing dependencies:
+	<mark>Yarn</mark>
+</code>
+			</section>
 			<section>
 				<div style="display: flex; flex-direction: column; line-height: 140px; font-size: 80px;">
 					<a href="/presentations/chapter-5">Next Chapter</a>
