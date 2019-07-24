@@ -218,6 +218,253 @@
 					<div>Shadow DOM</div>
 				</section>
 			</section>
+			<section class="slide-top" style="height: calc(100% - 120px);">
+				<section class="slide-top" style="height: calc(100% - 120px);">
+					<h5>Add Proxy to Mock Server</h5>
+					<ul style=" font-size: 26px; ">
+						<li>Create proxy.conf.json file under root folder (near package.json)</li>
+						<li class="fragment">At "proxy.conf.json" config  proxy to all "/api/*" to http://localhost:4202:
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-json" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>{
+  "/api/*": {
+	"target": "http://localhost:4202",
+	"secure": false,
+	"logLevel": "debug"
+  }
+}</code></pre>
+						</li>
+						<li class="fragment" >Add proxyConfig to proxy.conf.json at angular.json file.
+							<div class="fragment" style="margin-top: 10px;">
+								<div>Open angular.json file,  under projects -> architect -> serve -> options add "proxyConfig": "proxy.conf.json"</div>
+								<pre style="width: 100%;height: 100%;"><code class="language-json" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>{
+  "serve": {
+	  "options": {
+		"browserTarget": "cat-finder:build",
+		"proxyConfig": "proxy.conf.json"
+	  },
+  },
+}</code></pre></div>
+						</li>
+					</ul>
+	</code>
+				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-out">
+					<h5>Create Cat Interface</h5>
+					<ul style="font-size: 26px; ">
+						<li>Create interface for cat item in "cat-finder\src\app\interfaces\cat.interface.ts" with:
+							<div>"age, breed, coat, gender ('Male' | 'Female'), id, imgUrl, like, name"</div>
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-ts" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>export interface ICat {
+  age: number;
+  breed: string;
+  coat: string;
+  gender: 'Male' | 'Female';
+  id: number;
+  imgUrl: string;
+  like: boolean;
+  name: string;
+}</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-out">
+					<h5>Create Service</h5>
+					<ul style="font-size: 26px; ">
+						<li>Create app service
+							<div class="fragment" style="margin-top: 10px;">ng g s app</div>
+						</li>
+						<li class="fragment" >At app.module.ts, add "HttpClientModule" and AppService
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-ts" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>import { HttpClientModule } from '@angular/common/http';
+@NgModule({
+  ...,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+  ],
+  providers: [AppService],
+})</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-in">
+					<h5>Create Service</h5>
+					<ul style="font-size: 26px; ">
+						<li>At app.service.ts, inject HttpClient and create "getCatList" function for retriving cat list ('api/getCatList')
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-ts" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ICat } from './interfaces/cat.interface';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AppService {
+
+  constructor(private http: HttpClient) { }
+
+  getCatList(): Observable< ICat[]> {
+    return this.http.get< ICat[]>('api/getCatList');
+  }
+}</code></pre>
+						</li>
+					</ul>
+	</code>
+				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-in">
+					<h5>Request data</h5>
+					<ul style="font-size: 26px; ">
+						<li>Use service to get cat list at app component
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-ts" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>import { Component, OnInit } from '@angular/core';
+import { AppService } from './app.service';
+import { ICat } from './interfaces/cat.interface';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+  title = 'cat-finder';
+  catList: ICat[];
+
+  constructor(private appService: AppService) { }
+
+  ngOnInit(): void {
+    this.appService.getCatList().subscribe((cl: ICat[]) => {
+      this.catList = cl;
+    });
+  }
+}</code></pre>
+						</li>
+					</ul>
+	</code>
+				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-in">
+					<h5>Render cat list</h5>
+					<ul style="font-size: 26px; ">
+						<li>At app.component.html render the list using cat-item component
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-html" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>< cf-cat-item *ngFor="let catItem of catList" [cat]="catItem">< /cf-cat-item></code></pre>
+						</li>
+					</ul>
+	</code>
+				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-in">
+					<h5>Add Angular CDK</h5>
+					<ul style="font-size: 26px;">
+						<li>install angular CDK
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-bash" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>npm install --save @angular/cdk</code></pre>
+						</li>
+						<li class="fragment" >Add ScrollingModule for virtual scrool
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-ts" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>import {ScrollingModule} from '@angular/cdk/scrolling';
+	imports: [
+		...,
+		ScrollingModule,
+  ],
+							</code></pre>
+						</li>
+					</ul>
+	</code>
+				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-in">
+					<h5>Use Virtual Scroll</h5>
+					<ul style="font-size: 26px;">
+						<li >Use cdk-virtual-scroll-viewport and add styles 
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-html" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>< cdk-virtual-scroll-viewport itemSize="300"
+                             class="cat-container">
+  < cf-cat-item *cdkVirtualFor="let catItem of catList"
+               class="cat-item"
+               [cat]="catItem">< /cf-cat-item>
+< /cdk-virtual-scroll-viewport></code></pre>
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-scss" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>.cat-container{
+  height: 900px;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.cat-item {
+  height: 300px;
+}</code></pre>
+						</li>
+					</ul>
+	</code>
+				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-in">
+					<h5>Make Virtual Scroll Responsive</h5>
+					<ul style="font-size: 26px;">
+						<li>In app component listen to resize and for size less then 769 show 2 items otherwise show 4
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-ts" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>export class AppComponent implements OnInit {
+  title = 'cat-finder';
+  cardSize = 300;
+  cardsInRaw = 4;
+  catList: ICat[];
+
+  constructor(private appService: AppService) { }
+
+  ngOnInit(): void {
+    this.cardsInRaw = window.outerWidth <= 768 ? 2 : 4;
+    this.appService.getCatList().subscribe((cl: ICat[]) => {
+      this.catList = cl;
+    });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.cardsInRaw = window.outerWidth <= 768 ? 2 : 4;
+  }
+}</code></pre>
+						</li>
+					</ul>
+	</code>
+				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-in">
+					<h5>Make Virtual Scroll Responsive</h5>
+					<ul style="font-size: 26px;">
+						<li>In app component html set dynamic itemSize
+							<pre class="fragment" style="width: 100%;height: 100%;"><code class="language-html" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>< cdk-virtual-scroll-viewport itemSize="{{cardSize / cardsInRaw}}"
+                             class="cat-container">
+  < cf-cat-item *cdkVirtualFor="let catItem of catList"
+               class="cat-item"
+               [cat]="catItem">< /cf-cat-item>
+< /cdk-virtual-scroll-viewport></code></pre>
+						</li>
+					</ul>
+	</code>
+				</section>
+			</section>
+			<section class="slide-top" style="height: calc(100% - 120px);">
+				<pre style="font-size: 1em; width: 100%;height: 100%;"><code class="language-bash" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>> Open angular.json file
+> create proxy.conf.json file
+> put config
+> angular json under serve->options add "proxyConfig": "proxy.conf.json"
+> import HttpClientModule,
+> ng g s app and add to provider
+
+
+? Please pick a preset:
+	<mark>Manually select features</mark>
+? Check the features needed for your project:
+	<mark>Babel, TS, PWA, Router, Vuex, CSS Pre-processors, Linter, Unit</mark>
+? Use class-style component syntax?
+	<mark>Yes</mark>
+? Use Babel alongside TypeScript for auto-detected polyfills?
+	<mark>Yes</mark>
+? Use history mode for router? (Requires proper server setup for index fallback in production)
+	<mark>Yes</mark>
+? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default):
+	<mark>Less</mark>
+? Pick a linter / formatter config:
+	<mark>TSLint</mark>
+? Pick additional lint features:
+	<mark>Lint and fix on commit</mark>
+? Pick a unit testing solution:
+	<mark>Jest</mark>
+? Where do you prefer placing config for Babel, PostCSS, ESLint, etc.?
+	<mark>In dedicated config files</mark>
+? Save this as a preset for future projects?
+	<mark>No</mark>
+? Pick the package manager to use when installing dependencies:
+	<mark>Yarn</mark>
+</code>
+			</section>
 			<section>
 				<div style="display: flex; flex-direction: column; line-height: 140px; font-size: 80px;">
 					<a href="/presentations/chapter-5">Next Chapter</a>
