@@ -130,3 +130,6 @@ what is course goals:
 3) לעשות יישור קו עם טכנולוגיות
 4) להראות BSET PRACTICES
 5) לשפר את גישת החשיבה שלו לפתרונות בעיקר UX
+
+in itroduction - First day will be mostly theoreticlly
+JS OOP & more - החלק הזה הוא תיאורתי ועמוק, מי שאין לו נסיון אולי יהיה לו קצת קשה. זה החלק הכי עמוק בקורס כל השאר יותר קלילים
