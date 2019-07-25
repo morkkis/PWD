@@ -51,8 +51,8 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<p style="height:450px;">JS OOP & more</p>
-				<h3>Practical Web Development</h3>
+				<p style="height:450px;">Practical Web Development</p>
+				<h3>JS OOP & more</h3>
 			</section>
 			<section>
 				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/oop.jpeg">
@@ -1061,6 +1061,20 @@ console.log(add === newAdd);
 </code></pre>
 				</section>
 				<section data-transition="none-out">
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">Function.prototype.bind = function(context) {
+    var fn = this;
+    return function() {
+        fn.apply(context, arguments);
+    };
+};</code></pre>
+					<pre class="fragment" style="width: 100%; margin-top: 50px;"><code class="language-js" style="padding: 20px;">Function.prototype.bind = function(myNewThis) {
+    var addFunction = this;
+    return function() {
+        addFunction.apply(myNewThis, arguments);
+    };
+};</code></pre>
+				</section>
+				<section data-transition="none-out">
 					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">function add(a, b) {
 	console.log(this);
 	return a + b;
@@ -1579,6 +1593,7 @@ const myFather = new Person('John', 'Doe', 50);
 const me = new Person('Bob', 'Smith', 32)
 console.log(myFather.fullName()); // John Doe
 console.log(me.fullName());  // Bob Smith
+console.log(me.fullName === myFather.fullName);  // true
 </code></pre>
 				</section>
 				<section>
@@ -1589,6 +1604,7 @@ console.log(me.fullName());  // Bob Smith
 
 'abcd'.reverse(); // 'dcba'
 </code></pre>
+					<p class="fragment" style="margin-top: 50px;">This is the way Pollyfill works</p>
 				</section>
 				<section data-transition="none-out" class="slide-top">
 					<pre style="height: 100%; width: 100%;">
@@ -1878,12 +1894,15 @@ console.log(me.getFullName());  // Bob Smith
 </code></pre>
 				</section>
 				<section data-transition="none-in" class="slide-top">
+					<h4>Private variable in TypeScript</h4>
 					<pre style="height: 100%; width: 100%;">
 						<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim>class Person {
-	private fullName;
+	private fullName: string;
 
-	constructor(public firstName, public lastName, public age) {
-		this.fullName = this.firstName + ' ' + this.lastName;
+	constructor(public firstName: string,
+		public lastName: string,
+		public age: number) {
+		   this.fullName = this.firstName + ' ' + this.lastName;
 	}
 
 	getFullName() {
@@ -1898,8 +1917,8 @@ console.log(me.getFullName());  // Bob Smith
 </code></pre>
 				</section>
 				<section data-transition="none-out">
-					<h3><a href="https://www.typescriptlang.org/play/#src=class%20Person%20%7B%0D%0A%09private%20fullName%3B%0D%0A%0D%0A%09constructor(public%20firstName%2C%20public%20lastName%2C%20public%20age)%20%7B%0D%0A%09%09this.fullName%20%3D%20this.firstName%20%2B%20'%20'%20%2B%20this.lastName%3B%0D%0A%09%7D%0D%0A%09%0D%0A%09getFullName()%20%7B%0D%0A%09%09return%20this.fullName%3B%0D%0A%09%7D%0D%0A%7D%0D%0A%0D%0Aconst%20myFather%20%3D%20new%20Person('John'%2C%20'Doe'%2C%2050)%3B%0D%0Aconst%20me%20%3D%20new%20Person('Bob'%2C%20'Smith'%2C%2032)%0D%0Aconsole.log(myFather.getFullName())%3B%20%2F%2F%20John%20Doe%0D%0Aconsole.log(me.getFullName())%3B%20%20%2F%2F%20Bob%20Smith" target="_blank">TypeScript Online Transpile</a></h3>
-					<iframe width="100%" height="560px" src="https://www.typescriptlang.org/play/#src=class%20Person%20%7B%0D%0A%09private%20fullName%3B%0D%0A%0D%0A%09constructor(public%20firstName%2C%20public%20lastName%2C%20public%20age)%20%7B%0D%0A%09%09this.fullName%20%3D%20this.firstName%20%2B%20'%20'%20%2B%20this.lastName%3B%0D%0A%09%7D%0D%0A%09%0D%0A%09getFullName()%20%7B%0D%0A%09%09return%20this.fullName%3B%0D%0A%09%7D%0D%0A%7D%0D%0A%0D%0Aconst%20myFather%20%3D%20new%20Person('John'%2C%20'Doe'%2C%2050)%3B%0D%0Aconst%20me%20%3D%20new%20Person('Bob'%2C%20'Smith'%2C%2032)%0D%0Aconsole.log(myFather.getFullName())%3B%20%2F%2F%20John%20Doe%0D%0Aconsole.log(me.getFullName())%3B%20%20%2F%2F%20Bob%20Smith"></iframe>
+					<h3><a href="https://www.typescriptlang.org/play/#code/MYGwhgzhAEAKCmAnCB7AdtA3gWAFAEgAHRASwDcwAXeaAMwFcQQA5MAW3gC5oJLS0A5gG48efMHS9E9YJRSIAFIXoAjECWB0SySqw7cpJQQBoxRVes3heerjz5GBpgubUboYAXbT02KpACUWGb4lAAWJBAAdAxMttAAvNDhkTHaNuw0ANTQAOR50Dkp0da6mSIEAL5iYl6UAGKMLJkKQTguiPCU9IgYxTFNthX41bijeBJovNBsAJ71VGFIidBo8ADucEioaAq5AFIoYWi5xnkAIijwp9AArAAMARWT0xwra5sIyOh7AEIoKhuuQAymwSOEbgBmABMAQmkhQIHgURAKAECjmC3CSCidUacRaASe0AA9CToIdjtBLvB4VNEcjUeiOLiuvjmhxWsTSeT-ipoKDwWEgA" target="_blank">TypeScript Online Transpile</a></h3>
+					<iframe width="100%" height="560px" src="https://www.typescriptlang.org/play/#code/MYGwhgzhAEAKCmAnCB7AdtA3gWAFAEgAHRASwDcwAXeaAMwFcQQA5MAW3gC5oJLS0A5gG48efMHS9E9YJRSIAFIXoAjECWB0SySqw7cpJQQBoxRVes3heerjz5GBpgubUboYAXbT02KpACUWGb4lAAWJBAAdAxMttAAvNDhkTHaNuw0ANTQAOR50Dkp0da6mSIEAL5iYl6UAGKMLJkKQTguiPCU9IgYxTFNthX41bijeBJovNBsAJ71VGFIidBo8ADucEioaAq5AFIoYWi5xnkAIijwp9AArAAMARWT0xwra5sIyOh7AEIoKhuuQAymwSOEbgBmABMAQmkhQIHgURAKAECjmC3CSCidUacRaASe0AA9CToIdjtBLvB4VNEcjUeiOLiuvjmhxWsTSeT-ipoKDwWEgA"></iframe>
 				</section>
 				<section data-transition="none-in" class="slide-top">
 					<pre style="height: 100%; width: 100%;">
@@ -1918,6 +1937,7 @@ const myFather = new Person('John', 'Doe', 50);
 const me = new Person('Bob', 'Smith', 32)
 console.log(myFather.getFullName()); // John Doe
 console.log(me.getFullName());  // Bob Smith
+console.log(me.getFullName === myFather.getFullName);  // false
 </code></pre>
 				</section>
 			</section>
@@ -1950,8 +1970,8 @@ console.log(me.getFullName());  // Bob Smith
 					<iframe width="100%" height="560px" src="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYGwhgzhAEAKCmAnCB7AdtA3gKAJDHQgBdEBXYIlRACgDMBLZIgGmnGNbAHN4BKLPLiIALehAB0DJgDkwAW3jQAvNCnEA3IJFjx7IrIXK2kIptxDRE7opXWzAXzw8iAMVIgQBm9Gr8lAPgFzRHgiUkQMbQk1fXlFAGpoAHJk6ESo3RMvTWhc6EdHIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose&prettier=false&targets=&version=7.4.2"></iframe>
 				</section>
 				<section data-transition="none-out">
-					<h3><a href="https://www.typescriptlang.org/play/#src=class%20Person%20%7B%0D%0A%09private%20fullName%3B%0D%0A%0D%0A%09constructor(public%20firstName%2C%20public%20lastName%2C%20public%20age)%20%7B%0D%0A%09%09this.fullName%20%3D%20this.firstName%20%2B%20'%20'%20%2B%20this.lastName%3B%0D%0A%09%7D%0D%0A%09getFullName%20%3D%20()%20%3D%3E%20%7B%0D%0A%09%09return%20this.firstName%20%2B%20'%20'%20%2B%20this.lastName%3B%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A" target="_blank">TypeScript Online Transpile</a></h3>
-					<iframe width="100%" height="560px" src="https://www.typescriptlang.org/play/#src=class%20Person%20%7B%0D%0A%09private%20fullName%3B%0D%0A%0D%0A%09constructor(public%20firstName%2C%20public%20lastName%2C%20public%20age)%20%7B%0D%0A%09%09this.fullName%20%3D%20this.firstName%20%2B%20'%20'%20%2B%20this.lastName%3B%0D%0A%09%7D%0D%0A%09getFullName%20%3D%20()%20%3D%3E%20%7B%0D%0A%09%09return%20this.firstName%20%2B%20'%20'%20%2B%20this.lastName%3B%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A"></iframe>
+					<h3><a href="https://www.typescriptlang.org/play/#code/MYGwhgzhAEAKCmAnCB7AdtA3gWAFAEgAHRASwDcwAXeaAMwFcQQA5MAW3gC5oJLS0A5gG48efMHS9E9YJRSIAFIXoAjECWB0SySqw7cpJQQBoxRVes3heerjz5GBpgubUboYAXbT02KpACUWGb4lAAWJBAAdAxMttAAvNDhkTHaNuw0ANTQAOR50Dkp0da6mSIEAL5iXpQAYowsmYnQCkEJAHzBLojwlPSIGMVpOvE5+flFESWQZRwV+NW4S0A" target="_blank">TypeScript Online Transpile</a></h3>
+					<iframe width="100%" height="560px" src="https://www.typescriptlang.org/play/#code/MYGwhgzhAEAKCmAnCB7AdtA3gWAFAEgAHRASwDcwAXeaAMwFcQQA5MAW3gC5oJLS0A5gG48efMHS9E9YJRSIAFIXoAjECWB0SySqw7cpJQQBoxRVes3heerjz5GBpgubUboYAXbT02KpACUWGb4lAAWJBAAdAxMttAAvNDhkTHaNuw0ANTQAOR50Dkp0da6mSIEAL5iXpQAYowsmYnQCkEJAHzBLojwlPSIGMVpOvE5+flFESWQZRwV+NW4S0A"></iframe>
 				</section>
 				<section data-transition="none-out">
 					<h3>Bind or Arrow function?</h3>

@@ -99,11 +99,6 @@ part 5 - optimization:
 - talk about service worker
 
 
-- excersie, performance improvment, generate cards with only arrow functions and they will need to refactor it without arrow functions (only if needed?) (maybe show benchmark before and after?)
-
-refacor code index
-
-
 - optimistic examples:
 7) ui bug - when doing form validation the errors jumps and click event not happend
 
