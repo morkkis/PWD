@@ -1,0 +1,137 @@
+- talk about how we did in the pass and how today? like js classes, modules??
+- talk about call, apppl, bind
+- talk about es6 and bable
+- talk about regular function vs arrow function
+- talk about cnost vs let vs var vs object.freese
+- talk about hoisting?
+- talk about IIFE function?
+- closere
+
+- talk about progressive web appp
+- take example from performance presentation how to improve stuff
+- spa = talk about SSR vs SPA and how to combine them (SEO) (gatzby generate static pages)
+- talk about web worker and service worker
+- talk about components, greate example in react docs
+- talk about chunks
+- talk about components - how to think right in components way
+- clean code a little bit
+- talk about blitz like, plunker or, code pane
+- cdn
+- greate docmentations webapps like 'can i use', mdn, mozila, css triggers, bundle fobia
+- js mock server - how it's helping us.
+- type script explain what it's
+- at end of course (spear time) talk about performance like lighthouse, web speed test, html to check what modules we are loading
+- talk aobut spa and then talk about routing and modern layout (why routing is not refreshing the page)
+- compile to @angular/element it will create it with shaddow dom
+- https://stenciljs.com/ - compiler - angular/react/native
+- reactive programing
+- instead of angular use VUE (https://github.com/nabilnaffar/vue-playground) or native (https://github.com/nabilnaffar/meet-react/tree/master/chapter-2/examples/native)
+- css talk about class encpsulation and how to overide it by class attribute (for third partias)
+- state managment
+- async/await
+
+- https://javascript.info/courses/js - referance how to start the course
+
+
+
+Part 1)
+1) we choose vue because it's giving us tools and not related to framework because here nobdy knows Vue including us
+2) Basic JS concept, function etc.
+3) EcmaScript history (https://angular-course-2018.github.io/presentations/presentations/chapter-0/#/37)
+3.a) bable
+3.b) type scipt
+3.c) OO in JS, we didn't have, so how we did it in the past and how today (, arrow function [], const let and )
+3.c.i) how we create classes in the pass and how now. explain clouser, explain IIFE function, what was the issue and how it solve it (on global scope) and in the passs we use it to create privte varibale with clouser
+3.c.ii) arrow function - what is the diff between it and regular function? what it's comming to solve? how we solve it in the past (using closure or bind)? and today arrow function but in some cases we can still/need to use bind for callbacks (exmaple: clean code for subscribe and not passisng arrow function but passing function refernace)
+         or ues bind varibale (like i use in payments service for reuse jasper creation)
+3.c.iii) talk about const vs let vs var vs object.freese
+3.d) inheritance, how we did it in the pass and now example: https://medium.com/ecmascript-2015/es6-classes-and-inheritance-607804080906
+4. explain on html modules (solve global scope issues) https://jakearchibald.com/2017/es-modules-in-browsers/
+5. explain about webpack - why we need it instead of modules? 
+8. talk about history router push (https://angular-course-2018.github.io/presentations/presentations/chapter-5/#/2, https://developer.mozilla.org/en-US/docs/Web/API/History_API) and then about spa 
+
+
+Part 2)
+- Talk about web site history -> transition from website to web application (pro of this transition, easy to mantain etc. take from Ivan presenation) -> How we did it in the pass (SSR) and how today it is working (SPA) (routing, etc.)
+- spa = talk about SSR vs SPA and how to combine them (SEO) (gatzby generate static pages)
+- talk aobut spa and then talk about routing and modern layout (why routing is not refreshing the page)
+******
+- talk about layout:
+	a. first, normilize css
+	b. folder structure (global.scss, components directories - we will want to put eaxh component sapertly, )
+	c. css properties thinks to know: box-sizeing, display modes specilly flex, talk about positions
+	d. naming conventions
+	e. specifity - id vs elemenys vs class,
+	f. avoid nesting css classes
+	g. css classes encapsolation like angular is doing (we can talk about shadow dom here)  [css talk about class encpsulation and how to overide it by class attribute (for third partias)]
+- talk about components , greate example in react docs
+- talk about optimistic programing - example from performance presentation how to improve stuff
+- talk about chunks - what is chunks? how to do it? when to do it (for unvisitade pages)? what we will achive when doing it?
+- talk about web worker
+- talk about responsive design in css - like media querys, 
+- 
+
+part 3 - generic things:
+- state managment, single source of thruth, what it's solving
+- reactive programing
+
+
+part 4 - utils:
+- talk about blitz like, plunker or, code pane
+- greate docmentations webapps like 'can i use', mdn, mozila, css triggers, bundle fobia
+- js mock server - how it's helping us. (https://github.com/typicode/json-server)
+
+
+
+part 5 - optimization:
+- talk about progressive web appp
+- lighthouse
+- webpage test
+- https://developers.google.com/speed/pagespeed/insights/
+- bundle phobia
+- explain about async defer , preload prefech (html tags)
+- explain about http2 , how push machnizm is working (push will put in cache)
+- cdn
+- ab testing
+- at end of course (spear time) talk about performance like lighthouse, webpage test, html to check what modules we are loading
+- critical rendering path, give to the browser the css first view port so we could show something to the user
+- make a dectinery (take it from lighthouse): first time to interaction, etc.
+- talk about service worker
+
+
+- excersie, performance improvment, generate cards with only arrow functions and they will need to refactor it without arrow functions (only if needed?) (maybe show benchmark before and after?)
+
+refacor code index
+
+
+- optimistic examples:
+7) ui bug - when doing form validation the errors jumps and click event not happend
+
+
+use progressive images -> low first and then high resolution
+
+
+
+
+
+
+hands-on:
+1) DONE - create project
+2) DONE - create cards
+3) DONE - create layout
+4) DONE - break layout to components + routing
+5.a) DONE - style the compoents + add navigations
+5.b) DONE - connect to the mock server + generate ngFor + make a request to server and generate(bind the data)
+6) DONE - use cdk for virtual scroll - show before and after
+7) DONE - handle remove with timeout and handle error- optimistic programing
+8) DONE - responsive design with resize for cdk
+9) DONE - optiimastion - create about module and do it in chunk
+10) optiimastion - Service worker for offline, Maybe run lighthouse on the webpage, add preload for fonts
+
+
+
+what is course goals:
+2) לעשות סדר בדברים
+3) לעשות יישור קו עם טכנולוגיות
+4) להראות BSET PRACTICES
+5) לשפר את גישת החשיבה שלו לפתרונות בעיקר UX

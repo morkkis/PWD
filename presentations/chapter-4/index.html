@@ -7,11 +7,14 @@
 
 	<title>reveal.js</title>
 
-	<link rel="stylesheet" href="../../revealjs/css/reveal.css">
-	<link rel="stylesheet" href="../../revealjs/css/theme/night.css">
-
+	<!--<link rel="stylesheet" href="../../revealjs/css/reveal.css">
+	<link rel="stylesheet" href="../../revealjs/css/theme/night.css"> -->
 	<!-- Theme used for syntax highlighting of code -->
-	<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css">
+	<!--<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css"> -->
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/night.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.min.css">
 
 	<!-- Printing and PDF exports -->
 	<script>
@@ -161,6 +164,43 @@
 				</section>
 				
 			</section>
+			<section>
+				<section data-transition="none-out">
+					<h5>How do you break it to components?</h5>
+					<img style="display: inline-block; margin: 0;height: 580px;"  class="reset-img" src="../../assets/components/001.png">
+				</section>
+				<section data-transition="none-out">
+					<img style="display: inline-block; margin: 0;"  class="reset-img" src="../../assets/components/002.png">
+				</section>
+				<section data-transition="none">
+					<img style="display: inline-block; margin: 0;"  class="reset-img" src="../../assets/components/003.png">
+				</section>
+				<section data-transition="none">
+					<img style="display: inline-block; margin: 0;"  class="reset-img" src="../../assets/components/004.png">
+				</section>
+				<section data-transition="none">
+					<img style="display: inline-block; margin: 0;"  class="reset-img" src="../../assets/components/005.png">
+				</section>
+				<section data-transition="none">
+					<img style="display: inline-block; margin: 0;"  class="reset-img" src="../../assets/components/006.png">
+				</section>
+				<section data-transition="none">
+					<img style="display: inline-block; margin: 0;"  class="reset-img" src="../../assets/components/007.png">
+				</section>
+			</section>
+			<section>
+				<section>
+					<img style="display: inline-block; margin: 0;height: 660px;"  class="reset-img" src="../../assets/state-management.png">
+				</section>
+				<section>
+					<h4>Redux - Three Principles:</h4>
+					<ul style=" line-height: 1.4; ">
+						<li><b>Single source of truth</b> - The state of your whole application is stored in an object tree within a single store.</li>
+						<li style="margin-top: 20px;"><b>State is read-only</b> - we are changing via action  (The only way to change the state is to emit an action, an object describing what happened).</li>
+						<li style="margin-top: 20px;"><b>Changes are made with pure functions</b> - not changing the current state object, we will return a new state object. (Immutability)</li>
+					</ul>
+				</section>
+			</section>
 			<section data-transition="none-in">
 				<section data-transition="none-in">
 					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/css-encapsulation.png">
@@ -244,13 +284,13 @@
 				</section>
 			</section>
 			<section>
-				<h2>Hands-On - exercise-3</h2>
+				<h2><a href="https://morkkis.github.io/PWD-Exercises/index.html#/3" target="_blank">Hands-On - exercise-3</a></h2>
 			</section>
 			<section>
-				<h2>Hands-On - exercise-4</h2>
+				<h2><a href="https://morkkis.github.io/PWD-Exercises/index.html#/4" target="_blank">Hands-On - exercise-4</a></h2>
 			</section>
 			<section>
-				<h2>Hands-On - exercise-5</h2>
+				<h2><a href="https://morkkis.github.io/PWD-Exercises/index.html#/5" target="_blank">Hands-On - exercise-5</a></h2>
 			</section>
 			
 			<section>
@@ -262,20 +302,31 @@
 		</div>
 	</div>
 
-	<script src="../../revealjs/lib/js/head.min.js"></script>
-	<script src="../../revealjs/js/reveal.js"></script>
+	<!-- <script src="../../revealjs/lib/js/head.min.js"></script>
+	<script src="../../revealjs/js/reveal.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
 
 	<script>
 		// More info about config & dependencies:
 		// - https://github.com/hakimel/reveal.js#configuration
 		// - https://github.com/hakimel/reveal.js#dependencies
-		Reveal.initialize({
+		/*Reveal.initialize({
 			history: true,
 			dependencies: [
 				{ src: '../../revealjs/plugin/markdown/marked.js' },
 				{ src: '../../revealjs/plugin/markdown/markdown.js' },
 				{ src: '../../revealjs/plugin/notes/notes.js', async: true },
 				{ src: '../../revealjs/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});*/
+		Reveal.initialize({
+			history: true,
+			dependencies: [
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js' },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.min.js' },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.min.js', async: true },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.min.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
 			]
 		});
 	</script>
