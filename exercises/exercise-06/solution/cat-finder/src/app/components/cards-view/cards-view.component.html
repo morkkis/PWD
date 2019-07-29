@@ -1,0 +1,7 @@
+<cdk-virtual-scroll-viewport itemSize="{{cardSize / cardsInRaw}}"
+                             class="cf-card-list">
+  <cf-card-item *cdkVirtualFor="let catItem of catList"
+                class="cat-item"
+                [data]="catItem"></cf-card-item>
+</cdk-virtual-scroll-viewport>
+

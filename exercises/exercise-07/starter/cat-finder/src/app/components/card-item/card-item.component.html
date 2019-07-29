@@ -1,0 +1,30 @@
+<div class="cf-card">
+  <div class="cf-card__head">
+    <button class="cf-card__button cf-card__button--like" [ngClass]="{'cf-card__button--active': data.like}">
+      <i class="fas fa-heart" ></i>
+    </button>
+    <div class="cf_card__name">{{data.name}}</div>
+    <button class="cf-card__button cf_card_button--delete">
+      <i class="fas fa-trash"></i>
+    </button>
+  </div>
+  <div class="cf-card__photo-container">
+    <img
+      [src]="data.imgUrl"
+      alt="" class="cf-card__photo">
+  </div>
+  <div class="cf-card__abstract">
+    <div class="cf-card__breed">
+      {{data.breed}}
+      <i class="fas" [ngClass]="data.gender === 'Male' ? 'fa-mars' : 'fa-venus'"></i>
+    </div>
+    <div class="cf-card__abstract-item">
+      <div class="cf-card__label">Age</div>
+      <div class="cf-card__value">{{data.age}}</div>
+    </div>
+    <div class="cf-card__abstract-item">
+      <div class="cf-card__label">Coat</div>
+      <div class="cf-card__value">{{data.coat}}</div>
+    </div>
+  </div>
+</div>

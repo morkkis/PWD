@@ -1,0 +1,32 @@
+.cf-card {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-between;
+  justify-self: center;
+  padding: 10px;
+  width: 200px;
+}
+
+.cf-card__head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cf_card__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cf-card__photo-container {
+  text-align: center;
+}
+
+.cf-card__photo {
+  max-height: 150px;
+}
+
+.cf-card__abstract-item {
+  display: flex;
+  justify-content: space-between;
+}

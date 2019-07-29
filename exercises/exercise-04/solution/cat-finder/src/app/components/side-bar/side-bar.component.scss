@@ -1,0 +1,17 @@
+@import "./../../../styles/colors";
+.cf-navigation {
+  padding: 10px 0;
+}
+
+.cf-navigation--item {
+  background-color: $color-base;
+  text-decoration: none;
+  color: $color-lightest;
+  padding: 20px 10px;
+  margin: 5px 0;
+  display: block;
+
+  &:hover {
+    background-color: $color-darker;
+  }
+}

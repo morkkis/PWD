@@ -1,0 +1,28 @@
+@import "./../styles/variables";
+
+.cf {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  grid-template-rows: $headerSize 1fr $footerSize;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+    height: 100%;
+}
+.cf-header {
+    grid-area: header;
+}
+
+.cf-content {
+    grid-area: content;
+    overflow: auto;
+}
+
+.cf-sidebar {
+    grid-area: sidebar;
+}
+
+.cf-footer {
+    grid-area: footer;
+}

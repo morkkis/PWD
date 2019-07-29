@@ -1,0 +1,33 @@
+@import "./../../../styles/breakpoints.scss";
+@import "./../../../styles/variables";
+
+.cf-card-list {
+  width: 100%;
+
+  @media #{$break-1}, #{$break-2} {
+    height: calc(100vh - #{$headerSize} - #{$sideBarSize} - #{$footerSize});
+  }
+
+  @media #{$break-3} {
+    height: calc(100vh - #{$headerSize} - #{$footerSize});
+  }
+}
+
+.cf-card-list .cdk-virtual-scroll-content-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 40px;
+  padding: 20px;
+
+  @media #{$break-1} {
+    grid-template-columns: 1fr;
+  }
+
+  @media #{$break-2} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media #{$break-3} {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

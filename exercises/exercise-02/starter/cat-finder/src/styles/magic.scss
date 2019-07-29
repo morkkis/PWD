@@ -1,0 +1,27 @@
+@import "colors";
+
+.cf {
+  font-family: sans-serif;
+}
+
+.cf-header {
+  background-color: $color-darker;
+  color: $color-lightest;
+}
+
+.cf-sidebar {
+  background-color: $color-lighter;
+}
+
+.cf-footer {
+  background-color: $color-darkest;
+}
+
+.cf-content {
+  background-color: $color-lightest;
+}
+
+.cf-card {
+  border-color: $color-base;
+  border-radius: 3px;
+}

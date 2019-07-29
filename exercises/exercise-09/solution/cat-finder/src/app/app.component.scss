@@ -1,0 +1,42 @@
+@import "./../styles/variables";
+@import "../styles/breakpoints.scss";
+
+.cf {
+  display: grid;
+  height: 100%;
+
+  @media #{$break-1}, #{$break-2} {
+    grid-template-columns: 1fr;
+    grid-template-rows: $headerSize $sideBarSize 1fr $footerSize;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "content"
+      "footer";
+  }
+
+  @media #{$break-3} {
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: $headerSize 1fr $footerSize;
+    grid-template-areas:
+      "header header"
+      "sidebar content"
+      "footer footer";
+  }
+}
+.cf-header {
+    grid-area: header;
+}
+
+.cf-content {
+    grid-area: content;
+    overflow: auto;
+}
+
+.cf-sidebar {
+    grid-area: sidebar;
+}
+
+.cf-footer {
+    grid-area: footer;
+}

@@ -1,0 +1,83 @@
+@import "colors";
+
+.cf {
+    font-family: sans-serif;
+}
+
+.cf-header {
+    align-items: center;
+    background-color: $color-darker;
+    color: $color-lightest;
+    display: flex;
+    font-size: 36px;
+    letter-spacing: .1em;
+    padding: 0 20px;
+}
+
+.cf-sidebar {
+    background-color: $color-lighter;
+}
+
+.cf-footer {
+    background-color: $color-darkest;
+    color: $color-lightest;
+    padding: 5px 20px;
+}
+
+.cf-content {
+    background-color: $color-lightest;
+}
+
+.cf-card {
+    border: 1px solid $color-base;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px 0 $color-lighter;
+
+    &:hover {
+        box-shadow: 0 0 2px $color-lighter;
+    }
+}
+
+.cf-card__head {
+    align-items: center;
+}
+.cf_card__name {
+    color: $color-darkest;
+    margin: 0 10px;
+}
+.cf-card__label {
+    color: $color-base;
+    font-size: 12px;
+}
+
+.cf-card__value {
+    color: $color-darker;
+    font-size: 14px;
+}
+
+.cf-card__breed {
+    color: $color-darkest;
+    margin-bottom: 5px;
+}
+
+.cf-card__button {
+    background: transparent;
+    border: none;
+    color: $color-base;
+    font-size: 20px;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    width: auto;
+
+    &:hover {
+        color: $color-darker;
+        cursor: pointer;
+    }
+
+    &--active {
+        color: #f66;
+    }
+
+
+}
