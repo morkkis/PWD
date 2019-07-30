@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "with-mock": "concurrently \"cd ../../mock-server && npm run serve\" \"npm run start\""
+    "with-mock": "concurrently \"cd ../../../../mock-server && npm run serve\" \"npm run start\""
   },
   "private": true,
   "dependencies": {
