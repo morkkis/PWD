@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="../../revealjs/css/theme/night.css"> -->
 	<!-- Theme used for syntax highlighting of code -->
 	<!--<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css"> -->
-	
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/night.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.min.css">
@@ -40,7 +40,7 @@
 			grid-auto-flow: column;
 			font-size: 34px;
 		}
-		
+
 		.slide-align-top-position {
 			top: 0!important;
 		}
@@ -67,7 +67,7 @@
 				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/cascading-style-sheets.png">
 			</section>
 			<section>
-				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/cascading.jpg">
+				<img style="display: inline-block; margin: 0; height: 600px;" class="reset-img" src="../../assets/cascading.jpg">
 			</section>
 			<section>
 				<h2 style="display: inline-block;">Origin and Importance</h3>
@@ -86,6 +86,11 @@
 			</section>
 			<section>
 				<h2 style="display: inline-block;">Scope</h3>
+			</section>
+			<section>
+				<pre style="height: 100%; width: 100%; margin: 0;">						<code class="language-html html" style="max-height: 100%; padding: 20px;"><p style="color: #f00;">Lorem ipsum dolor sit amet.</p>
+											</code>
+										</pre>
 			</section>
 			<section>
 				<h2 style="display: inline-block;">Specificity</h3>
@@ -505,24 +510,35 @@
 					</table>
 				</section>
 			</section>
-			
+
 			<section>
 				<h3><a href="http://css-fun.surge.sh/" target="_blank">CSS Specificity Test</a></h3>
 				<iframe width="100%" height="560px" src="http://css-fun.surge.sh/"></iframe>
 			</section>
-			
+
 			<section>
 				<h3 style="display: inline-block;">Source Order</h3>
 			</section>
-			
+
+			<section>
+				<pre style="height: 100%; width: 100%; margin: 0;"><code  style="max-height: 100%; padding: 20px;">
+		.red { color: red; }
+		.blue { color: blue; }
+
+		&lt;div class="red blue">
+		&lt;div class="blue red">
+											</code>
+										</pre>
+			</section>
+
 			<section>
 				<h2 style="display: inline-block;">CSS Mindset</h3>
 			</section>
-			
+
 			<section>
 				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/resilient.jpg">
 			</section>
-			
+
 			<section>
 				<pre style="width:950px;">
 					<code class="language-css" style="padding: 20px;" data-trim>.photo-album {
@@ -536,11 +552,11 @@
 }
 </code></pre>
 			</section>
-			
+
 			<section>
 				<h3 style="display: inline-block;">Declarative</h3>
 			</section>
-			
+
 			<section>
 				<pre style="width:950px;">
 					<code class="language-css" style="padding: 20px;" data-trim>.example {
@@ -549,11 +565,11 @@
 }
 </code></pre>
 			</section>
-			
+
 			<section>
 				<h3 style="display: inline-block;">Contextual</h3>
 			</section>
-			
+
 			<section>
 				<pre style="width:950px;">
 					<code class="language-css" style="padding: 20px;" data-trim>.some-element {
@@ -563,7 +579,7 @@
 }
 </code></pre>
 			</section>
-			
+
 			<section>
 				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/css-thinking.jpg">
 			</section>
