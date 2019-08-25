@@ -72,7 +72,7 @@
 						<li>NaN - Number</li>
 					</ul>
 				</div>
-				<div style="margin-top: 30px;">'false' string is truthy value</div> 
+				<div style="margin-top: 30px;">'false', [], {} are truthy value</div> 
 			</section>
 			<section>
 				<section>
@@ -235,7 +235,7 @@ console.log(<mark>window</mark>.y); // Will print 7
 					<pre style="width: 100%;"><code class="language-html" style="padding: 20px;" data-trim><script src="first.js"></script>
 <script src="second.js"></script></code></pre>
 					<span>first.js:</span>
-					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var x=10;</code></pre>
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var x = 10;</code></pre>
 					<span>second.js:</span>
 					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(x); // 10</code></pre>
 				</section>
@@ -251,6 +251,7 @@ function myFunction() {
   var carName = "Volvo";
   console.log(carName); // Volvo
 }
+
 console.log(carName); // ReferenceError: carName is not defined</code></pre>
 				</section>
 				<section>
@@ -903,6 +904,9 @@ console.log(order.car);
 // {type: 'Fiat', model: '500', color: 'red'}
 </code></pre>
 				</section>
+				<section data-transition="none-out">
+					<div>When to use var, let, const?</div>
+				</section>
 			</section>
 			<section>
 				<section>
@@ -924,7 +928,7 @@ console.log(order.car);
 				</section>
 				<section class="slide-top">
 					<h4>Method Invocation Pattern</h4>
-					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">var counter = {
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">const counter = {
 	value: 0;
 	increment: function () {
 		this.value += 1;
@@ -946,7 +950,7 @@ counter.increment();
 
 }
 
-var sum = add(3, 5);
+const sum = add(3, 5);
 
 // what will be print?
 </code></pre>
@@ -960,14 +964,14 @@ var sum = add(3, 5);
 
 }
 
-var sum = add(3, 5);
+const sum = add(3, 5);
 
 // Window Object
 </code></pre>
 				</section>
 				<section data-transition="none-out" class="slide-top">
 					<h4>Function Invocation Pattern</h4>
-					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">var counter = {
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">const counter = {
 	value: 0;
 	increment: function () {
 		this.value += 1;
@@ -975,7 +979,7 @@ var sum = add(3, 5);
 	}
 };
 
-var _increment = counter.increment;
+const _increment = counter.increment;
 counter.increment();
 _increment();
 
@@ -985,7 +989,7 @@ _increment();
 				</section>
 				<section data-transition="none-out" class="slide-top">
 					<h4>Function Invocation Pattern</h4>
-					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">var counter = {
+					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">const counter = {
 	value: 0;
 	increment: function () {
 		this.value += 1;
@@ -993,7 +997,7 @@ _increment();
 	}
 };
 
-var _increment = counter.increment;
+const _increment = counter.increment;
 counter.increment();
 _increment();
 
@@ -1013,7 +1017,7 @@ _increment();
 	console.log(this);
 };
 
-var cat = new Cat('Garfield', 'Persian', 10);
+const cat = new Cat('Garfield', 'Persian', 10);
 
 // Cat {}
 // Cat {name: "Garfield", breed: "Persian", age: 10}
