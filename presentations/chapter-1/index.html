@@ -1824,7 +1824,7 @@ function Cat(name) {
 	this.saying = 'meow';
 };
 Cat.prototype = new Mammal();
-var myCat = new Cat('Tom');
+const myCat = new Cat('Tom');
 console.log(myCat.says()); // 'meow'
 </code></pre>
 				</section>
@@ -1845,7 +1845,7 @@ function Cat(name) {
 	this.saying = 'meow';
 };
 Cat.prototype = Object.create(Mammal.prototype);
-var myCat = new Cat('Tom');
+const myCat = new Cat('Tom');
 console.log(myCat.says()); // 'meow'
 </code></pre>
 				</section>
@@ -1870,7 +1870,7 @@ class Cat extends Mammal {
 	}
 };
 
-var myCat = new Cat('Tom');
+const myCat = new Cat('Tom');
 console.log(myCat.says()); // 'meow'
 </code></pre>
 				</section>
@@ -1894,10 +1894,10 @@ console.log(myCat.says()); // 'meow'
 	this.getFullName = () => fullName;
 }
 
-const myFather = new Person('John', 'Doe', 50);
-const me = new Person('Bob', 'Smith', 32)
-console.log(myFather.getFullName()); // John Doe
-console.log(me.getFullName());  // Bob Smith
+const father = new Person('John', 'Doe', 50);
+const son = new Person('Bob', 'Smith', 32)
+console.log(father.getFullName()); // John Doe
+console.log(son.getFullName());  // Bob Smith
 </code></pre>
 				</section>
 				<section data-transition="none-in" class="slide-top">
@@ -1917,10 +1917,10 @@ console.log(me.getFullName());  // Bob Smith
 	}
 }
 
-const myFather = new Person('John', 'Doe', 50);
-const me = new Person('Bob', 'Smith', 32)
-console.log(myFather.getFullName()); // John Doe
-console.log(me.getFullName());  // Bob Smith
+const father = new Person('John', 'Doe', 50);
+const son = new Person('Bob', 'Smith', 32)
+console.log(father.getFullName()); // John Doe
+console.log(son.getFullName());  // Bob Smith
 </code></pre>
 				</section>
 				<section data-transition="none-out">
@@ -1940,11 +1940,11 @@ console.log(me.getFullName());  // Bob Smith
 	}
 }
 
-const myFather = new Person('John', 'Doe', 50);
-const me = new Person('Bob', 'Smith', 32)
-console.log(myFather.getFullName()); // John Doe
-console.log(me.getFullName());  // Bob Smith
-console.log(me.getFullName === myFather.getFullName);  // false
+const father = new Person('John', 'Doe', 50);
+const son = new Person('Bob', 'Smith', 32)
+console.log(father.getFullName()); // John Doe
+console.log(son.getFullName());  // Bob Smith
+console.log(son.getFullName === father.getFullName);  // false
 </code></pre>
 				</section>
 			</section>
@@ -1966,10 +1966,10 @@ console.log(me.getFullName === myFather.getFullName);  // false
 	}
 }
 
-const myFather = new Person('John', 'Doe', 50);
-const me = new Person('Bob', 'Smith', 32)
-console.log(myFather.getFullName()); // John Doe
-console.log(me.getFullName());  // Bob Smith
+const father = new Person('John', 'Doe', 50);
+const son = new Person('Bob', 'Smith', 32)
+console.log(father.getFullName()); // John Doe
+console.log(son.getFullName());  // Bob Smith
 </code></pre>
 				</section>
 				<section data-transition="none-out">
