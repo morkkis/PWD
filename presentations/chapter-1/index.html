@@ -1906,7 +1906,8 @@ console.log(son.getFullName());  // Bob Smith
 						<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim>class Person {
 	private fullName: string;
 
-	constructor(public firstName: string,
+	constructor(
+		public firstName: string,
 		public lastName: string,
 		public age: number) {
 		   this.fullName = this.firstName + ' ' + this.lastName;
