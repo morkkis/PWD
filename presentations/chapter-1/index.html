@@ -1562,11 +1562,11 @@ console.log(garfieldCat.getName === tomCat.getName); // false
   this.age = age;
 }
 
-const myFather = new Person('John', 'Doe', 50);
-const me = new Person('Bob', 'Smith', 32)
+const father = new Person('John', 'Doe', 50);
+const son = new Person('Bob', 'Smith', 32)
 
-console.log(myFather.firstName); // John
-console.log(me.firstName); // Bob
+console.log(father.firstName); // John
+console.log(son.firstName); // Bob
 </code></pre>
 				</section>
 				<section data-transition="none-out">
@@ -1577,11 +1577,11 @@ console.log(me.firstName); // Bob
   this.age = age;
 }
 
-const myFather = new Person('John', 'Doe', 50);
-const me = new Person('Bob', 'Smith', 32)
+const father = new Person('John', 'Doe', 50);
+const son = new Person('Bob', 'Smith', 32)
 Person.prototype.nationality = 'English';
-console.log(myFather.nationality); // English
-console.log(me.nationality);  // English
+console.log(father.nationality); // English
+console.log(son.nationality);  // English
 </code></pre>
 				</section>
 				<section data-transition="none-out">
@@ -1596,11 +1596,11 @@ Person.prototype.fullName = function() {
   return this.firstName + ' ' + this.lastName;
 };
 
-const myFather = new Person('John', 'Doe', 50);
-const me = new Person('Bob', 'Smith', 32)
-console.log(myFather.fullName()); // John Doe
-console.log(me.fullName());  // Bob Smith
-console.log(me.fullName === myFather.fullName);  // true
+const father = new Person('John', 'Doe', 50);
+const son = new Person('Bob', 'Smith', 32)
+console.log(father.fullName()); // John Doe
+console.log(son.fullName());  // Bob Smith
+console.log(son.fullName === father.fullName);  // true
 </code></pre>
 				</section>
 				<section>
