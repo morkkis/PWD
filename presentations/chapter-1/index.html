@@ -1374,6 +1374,106 @@ function fun() { return this; }
 console.log(fun());
 // Window {postMessage: ƒ, …}
 console.log(fun.call(2));
+
+console.log(fun.apply(null));
+
+console.log(fun.call(undefined));
+
+console.log(fun.bind(true)());
+
+</code></pre></td>
+								<td style="width: 50%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Undetermined context will be undefined</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+function fun() { return this; }
+
+console.log(fun());
+// Window {postMessage: ƒ, …}
+console.log(fun.call(2));
+// Number {2}
+console.log(fun.apply(null));
+
+console.log(fun.call(undefined));
+
+console.log(fun.bind(true)());
+
+</code></pre></td>
+								<td style="width: 50%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Undetermined context will be undefined</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+function fun() { return this; }
+
+console.log(fun());
+// Window {postMessage: ƒ, …}
+console.log(fun.call(2));
+// Number {2}
+console.log(fun.apply(null));
+// Window {postMessage: ƒ, …}
+console.log(fun.call(undefined));
+
+console.log(fun.bind(true)());
+
+</code></pre></td>
+								<td style="width: 50%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Undetermined context will be undefined</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+function fun() { return this; }
+
+console.log(fun());
+// Window {postMessage: ƒ, …}
+console.log(fun.call(2));
+// Number {2}
+console.log(fun.apply(null));
+// Window {postMessage: ƒ, …}
+console.log(fun.call(undefined));
+// Window {postMessage: ƒ, …}
+console.log(fun.bind(true)());
+
+</code></pre></td>
+								<td style="width: 50%;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Undetermined context will be undefined</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+function fun() { return this; }
+
+console.log(fun());
+// Window {postMessage: ƒ, …}
+console.log(fun.call(2));
 // Number {2}
 console.log(fun.apply(null));
 // Window {postMessage: ƒ, …}
@@ -1419,6 +1519,162 @@ console.log(fun.apply(null));
 
 console.log(fun.call(undefined));
 
+console.log(fun.bind(true)());
+
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Undetermined context will be undefined</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+function fun() { return this; }
+
+console.log(fun());
+// Window {postMessage: ƒ, …}
+console.log(fun.call(2));
+// Number {2}
+console.log(fun.apply(null));
+// Window {postMessage: ƒ, …}
+console.log(fun.call(undefined));
+// Window {postMessage: ƒ, …}
+console.log(fun.bind(true)());
+// Boolean {true}
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">'use strict';
+
+function fun() { return this; }
+
+console.log(fun());
+// undefined
+console.log(fun.call(2));
+
+console.log(fun.apply(null));
+
+console.log(fun.call(undefined));
+
+console.log(fun.bind(true)());
+
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Undetermined context will be undefined</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+function fun() { return this; }
+
+console.log(fun());
+// Window {postMessage: ƒ, …}
+console.log(fun.call(2));
+// Number {2}
+console.log(fun.apply(null));
+// Window {postMessage: ƒ, …}
+console.log(fun.call(undefined));
+// Window {postMessage: ƒ, …}
+console.log(fun.bind(true)());
+// Boolean {true}
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">'use strict';
+
+function fun() { return this; }
+
+console.log(fun());
+// undefined
+console.log(fun.call(2));
+// 2
+console.log(fun.apply(null));
+
+console.log(fun.call(undefined));
+
+console.log(fun.bind(true)());
+
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Undetermined context will be undefined</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+function fun() { return this; }
+
+console.log(fun());
+// Window {postMessage: ƒ, …}
+console.log(fun.call(2));
+// Number {2}
+console.log(fun.apply(null));
+// Window {postMessage: ƒ, …}
+console.log(fun.call(undefined));
+// Window {postMessage: ƒ, …}
+console.log(fun.bind(true)());
+// Boolean {true}
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">'use strict';
+
+function fun() { return this; }
+
+console.log(fun());
+// undefined
+console.log(fun.call(2));
+// 2
+console.log(fun.apply(null));
+// null
+console.log(fun.call(undefined));
+
+console.log(fun.bind(true)());
+
+</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-top" data-transition="none-out">
+					<h5>Undetermined context will be undefined</h5>
+					<table style="width: 100%;">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
+
+function fun() { return this; }
+
+console.log(fun());
+// Window {postMessage: ƒ, …}
+console.log(fun.call(2));
+// Number {2}
+console.log(fun.apply(null));
+// Window {postMessage: ƒ, …}
+console.log(fun.call(undefined));
+// Window {postMessage: ƒ, …}
+console.log(fun.bind(true)());
+// Boolean {true}
+</code></pre></td>
+								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">'use strict';
+
+function fun() { return this; }
+
+console.log(fun());
+// undefined
+console.log(fun.call(2));
+// 2
+console.log(fun.apply(null));
+// null
+console.log(fun.call(undefined));
+// undefined
 console.log(fun.bind(true)());
 
 </code></pre></td>
