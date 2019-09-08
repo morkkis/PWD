@@ -116,7 +116,7 @@ if (fooValue) {
 				<section>
 					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var empty_object = {};
 
-var stooge = {
+var obj = {
 	"first-name": "Tom",
 	last_name: "Howard"
 };</code></pre>
@@ -135,13 +135,13 @@ var stooge = {
 					<h3>How to access object property?</h3>
 				</section>
 				<section>
-					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var stooge = {
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var obj = {
 	"first-name": "Tom",
 	last_name: "Howard"
 };
 
-console.log(stooge.last_name); // "Howard"
-console.log(stooge["first-name"]); // "Tom"
+console.log(obj.last_name); // "Howard"
+console.log(obj["first-name"]); // "Tom"
 </code></pre>
 				</section>
 				<section>
@@ -152,13 +152,13 @@ console.log(stooge["first-name"]); // "Tom"
 				</section>
 				<section>
 					<h4>When property name is dynamic</h4>
-					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var stooge = {
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var obj = {
 	"first-name": "Tom",
 	last_name: "Howard"
 };
 
 var propertyName = "last_name";
-console.log(stooge[propertyName]); // "Howard"
+console.log(obj[propertyName]); // "Howard"
 </code></pre>
 				</section>
 			</section>
