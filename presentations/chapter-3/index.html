@@ -101,23 +101,23 @@
 				<section>
 						<pre style="height: 100%; width: 100%; margin: 0;">
 								<code class="language-css" style="max-height: 100%; padding: 20px;">
-	.parent {
-			width: 50%;
-			border: 5px solid #E18728;
-			margin: 30px;
-		  }
-		  
-		  .child {
-			width: 90%;
-			padding: 20%;
-			border: 4px solid black;
-		  }
-		  
-		  .twins {
-			width: 50%;
-			padding: 1em;
-			border: 4px solid black;
-		  }
+.parent {
+	width: 50%;
+	border: 5px solid #E18728;
+	margin: 30px;
+}
+
+.child {
+	width: 90%;
+	padding: 20%;
+	border: 4px solid black;
+}
+
+.twins {
+	width: 50%;
+	padding: 1em;
+	border: 4px solid black;
+}
 		</code>
 							</pre>
 				</section>
@@ -129,21 +129,18 @@
 					<img class="reset-img" width="100%" src="../../assets/box-sizing-comparison.png" />
 				</section>
 				<section style="line-height: 1;">
-					<pre style="height: 100%; width: 100%; margin: 0;">
-						<code class="language-css" style="max-height: 100%; padding: 20px;">* {
+					<pre style="height: 100%; width: 100%; margin: 0;"><code class="language-css" style="max-height: 100%; padding: 20px;">* {
   box-sizing: border-box;
-}</code>
-					</pre>
-					<div class="fragment">
+}</code></pre>
+					<div class="fragment" style=" margin-top: 30px; ">
 						<div style="font-size: 28px;">#Universal Box Sizing</div>
 						<pre style="height: 100%; width: 100%; margin: 0;">
 							<code class="language-css" style="max-height: 100%; padding: 20px;">*, *::before, *::after {
   box-sizing: border-box;
-}</code>
-						</pre>
+}</code></pre>
 					</div>
 
-					<div class="fragment">
+					<div class="fragment" style=" margin-top: 30px; ">
 						<div style="font-size: 28px;">#Universal Box Sizing with Inheritance</div>
 						<pre style="height: 100%; width: 100%; margin: 0;">
 							<code class="language-css" style="max-height: 100%; padding: 20px;">html {
@@ -151,8 +148,7 @@
 }
 *, *::before, *::after {
   box-sizing: inherit;
-}</code>
-						</pre>
+}</code></pre>
 					</div>
 				</section>
 			</section>
