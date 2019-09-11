@@ -175,12 +175,12 @@ loading so <picture> and srcset fall off of that -->
 						<code class="language-html" style="max-height: 100%; padding: 20px; white-space: pre-line;"><img class="lazy" src="placeholder-image.jpg" data-src="image-to-lazy-load-1x.jpg" data-srcset="image-to-lazy-load-2x.jpg 2x, image-to-lazy-load-1x.jpg 1x" alt="I'm an image!"></code></pre>
 					<pre class="fragment" style="height: 100%; width: 100%; margin: 0;">
 						<code class="language-js" style="max-height: 100%; padding: 20px;">if ("IntersectionObserver" in window) {
-    let lazyImageObserver = new IntersectionObserver(onIntersection);
+    const lazyImageObserver = new IntersectionObserver(onIntersection);
 	
     function onIntersection(entries, observer) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
-          let lazyImage = entry.target;
+          const lazyImage = entry.target;
           lazyImage.src = lazyImage.dataset.src;
           lazyImage.srcset = lazyImage.dataset.srcset;
           lazyImage.classList.remove("lazy");
@@ -189,7 +189,7 @@ loading so <picture> and srcset fall off of that -->
       });
     }
 
-    var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+    const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
     lazyImages.forEach(function(lazyImage) {
       lazyImageObserver.observe(lazyImage);
     });
