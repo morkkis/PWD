@@ -44,6 +44,9 @@
 		.slide-top {
 			top: 0 !important;
 		}
+		.reveal .slides section .fragment.strike.visible {
+			opacity: 0.5;
+		}
 	</style>
 </head>
 
@@ -60,44 +63,44 @@
 			<section>
 				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/js-oop.png">
 			</section>
-			<section>
+			<!--<section>
 				<section>
 					<h5>Data types in JS</h5>
 					<div style="display:flex; flex-direction:column; justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
-						<div style=" margin-bottom: 20px;">There are 7 basic data types in JavaScript:</div>
+						<div style=" margin-bottom: 20px;">There are <span class="fragment strike" data-fragment-index="1" style="margin-left: 10px;">7</span> <span class="fragment" data-fragment-index="2">6</span> basic data types in JavaScript:</div>
 						<ul style="width: 100%;">
 							<li>number</li>
 							<li>string</li>
 							<li>boolean</li>
-							<li>null</li>
 							<li>undefined</li>
 							<li>object</li>
 							<li>symbol</li>
+							<li class="fragment strike" data-fragment-index="1">null</li>
 						</ul>
 					</div>
 				</section>
 				<section data-transition="none-out">
 					<h5>Data types in JS</h5>
-					<pre style="width: 100%;"><code class="language-js" style="padding: 20px; max-height: initial;">typeof undefined // "undefined"
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px; max-height: initial;">typeof 0 // "number"
 
-typeof 0 // "number"
+typeof NaN // number
+
+typeof "foo" // "string"
 
 typeof true // "boolean"
 
-typeof "foo" // "string"
+typeof undefined // "undefined"
 
 typeof Symbol("id") // "symbol"
 
 typeof Math // "object"
 
-typeof null // "object"
-
 typeof alert // "function"
 
-typeof NaN // number
+typeof null // "object"
 </code></pre>
 				</section>
-			</section>
+			</section>!-->
 			<section>
 				<h5>Falsy values in JS</h5>
 				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
@@ -313,6 +316,84 @@ function myFunction() {
 				</section>
 				<section>
 					<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/function-scope.png">
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var x = 5;
+
+function f() {
+  var x = 7;
+  x = 8;
+  console.log('x1 = ', x);
+  console.log('window.x = ', window.x);
+}
+f();
+
+console.log('x2 = ', x);
+// x1 = ?
+// window.x = ?
+// x2 = ?
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>var x = 5;
+
+function f() {
+  var x = 7;
+  x = 8;
+  console.log('x1 = ', x);
+  console.log('window.x = ', window.x);
+}
+f();
+
+console.log('x2 = ', x);
+// x1 = 8
+// window.x = 5
+// x2 = 5
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px; max-height: initial;" data-trim>var x = 5;
+
+function f() {
+  var x = 8;
+  
+  function g() {
+    var x = 11;
+    console.log('x1 = ', x);
+  }
+  g();
+  
+  console.log('x2 = ', x);
+}
+f();
+
+console.log('x3 = ', x);
+// x1 = ?
+// x2 = ?
+// x3 = ?
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px; max-height: initial;" data-trim>var x = 5;
+
+function f() {
+  var x = 8;
+  
+  function g() {
+    var x = 11;
+    console.log('x1 = ', x);
+  }
+  g();
+  
+  console.log('x2 = ', x);
+}
+f();
+
+console.log('x3 = ', x);
+// x1 = 11
+// x2 = 8
+// x3 = 5
+</code></pre>
 				</section>
 			</section>
 			<section>
@@ -2086,6 +2167,65 @@ console.log(typeof Cat);
 				<section data-transition="none-out">
 					<h3><a href="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYGwhgzhAEDCYBdoG8BQBIYB7AdhBATgK7AJYEAUOYAtgKYA00ARgXXQCZNgDmj0fHBzoEAlCgzoEACwCWEAHTV60ALzRldANySZ8ha3Yc1LNpx3opcxbzonbFq_sHCCJlyIsBfVNAx8EADlaOgpxNEs2BCICHGg9RU1vC386BABBPjCJSLSYuISFBwwvHVKgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose&prettier=false&targets=&version=7.4.2" target="_blank">Babel Online Transpile</a></h3>
 					<iframe width="100%" height="560px" src="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYGwhgzhAEDCYBdoG8BQBIYB7AdhBATgK7AJYEAUOYAtgKYA00ARgXXQCZNgDmj0fHBzoEAlCgzoEACwCWEAHTV60ALzRldANySZ8ha3Yc1LNpx3opcxbzonbFq_sHCCJlyIsBfVNAx8EADlaOgpxNEs2BCICHGg9RU1vC386BABBPjCJSLSYuISFBwwvHVKgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose&prettier=false&targets=&version=7.4.2"></iframe>
+				</section>
+			</section>
+			<section>
+				<section>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/static.jpg">
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>function Cat (name, breed, age, gender) {
+	this.name = name;
+	this.breed = breed;
+	this.age = age;
+	this.gender = gender;
+};
+
+Cat.prototype = { 
+	getName: function() {
+		return this.name;
+	},
+	getAge: function() {
+		return this.age;
+	}
+};
+
+Cat.getEmptyProperties = function() {
+	return {name: '', bread: '', age: 0, gender: ''};
+}
+
+console.log(Cat.getEmptyProperties());
+// {name: "", bread: "", age: 0, gender: ""}
+</code></pre>
+				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>class Cat {
+	static getEmptyProperties() {
+		return {name: '', bread: '', age: 0, gender: ''};
+	}
+	constructor(name, breed, age, gender) {
+		this.name = name;
+		this.breed = breed;
+		this.age = age;
+		this.gender = gender;
+	}
+	getName() {
+		return this.name;
+	};
+	getAge() {
+		return this.age;
+	};
+};
+
+console.log(Cat.getEmptyProperties());
+// {name: "", bread: "", age: 0, gender: ""}
+</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<h3><a href="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYGwhgzhAEDCYBdoG8BQBICDEEtjQHMBTBAUQFsAHBATwAUAnAe0qIYRyIgAoBKFDOgYkArgwB2KcWHJEAXNADkigDTQARsLAATBcrVhiCgAxri47Wz2KAvgG4MNjMCbisDEcARMG3abLVNIiJtA2IzIgs2fjR0dAQACxwIADp_ImgAXmh0hzjE5JSgkKyNYRC8-KTUwwzs2sqC1PNLBlKWtjyndGIEADkZIj4BOOEEMUkmtMGuvN6AQWJh2KFRCWgphscHeyA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose&prettier=false&targets=&version=7.4.2&externalPlugins=" target="_blank">Babel Online Transpile</a></h3>
+					<iframe width="100%" height="560px" src="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYGwhgzhAEDCYBdoG8BQBICDEEtjQHMBTBAUQFsAHBATwAUAnAe0qIYRyIgAoBKFDOgYkArgwB2KcWHJEAXNADkigDTQARsLAATBcrVhiCgAxri47Wz2KAvgG4MNjMCbisDEcARMG3abLVNIiJtA2IzIgs2fjR0dAQACxwIADp_ImgAXmh0hzjE5JSgkKyNYRC8-KTUwwzs2sqC1PNLBlKWtjyndGIEADkZIj4BOOEEMUkmtMGuvN6AQWJh2KFRCWgphscHeyA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015-loose&prettier=false&targets=&version=7.4.2&externalPlugins="></iframe>
 				</section>
 			</section>
 			<section>
