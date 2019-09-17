@@ -172,8 +172,83 @@ loading so <picture> and srcset fall off of that -->
 				</section>
 				<section class="slide-align-top-position" data-transition="none-out" style="font-size: 37px;">
 					<pre style="height: 100%; width: 100%; margin: 0;">
-						<code class="language-html" style="max-height: 100%; padding: 20px; white-space: pre-line;"><img class="lazy" src="placeholder-image.jpg" data-src="image-to-lazy-load-1x.jpg" data-srcset="image-to-lazy-load-2x.jpg 2x, image-to-lazy-load-1x.jpg 1x" alt="I'm an image!"></code></pre>
+						<code class="language-html" style="max-height: 100%; padding: 20px; white-space: pre-line;"><img class="lazy" src="placeholder-image.jpg" ⠀data-src="image-to-lazy-load-1x.jpg" data-srcset="image-to-lazy-load-2x.jpg 2x, image-to-lazy-load-1x.jpg 1x" alt="I'm an image!"></code></pre>
 					<pre class="fragment" style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">if ("IntersectionObserver" in window) {
+    
+	
+    
+    
+
+	
+
+	
+
+	
+
+	
+  
+
+   
+   
+
+   
+  }</code></pre>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out" style="font-size: 37px;">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px; white-space: pre-line;"><img class="lazy" src="placeholder-image.jpg" ⠀data-src="image-to-lazy-load-1x.jpg" data-srcset="image-to-lazy-load-2x.jpg 2x, image-to-lazy-load-1x.jpg 1x" alt="I'm an image!"></code></pre>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">if ("IntersectionObserver" in window) {
+    const lazyImageObserver = new IntersectionObserver(onIntersection);
+	
+    function onIntersection(entries, observer) {
+	
+        
+		
+          
+		  
+          
+		  
+       
+	   
+    }
+
+    const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage);
+    });
+  }</code></pre>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out" style="font-size: 37px;">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px; white-space: pre-line;"><img class="lazy" src="placeholder-image.jpg" ⠀data-src="image-to-lazy-load-1x.jpg" data-srcset="image-to-lazy-load-2x.jpg 2x, image-to-lazy-load-1x.jpg 1x" alt="I'm an image!"></code></pre>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">if ("IntersectionObserver" in window) {
+    const lazyImageObserver = new IntersectionObserver(onIntersection);
+	
+    function onIntersection(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          
+		  
+          
+		  
+          
+        }
+      });
+    }
+
+    const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage);
+    });
+  }</code></pre>
+					</section>
+				<section class="slide-align-top-position" data-transition="none-out" style="font-size: 37px;">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px; white-space: pre-line;"><img class="lazy" src="placeholder-image.jpg" ⠀data-src="image-to-lazy-load-1x.jpg" data-srcset="image-to-lazy-load-2x.jpg 2x, image-to-lazy-load-1x.jpg 1x" alt="I'm an image!"></code></pre>
+					<pre style="height: 100%; width: 100%; margin: 0;">
 						<code class="language-js" style="max-height: 100%; padding: 20px;">if ("IntersectionObserver" in window) {
     const lazyImageObserver = new IntersectionObserver(onIntersection);
 	
@@ -194,7 +269,7 @@ loading so <picture> and srcset fall off of that -->
       lazyImageObserver.observe(lazyImage);
     });
   }</code></pre>
-					</section>
+				</section>
 				<section>
 					<h3>Offscreen images & Iframes</h3>
 					<ul>
@@ -532,7 +607,7 @@ loading so <picture> and srcset fall off of that -->
 					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/service-worker-background-sync.svg">
 				</section>
 				<section>
-					<video height="660" loop muted controls>
+					<video height="660" muted controls>
 					  <source src="../../assets/service-worker-background-sync.mp4" type="video/mp4"/>
 					</video>
 				</section>
