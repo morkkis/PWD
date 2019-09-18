@@ -724,6 +724,71 @@ export class CardsViewComponent implements OnInit {
 					</ul>
 					</code>
 				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-in">
+					<h5>Bind cat item data</h5>
+					<ul style="font-size: 26px; width: 100%;">
+						<li>In card-item component receive the data from parent component.
+							<div class="fragment">
+								<small style="margin-top: 20px;">card-item.component.ts:</small>
+								<pre style="width: 100%;height: 100%; margin: 0;"><code class="language-ts" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1.3;" data-trim data-noescape>import { Component, Input } from '@angular/core';
+import { ICat } from '../../interfaces/cat.interface';
+
+@Component({
+  selector: 'cf-card-item',
+  templateUrl: './card-item.component.html',
+  styleUrls: ['./card-item.component.scss']
+})
+export class CardItemComponent{
+  @Input() data: ICat;
+}
+</code></pre>
+							</div>
+						</li>
+					</ul>
+					</code>
+				</section>
+				<section class="slide-top" style="height: calc(100% - 120px);" data-transition="none-in">
+					<h5>Bind cat item data</h5>
+					<ul style="font-size: 26px; width: 100%;">
+						<li>In card-item html bind the data in html.
+							<div class="fragment">
+								<small style="margin-top: 20px;">card-item.component.html:</small>
+								<pre style="width: 100%;height: 100%; margin: 0;"><code class="language-html" style="max-height: 100%;padding: 10px 20px;font-size: 1.05rem;line-height: 1.1;" data-trim><div class="cf-card">
+  <div class="cf-card__head">
+    <button [ngClass]="{'cf-card__button--active': data.like}" class="cf-card__button cf-card__button--like">
+      <i class="fas fa-heart" ></i>
+    </button>
+    <div class="cf_card__name">{{data.name}}</div>
+    <button class="cf-card__button cf_card_button--delete">
+      <i class="fas fa-trash"></i>
+    </button>
+  </div>
+  <div class="cf-card__photo-container">
+    <img
+      [src]="data.imgUrl"
+      alt="" class="cf-card__photo">
+  </div>
+  <div class="cf-card__abstract">
+    <div class="cf-card__breed">
+      {{data.breed}}
+      <i class="fas" [ngClass]="data.gender === 'Male' ? 'fa-mars' : 'fa-venus'"></i>
+    </div>
+    <div class="cf-card__abstract-item">
+      <div class="cf-card__label">Age</div>
+      <div class="cf-card__value">{{data.age}}</div>
+    </div>
+    <div class="cf-card__abstract-item">
+      <div class="cf-card__label">Coat</div>
+      <div class="cf-card__value">{{data.coat}}</div>
+    </div>
+  </div>
+</div>
+</code></pre>
+							</div>
+						</li>
+					</ul>
+					</code>
+				</section>
 			</section>
 			<section>
 				<section>
