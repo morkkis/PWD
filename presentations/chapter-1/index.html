@@ -47,6 +47,46 @@
 		.reveal .slides section .fragment.strike.visible {
 			opacity: 0.5;
 		}
+		.reveal ul.columned {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.reveal ul.columned li {
+			flex: 1;
+			list-style-type: none;
+			font-size: 20px;
+			padding: 20px;
+			border-radius: 6px;
+			margin: 0 10px 20px;
+			width: 30%;
+			flex-basis: 30%;
+		}
+		.reveal ul.columned li:nth-child(1) {
+			background-color: blueviolet;
+		}
+		.reveal ul.columned li:nth-child(2) {
+			background-color: darkblue;
+		}
+		.reveal ul.columned li:nth-child(3) {
+			background-color: darkgoldenrod;
+		}
+		.reveal ul.columned li:nth-child(4) {
+			background-color: darkcyan;
+		}
+		.reveal ul.columned li:nth-child(5) {
+			background-color: darkgreen;
+		}
+		.reveal ul.columned li:nth-child(6) {
+			background-color: darkviolet;
+		}
+		.reveal ul.columned li:nth-child(7) {
+			background-color: brown;
+		}
+		.reveal ul.columned li b {
+			display: block;
+			font-size: 32px;
+			margin-bottom: 20px;
+		}
 	</style>
 </head>
 
@@ -1397,10 +1437,10 @@ obj.clickListener();
 				<section class="slide-top">
 					<h4>"use strict"; Defines that JavaScript code should be executed in "strict mode".</h4>
 					<div style="display:flex;justify-content: center; text-align: left; font-size: 30px; margin: auto; margin-top: 20px;">
-						<ul style="width: 100%;">
-							<li style="margin-bottom: 15px;">Eliminates some JavaScript silent errors by changing them to throw errors.</li>
-							<li style="margin-bottom: 15px;">Fixes mistakes that make it difficult for JavaScript engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that's not strict mode.</li>
-							<li>Prohibits some syntax likely to be defined in future versions of ECMAScript.</li>
+						<ul style="width: 100%;" class="columned">
+							<li><b>Eliminates Silent Errors</b>Eliminates some JavaScript silent errors by changing them to throw errors.</li>
+							<li><b>Fixes Mistakes</b>Fixes mistakes that make it difficult for JavaScript engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that's not strict mode.</li>
+							<li><b>Prohibits Syntax</b>Prohibits some syntax likely to be defined in future versions of ECMAScript.</li>
 						</ul>
 					</div>
 					<div style="margin-top: 20px; font-size: 20px;">In short, Strict mode throws more errors and disables some features in an effort to make your code more robust, readable, and accurate.</div>

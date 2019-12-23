@@ -44,6 +44,46 @@
 		.slide-top {
 			top: 0 !important;
 		}
+		.reveal ul.columned {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.reveal ul.columned li {
+			flex: 1;
+			list-style-type: none;
+			font-size: 20px;
+			padding: 20px;
+			border-radius: 6px;
+			margin: 0 10px 20px;
+			width: 30%;
+			flex-basis: 30%;
+		}
+		.reveal ul.columned li:nth-child(1) {
+			background-color: blueviolet;
+		}
+		.reveal ul.columned li:nth-child(2) {
+			background-color: darkblue;
+		}
+		.reveal ul.columned li:nth-child(3) {
+			background-color: darkgoldenrod;
+		}
+		.reveal ul.columned li:nth-child(4) {
+			background-color: darkcyan;
+		}
+		.reveal ul.columned li:nth-child(5) {
+			background-color: darkgreen;
+		}
+		.reveal ul.columned li:nth-child(6) {
+			background-color: darkviolet;
+		}
+		.reveal ul.columned li:nth-child(7) {
+			background-color: brown;
+		}
+		.reveal ul.columned li b {
+			display: block;
+			font-size: 32px;
+			margin-bottom: 20px;
+		}
 	</style>
 </head>
 
@@ -157,26 +197,24 @@
 					</ul>
 				</div>
 			</section>
-			<section>
+			<section class="slide-top" >
 				<h3 style="display: inline-block;">Why Typescript?</h3>
-			</section>
-			<section data-transition="none-in">
-				<div style="text-align: left;">
-					<ul>
-						<li>Provide an optional type system for JavaScript </li>
-						<li class="fragment fade-in">Provide planned features from future JavaScript editions to current JavaScript engines</li>
+				<div style="text-align: left; margin-top: 160px;">
+					<ul class="columned">
+						<li class="fragment"><b>Types</b>Provide an optional type system for JavaScript </li>
+						<li class="fragment fade-in"><b>Future Features</b>Provide planned features from future JavaScript editions to current JavaScript engines</li>
 					</ul>
 				</div>
 			</section>
 			<section data-transition="none-out">
 				<div style="text-align: left;">
-					<ul>
-						<li>IDE auto completion</li>
-						<li class="fragment fade-in">Object-oriented</li>
-						<li class="fragment fade-in">AOT compilation</li>
-						<li class="fragment fade-in">Types are documentation</li>
-						<li class="fragment fade-in">Not locked in</li>
-						<li class="fragment fade-in">Ability to choose ECMAScript version</li>
+					<ul class="columned">
+						<li><b>IDE auto completion</b></li>
+						<li class="fragment fade-in"><b>Object-oriented</b></li>
+						<li class="fragment fade-in"><b>AOT compilation</b></li>
+						<li class="fragment fade-in"><b>Types are documentation</b></li>
+						<li class="fragment fade-in"><b>Not locked in</b></li>
+						<li class="fragment fade-in"><b>Ability to choose ECMAScript version</b></li>
 					</ul>
 				</div>
 			</section>
@@ -190,13 +228,17 @@
 				</div>
 			</section>
 			<section>
-				<section>
+				<section class="slide-top" >
 					<h3><a href="https://2018.stateofjs.com/javascript-flavors/overview/" target="_blank">The State of JavaScript 2018 Survey</a></h3>
 					<iframe width="100%" height="500px" src="https://2018.stateofjs.com/javascript-flavors/overview/"></iframe>
 				</section>
-				<section>
+				<section class="slide-top" >
 					<h3><a href="https://2018.stateofjs.com/javascript-flavors/overview/" target="_blank">The State of JavaScript 2018 Survey</a></h3>
-					<img class="reset-img" width="100%" height="500px" src="../../assets/js-survey.png" />
+					<img style="object-fit: contain" class="reset-img" width="100%" height="450px" src="../../assets/js-survey.png" />
+				</section>
+				<section class="slide-top" >
+					<h3><a href="https://2019.stateofjs.com/javascript-flavors/typescript/" target="_blank">The State of JavaScript 2019 Survey</a></h3>
+					<img style="object-fit: contain" class="reset-img" width="100%" height="300px" src="../../assets/ts-survey.png" />
 				</section>
 			</section>
 			<section style="filter: invert(1);">
