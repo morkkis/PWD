@@ -129,10 +129,84 @@
 			</section>
 			<section>
 				<pre style="height: 100%; width: 100%; margin: 0;"><code class="language-html html" style="max-height: 100%; padding: 20px;"><p style="color: #f00;">Lorem ipsum dolor sit amet.</p></code></pre>
+
 			</section>
 			<section>
 				<h2 style="display: inline-block;">Specificity</h3>
 			</section>
+			<section>
+				<section>
+				<h2 style="display: inline-block;">Selectors</h3>
+				</section>
+					<section>
+						<pre style="height: 100%; width: 100%; margin: 0;"><code class="language-html html" style="max-height: 100%; padding: 20px;"><p>Lorem ipsum dolor sit amet.</p></code></pre>
+						<div class="fragment">
+							<pre style="height: 100%; width: 100%; margin: 0;">
+								<code class="language-css" style="padding: 20px;" data-trim>p {
+  color: #030303;
+}
+			</code></pre>
+						</div>
+						<div class="fragment">
+							<pre style="height: 100%; width: 100%; margin: 0;">
+								<code class="language-css" style="padding: 20px;" data-trim>p::first-letter {
+  color: #ff0000;
+}
+			</code></pre>
+						</div>						
+					</section>
+					
+					<section>
+						<pre style="height: 100%; width: 100%; margin: 0;"><code class="language-html html" style="max-height: 100%; padding: 20px;"><p class="my-paragraph">Lorem ipsum dolor sit amet.</p></code></pre>
+						<div class="fragment">
+							<pre style="height: 100%; width: 100%; margin: 0;">
+								<code class="language-css" style="padding: 20px;" data-trim>.my-paragraph {
+  color: #030303;
+}
+			</code></pre>
+						</div>
+						<div class="fragment">
+							<pre style="height: 100%; width: 100%; margin: 0;">
+								<code class="language-css" style="padding: 20px;" data-trim>.my-paragraph::nth-of-type(2n+1) {
+  font-weight: bold;
+}
+			</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<pre style="height: 100%; width: 100%; margin: 0;"><code class="language-html html" style="max-height: 100%; padding: 20px;"><a href="https://att.com" target="_blank">AT&amp;T</a></code></pre>
+						<div class="fragment">
+							<pre style="height: 100%; width: 100%; margin: 0;">
+								<code class="language-css" style="padding: 20px;" data-trim>a[target=_blank] {
+  font-style: italic;
+}
+			</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<pre style="height: 100%; width: 100%; margin: 0;"><code class="language-html html" style="max-height: 100%; padding: 20px;"><p id="p02">Lorem ipsum dolor sit amet.</p></code></pre>
+						<div class="fragment">
+							<pre style="height: 100%; width: 100%; margin: 0;">
+								<code class="language-css" style="padding: 20px;" data-trim>#p02 {
+  background-color: #ffff00;
+}
+			</code></pre>
+						</div>
+					</section>
+
+					
+					<section>
+						<pre style="height: 100%; width: 100%; margin: 0;"><code class="language-html html" style="max-height: 100%; padding: 20px;"><p style="text-decoration: overline underline;">
+  Lorem ipsum dolor sit amet.
+</p></code></pre>
+					</section>	
+
+					
+						
+			</section>
+
 			<section class="slide-align-top-position" data-transition="none-out">
 				<h2 style="display: inline-block;">Formula: (a,b,c,d)</h3>
 				<table style="width: 100%;">
