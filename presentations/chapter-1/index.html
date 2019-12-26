@@ -50,6 +50,7 @@
 		.reveal ul.columned {
 			display: flex;
 			flex-wrap: wrap;
+			margin-left: 0;
 		}
 		.reveal ul.columned li {
 			flex: 1;
@@ -144,16 +145,16 @@ typeof null // "object"
 			<section>
 				<h5>Falsy values in JS</h5>
 				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
-					<ul style="width: 100%;">
-						<li>false</li>
-						<li>null</li>
-						<li>undefined</li>
-						<li>'' - The empty string</li>
-						<li>0 - Number zero</li>
-						<li>NaN - Number</li>
+					<ul class="columned" style="width: 100%;">
+						<li class="fragment"><b>false</b></li>
+						<li class="fragment"><b>null</b></li>
+						<li class="fragment"><b>undefined</b></li>
+						<li class="fragment"><b>''</b> The empty string</li>
+						<li class="fragment"><b>0</b> Number zero</li>
+						<li class="fragment"><b>NaN</b> "Not-a-Number" value - indicates that a value is not a legal number</li>
 					</ul>
 				</div>
-				<div style="margin-top: 30px;">'false', [], {} are truthy value</div> 
+				<div class="fragment">'false', [], {} are truthy value</div> 
 			</section>
 			<section>
 				<section>
@@ -188,7 +189,52 @@ if (fooValue) {
 }
 
 // 9</code></pre>
-				</section>				
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(false || '9');
+
+// what will be print?</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(false || '9');
+
+// '9'</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log('false' || '9');
+
+// what will be print?</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log('false' || '9');
+
+// 'false'</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log('' || 0);
+
+// what will be print?</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log('' || 0);
+
+// 0</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(3 && 9);
+
+// 9</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(null && 9);
+
+// what will be print?</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(null && 9);
+
+// null</code></pre>
+				</section>
 			</section>
 			<section>
 				<section>
