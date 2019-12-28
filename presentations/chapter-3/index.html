@@ -274,6 +274,132 @@
 				</section>
 			</section>
 			<section>
+				<section>
+					<h2>Emmet</h2>
+					<p>header>h1.title{Emmet Example}+nav>ul.head-nav>li.head-nav-item#item-$${Link $}*6^^^(main>(article.text>p>lorem25)*4)+footer{&copy;2020}</p>
+				</section>				
+				<section>
+					<h2>Abbreviations Syntax</h2>
+				</section>
+				<section>
+					<h3>Elements</h3>
+					<h4 class="fragment"> div<pre><code><div></div></code></pre></h4>
+					<h4 class="fragment"> foo <pre><code><foo></foo></code></pre></h4>
+				</section>
+				<section>
+					<h2>Nesting operators</h2>
+				</section>
+				<section>
+					<h3>Child: ></h3>
+					<h4 class="fragment"> div>ul>li</h4>
+					<div class="fragment"> <pre><code class="language-html">
+<div>
+  <ul>
+    <li></li>
+  </ul>
+</div>						
+					</code class="language-html"></pre></div>
+				</section>
+				<section>
+					<h3>Sibling: +</h3>
+					<h4 class="fragment">div+p+bq</h4>
+					<div class="fragment"> <pre><code class="language-html">
+<div></div>
+<p></p>
+<blockquote></blockquote>
+					</code></pre></div>
+				</section>
+
+				<section>
+					<h3>Climb-up: ^</h3>
+					<h4 class="fragment">div+div>p>span+em^bq</h4>
+					<div class="fragment"> <pre><code class="language-html">
+	<div></div>
+	<div>
+		<p><span></span><em></em></p>
+		<blockquote></blockquote>
+	</div>						
+					</code></pre></div>
+				</section>
+
+
+				<section>
+					<h3>Multiplication: *</h3>
+					<h4 class="fragment">ul>li*5</h4>
+					<div class="fragment"> <pre><code class="language-html">
+  <ul>
+  	<li></li>
+  	<li></li>
+  	<li></li>
+  	<li></li>
+  	<li></li>
+  </ul>	
+					</code></pre></div>
+				</section>
+
+
+				<section>
+					<h3>Grouping: ()</h3>
+					<h4 class="fragment">div>(header>ul>li*2>a)+footer>p</h4>
+					<div class="fragment"> <pre><code class="language-html">
+<div>
+	<header>
+	  <ul>
+	  	<li><a href=""></a></li>
+	  	<li><a href=""></a></li>
+	  </ul>
+	</header>
+	<footer>
+		<p></p>
+	</footer>
+</div>
+					</code></pre></div>
+				</section>
+				<section>
+					<h3>Attribute operators</h3>
+				</section>
+				<section>
+					<h3>ID and CLASS</h3>
+					<h4 class="fragment">div#header+div.page+div#footer.class1.class2</h4>
+					<div class="fragment"> <pre><code class="language-html">
+ <div id="header"></div>
+ <div class="page"></div>
+ <div id="footer" class="class1 class2"></div>
+					</code></pre></div>
+				</section>
+				<section>
+					<h3>Custom attributes</h3>
+					<h4 class="fragment">td[title="Hello world!" colspan=3]</h4>
+					<div class="fragment"> <pre><code class="language-html">
+	&lt;td title="Hello world!" colspan="3"></td>
+					</code></pre></div>
+				</section>									
+			</section>
+
+			<section>
+				<h3>Item numbering: $</h3>
+				<h4 class="fragment">ul>li.item$*5</h4>
+				<div class="fragment"> <pre><code class="language-html">
+	<ul>
+		<li class="item1"></li>
+		<li class="item2"></li>
+		<li class="item3"></li>
+		<li class="item4"></li>
+		<li class="item5"></li>
+	</ul>					
+				</code></pre></div>
+			</section>		
+			
+			<section>
+				<h3>Text: {}</h3>
+				<h4 class="fragment">p>{Click }+a{here}+{ to continue}</h4>
+				<div class="fragment"> <pre><code class="language-html">
+	<p>Click <a href="">here</a> to continue</p>
+				</code></pre></div>
+			</section>		
+
+		</section>			
+			<section>
 				<h2><a href="./../../exercises/#/1" target="_blank">Hands-On - exercise-1</a></h2>
 			</section>
 			<section>
