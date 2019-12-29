@@ -235,6 +235,16 @@ if (fooValue) {
 
 // null</code></pre>
 				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(9 && null);
+
+// what will be print?</code></pre>
+				</section>
+				<section data-transition="none-out">
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(9 && null);
+
+// null</code></pre>
+				</section>
 			</section>
 			<section>
 				<section>
@@ -818,7 +828,7 @@ hoist();
 
 }
 
-// x CAN be used here
+console.log(x); // 2
 </code></pre></td>
 								<td style="width: 50%;"><pre style="width: 100%;"></td>
 							</tr>
@@ -835,7 +845,7 @@ hoist();
 
 }
 
-// x CAN be used here
+console.log(x); // 2
 </code></pre></td>
 								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">if (true) {
 
@@ -843,7 +853,7 @@ hoist();
 
 }
 
-// x can NOT be used here
+console.log(x); // x is not defined
 </code></pre></td>
 							</tr>
 						</tbody>
@@ -943,7 +953,7 @@ let x = 'The variable has been hoisted.';
 
 }
 
-// x CAN be used here
+console.log(x); // 2
 </code></pre></td>
 								<td style="width: 50%;"><pre style="width: 100%;"></td>
 							</tr>
@@ -960,7 +970,7 @@ let x = 'The variable has been hoisted.';
 
 }
 
-// x CAN be used here
+console.log(x); // 2
 </code></pre></td>
 								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">if (true) {
 
@@ -968,7 +978,7 @@ let x = 'The variable has been hoisted.';
 
 }
 
-// x can NOT be used here
+console.log(x); // x is not defined
 </code></pre></td>
 							</tr>
 						</tbody>
