@@ -391,6 +391,8 @@ function myFunction() {
   console.log(carName); // Volvo
 }
 
+myFunction();
+
 console.log(carName); // ReferenceError: carName is not defined</code></pre>
 				</section>
 				<section>
@@ -1133,13 +1135,13 @@ console.log(order.car);
 					<div>function receives - this & arguments</div>
 				</section>
 				<section class="slide-top">
-					<h3>Four Patterns of Invocation:</h3>
-					<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
-						<ul style="width: 100%;">
-							<li>Method Invocation Pattern</li>
-							<li>Function Invocation Pattern</li>
-							<li>Constructor Invocation Pattern</li>
-							<li>Apply/Call Invocation Pattern</li>
+					<h3>Four Patterns of Invocation</h3>
+					<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 120px;">
+						<ul class="columned" style="width: 100%;">
+							<li class="fragment"><b>Method Invocation Pattern</b></li>
+							<li class="fragment"><b>Function Invocation Pattern</b></li>
+							<li class="fragment"><b>Constructor Invocation Pattern</b></li>
+							<li class="fragment"><b>Apply/Call Invocation Pattern</b></li>
 						</ul>
 					</div>
 				</section>
@@ -1288,7 +1290,9 @@ console.log(add === newAdd);
         fn.apply(context, arguments);
     };
 };</code></pre>
-					<pre class="fragment" style="width: 100%; margin-top: 50px;"><code class="language-js" style="padding: 20px;">Function.prototype.bind = function(myNewThis) {
+					<pre class="fragment" style="width: 100%; margin-top: 50px;"><code class="language-js" style="padding: 20px;">var newAdd = add.bind({count: 0});
+
+Function.prototype.bind = function(myNewThis) {
     var addFunction = this;
     return function() {
         addFunction.apply(myNewThis, arguments);
