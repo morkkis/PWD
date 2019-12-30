@@ -1,24 +1,9 @@
 @import "./../styles/variables";
 
-.cf {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-rows: $headerSize 1fr $footerSize;
-    grid-template-areas:
-        "header header"
-        "sidebar content"
-        "footer footer";
-    height: 100%;
-}
-.cf-header {
-    grid-area: header;
-}
-
 .cf-content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-row-gap: 40px;
-    grid-area: content;
     padding: 20px;
 }
 
