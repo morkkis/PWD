@@ -98,55 +98,38 @@
 			<section>
 				<h3>Decrease Payload</h3>
 			</section>
-			<section>
-				<ul>
-					<li style="margin: 0 0 20px 0;">
-						Bundle Size
-						<ul style="font-size: 70%;">
-							<li class="fragment">
-								Consider bundle size when adding new dependencies
-								<ul style="font-size: 70%;">
-									<li style="cursor: pointer"><a target="_blank" href="https://bundlephobia.com">https://bundlephobia.com</a></li>
-									<li>Visual Studio Code - <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost">Import Cost plugin</a></li>
-								</ul>
-							</li>
-							<li class="fragment"><a target="_blank" href="https://javascript-minifier.com/">Minification</a></li>
-							<li class="fragment">Brotli compression (or Gzip)</li>
-							<li class="fragment">Compile your bundle just for the browsers you need to support</li>
-							<li class="fragment">
-								Code takes advantage of tree shaking
-								<ul style="font-size: 70%;">
-									<li style="cursor: pointer">Use import { find, throttle } from "lodash" and not _ = require("lodash")</li>
-								</ul>
-							</li>
-						</ul>
+			<section class="slide-top">
+				<h4>Bundle Size</h4>
+				<ul class="columned">
+					<li class="fragment">
+						<b>Dependencies Size</b>
+						Consider bundle size when adding new dependencies
+						<ol style=" list-style-type: disc; ">
+							<div style=" display: list-item; "><a target="_blank" href="https://bundlephobia.com">https://bundlephobia.com</a></div>
+							<div style=" display: list-item; ">Visual Studio Code - <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost">Import Cost plugin</a></div>
+						</ol>
+					
+					</li>
+					<li class="fragment"><b>Browser Target</b>Compile your bundle just for the browsers you need to support</li>
+					<li class="fragment"><b>Brotli Compression</b>(or Gzip)</li>
+					<li class="fragment"><b><a target="_blank" href="https://javascript-minifier.com/">Minification</a></b></li>
+					<li class="fragment">
+						<b>Tree Shaking</b>Code takes advantage of tree shaking
+						<p>Use import { find, throttle } from "lodash" and not _ = require("lodash")</p>
 					</li>
 				</ul>
 				<div class="fragment" style="font-size: 55%; text-align: left;">Reduce sizes of pages by up to 80%</div>
 			</section>
-			<section>
-				<ul>
-					<li style="margin: 0 0 20px 0;">
-						Media Size
-						<ul style="font-size: 70%;">
-							<li class="fragment">Check for extra-large downloads</li>
-							<li class="fragment">Prefer JPG to PNG</li>
-							<li class="fragment">Convert JPG and PNG to WebP
-								<ul style="font-size: 70%;">
-									<li>Reduce sizes  by up to 30%</li>
-								</ul>
-							</li>
-							<li class="fragment">Prefer SVG</li>
-							<li class="fragment">Avoid GIF (prefer video - WebM or MP4)</li>
-							<li class="fragment">Reduce quality, especially for background images</li>
-							<li class="fragment" style="margin: 20px 0;">
-								WOFF2 format for fonts
-								<ul style="font-size: 70%;">
-									<li>Reduce sizes  by up to 30%</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
+			<section class="slide-top">
+				<h4>Media Size</h4>
+				<ul class="columned"l>
+					<li class="fragment"><b>Large Downloads</b>Check for extra-large downloads</li>
+					<li class="fragment"><b>Prefer JPG to PNG</b></li>
+					<li class="fragment"><b>Prefer WebP</b>	Convert JPG and PNG to WebP - Reduce sizes  by up to 30%</li>
+					<li class="fragment"><b>Prefer SVG</b></li>
+					<li class="fragment"><b>Avoid GIF</b>prefer video - WebM or MP4</li>
+					<li class="fragment"><b>WOFF2 format</b>Reduce sizes  by up to 30%</li>
+					<li class="fragment"><b>Reduce Quality</b>Reduce quality, especially for background images</li>
 				</ul>
 			</section>
 			<section>
@@ -553,10 +536,10 @@ loading so <picture> and srcset fall off of that -->
 				</section>
 				<section>
 					<h3>HTTP2 push?</h3>
-					<ul class="fragment">
-						<li>No third party resources</li>
-						<li>No media queries</li>
-						<li>No load callback</li>
+					<ul class="columned">
+						<li class="fragment"><b>No third party resources</b></li>
+						<li class="fragment"><b>No media queries</b></li>
+						<li class="fragment"><b>No load callback</b></li>
 					</ul>
 				</section>
 			</section>
