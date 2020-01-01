@@ -1,0 +1,29 @@
+<h1>IntersectionObserver Sample</h1>
+<p class="availability">
+  Available in <a target="_blank" href="https://www.chromestatus.com/feature/5695342691483648">Chrome 51+</a> |
+  <a target="_blank" href="https://github.com/googlechrome/samples/blob/gh-pages/intersectionobserver/">View on
+    GitHub</a> |
+  <a target="_blank" href="https://www.chromestatus.com/samples">Browse Samples</a>
+</p>
+<h3>Background</h3>
+<p>
+  The <a href="https://wicg.github.io/IntersectionObserver/">IntersectionObserver API</a>
+  provides an API to understand the visibility and position of DOM elements relative to
+  a containing element or to the top-level viewport.
+</p>
+<p>
+  This sample illustrates using <code>IntersectionObserver</code> to implement a infinite
+  scroller without having to rely on scroll events. A sentinel element triggers the loading
+  of additional elements once it comes into view and is being recycled after the new
+  elements have been attached to the list.
+<p>
+  The <a href="https://developers.google.com/web/updates/2016/04/intersectionobserver"><em>Google Developers Web
+  Updates</em></a>
+  article provides more details on <code>IntersectionObserver</code>.
+</p>
+
+<h3>Live Output</h3>
+<app-load-table-data-on-intersection></app-load-table-data-on-intersection>
+
+<app-animation-on-intersection></app-animation-on-intersection>
+
