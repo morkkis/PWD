@@ -27,7 +27,7 @@ export class LoadTableDataOnIntersectionComponent implements AfterViewInit {
   }
 
   onIntersection(entries: IntersectionObserverEntry[]) {
-    if (this.isVisibleInViewPort(entries[0])) {
+    if (this.isNotVisibleInViewPort(entries[0])) {
       return;
     }
     this.loadItems(10);
@@ -36,7 +36,7 @@ export class LoadTableDataOnIntersectionComponent implements AfterViewInit {
     this.updateFooterStatus();
   }
 
-  private isVisibleInViewPort(entry: IntersectionObserverEntry) {
+  private isNotVisibleInViewPort(entry: IntersectionObserverEntry) {
     // If intersectionRatio is 0, the sentinel is out of view
     // and we do not need to do anything.
     return entry.intersectionRatio <= 0;

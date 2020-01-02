@@ -10,6 +10,7 @@ import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef} from '@an
 })
 export class AnimationOnIntersectionComponent implements AfterViewInit {
 
+  private selector = '.animate-me';
   private intersectionObserver: IntersectionObserver;
   private config: IntersectionObserverInit = {
     rootMargin: '50px 20px 75px 30px',
@@ -17,30 +18,27 @@ export class AnimationOnIntersectionComponent implements AfterViewInit {
   };
 
   constructor(private myElement: ElementRef) {
-    this.onIntersection = this.onIntersection.bind(this);
   }
 
   ngAfterViewInit(): void {
-    const myImgs: NodeListOf<HTMLElement> = (this.myElement.nativeElement as HTMLElement).querySelectorAll<HTMLElement>('.animate-me');
-
-    this.intersectionObserver = new IntersectionObserver(this.onIntersection, this.config);
-    myImgs.forEach(image => {
-      this.intersectionObserver.observe(image);
-    });
+    // create observer
+    // add to observer
   }
 
-  onIntersection(entries: IntersectionObserverEntry[]) {
-    entries.forEach(entry => {
-      if (this.isVisibleInViewPort(entry)) {
-        entry.target.classList.add('fancy');
-      } else {
-        entry.target.classList.remove('fancy');
-      }
-    });
-  }
+  addElementsToIntersectionObserver() { }
+
+  onIntersection(entries: IntersectionObserverEntry[]) { }
 
   private isVisibleInViewPort(entry: IntersectionObserverEntry) {
     return entry.intersectionRatio > 0;
+  }
+
+  private addClass(element: Element, className: string) {
+    element.classList.add(className);
+  }
+
+  private removeClass(element: Element, className: string) {
+    element.classList.remove(className);
   }
 
 }

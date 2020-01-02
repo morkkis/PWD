@@ -15,32 +15,17 @@ export class LoadTableDataOnIntersectionComponent implements AfterViewInit {
   private counter = 1;
 
   constructor(private myElement: ElementRef) {
-    this.onIntersection = this.onIntersection.bind(this);
   }
 
   ngAfterViewInit(): void {
     this.scroller = (this.myElement.nativeElement as HTMLElement).querySelector('#scroller');
     this.sentinel = (this.myElement.nativeElement as HTMLElement).querySelector('#sentinel');
     this.status = (this.myElement.nativeElement as HTMLElement).querySelector('#status');
-    const intersectionObserver = new IntersectionObserver(this.onIntersection);
-    intersectionObserver.observe(this.sentinel);
   }
 
-  onIntersection(entries: IntersectionObserverEntry[]) {
-    if (this.isVisibleInViewPort(entries[0])) {
-      return;
-    }
-    this.loadItems(10);
-    this.moveSentinelElementToEnd();
-    this.loadItems(5);
-    this.updateFooterStatus();
-  }
+  onIntersection(entries: IntersectionObserverEntry[]) { }
 
-  private isVisibleInViewPort(entry: IntersectionObserverEntry) {
-    // If intersectionRatio is 0, the sentinel is out of view
-    // and we do not need to do anything.
-    return entry.intersectionRatio <= 0;
-  }
+  private isNotVisibleInViewPort(entry: IntersectionObserverEntry) { }
 
   private moveSentinelElementToEnd() {
     // appendChild will move the existing element, so there is no need to
