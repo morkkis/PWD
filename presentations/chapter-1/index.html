@@ -1284,7 +1284,7 @@ add.call({count: 0}, 3, 5);
 
 add(3, 5);
 
-var newAdd = add.bind({count: 0});
+const newAdd = add.bind({count: 0});
 newAdd(3, 5);
 console.log(add === newAdd);
 
@@ -1295,17 +1295,17 @@ console.log(add === newAdd);
 				</section>
 				<section data-transition="none-out">
 					<pre style="width: 100%; margin: 0;"><code class="language-js" style="padding: 20px;">Function.prototype.bind = function(context) {
-    var fn = this;
+    const fn = this;
     return function() {
-        fn.apply(context, arguments);
+        return fn.apply(context, arguments);
     };
 };</code></pre>
-					<pre class="fragment" style="width: 100%; margin-top: 50px;"><code class="language-js" style="padding: 20px;">var newAdd = add.bind({count: 0});
+					<pre class="fragment" style="width: 100%; margin-top: 50px;"><code class="language-js" style="padding: 20px;">const newAdd = add.bind({count: 0});
 
 Function.prototype.bind = function(myNewThis) {
-    var addFunction = this;
+    const addFunction = this;
     return function() {
-        addFunction.apply(myNewThis, arguments);
+        return addFunction.apply(myNewThis, arguments);
     };
 };</code></pre>
 				</section>
@@ -1317,7 +1317,7 @@ Function.prototype.bind = function(myNewThis) {
 
 add(3, 5);
 
-var newAdd = add.bind({count: 0}, 3, 5);
+const newAdd = add.bind({count: 0}, 3, 5);
 newAdd();
 console.log(add === newAdd);
 
