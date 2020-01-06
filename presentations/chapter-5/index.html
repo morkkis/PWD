@@ -25,6 +25,13 @@
 		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
 	<style>
+		.first-page {
+			height: calc(100% - 1.2em);
+			display: flex!important;
+			flex-direction: column;
+			justify-content: space-between;
+			top: 0!important;
+		}
 		.tlv-loader {
 		  height: 48px;
 		  width: 48px;
@@ -625,9 +632,13 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
-			<section>
-				<p style="height:450px;">Practical Web Development</p>
+			<section class="first-page">
+				<p>Practical Web Development</p>
 				<h3>Optimistic Programing</h3>
+				<div style="display:flex;font-size: 26px;justify-content: space-between;padding: 0 1em;">
+					<i>By Dan Nahari &amp; Ivan Zelenovsky</i>
+					<a href="../">Back to Index</a>
+				</div>
 			</section>
 			<section class="slide-align-top-position numbers-tabel" data-transition="none-out">
 				<section class="slide-align-top-position" data-transition="none-out">
@@ -1092,7 +1103,12 @@
 				</section>
 				<section data-transition="none-out">
 					<video height="600" loop muted controls>
-						<source src="../../assets/facebook-instant.mov" type="video/mp4"/>
+						<source src="../../assets/facebook-instant.mp4" type="video/mp4"/>
+					</video>
+				</section>
+				<section data-transition="none-out">
+					<video height="600" loop muted controls>
+						<source src="../../assets/facebook-instant-no-internet.mp4" type="video/mp4"/>
 					</video>
 				</section>
 			</section>
