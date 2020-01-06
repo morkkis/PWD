@@ -25,12 +25,18 @@
 		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
 	<style>
-		.first-page {
+		.title-page {
 			height: calc(100% - 1.2em);
 			display: flex!important;
 			flex-direction: column;
 			justify-content: space-between;
 			top: 0!important;
+		}
+		.reveal .title-page-actions {
+			display:flex;
+			font-size: 26px;
+			justify-content: space-between;
+			padding: 0 1em;
 		}
 		.tlv-loader {
 		  height: 48px;
@@ -632,11 +638,10 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
-			<section class="first-page">
+			<section class="title-page">
 				<p>Practical Web Development</p>
 				<h3>Optimistic Programing</h3>
-				<div style="display:flex;font-size: 26px;justify-content: space-between;padding: 0 1em;">
-					<i>By Dan Nahari &amp; Ivan Zelenovsky</i>
+				<div class="title-page-actions">
 					<a href="../">Back to Index</a>
 				</div>
 			</section>

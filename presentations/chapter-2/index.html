@@ -25,6 +25,19 @@
 		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
 	<style>
+		.title-page {
+			height: calc(100% - 1.2em);
+			display: flex!important;
+			flex-direction: column;
+			justify-content: space-between;
+			top: 0!important;
+		}
+		.reveal .title-page-actions {
+			display:flex;
+			font-size: 26px;
+			justify-content: space-between;
+			padding: 0 1em;
+		}
 		.reset-img {
 			border: 0 !important;
 			background: none !important;
@@ -97,9 +110,12 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
-			<section>
-				<p style="height:450px;">Practical Web Development</p>
+			<section class="title-page">
+				<p>Practical Web Development</p>
 				<h3>CSS, how does it work</h3>
+				<div class="title-page-actions">
+					<a href="../">Back to Index</a>
+				</div>
 			</section>
 			<section>
 				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/css-family-guy.gif">
