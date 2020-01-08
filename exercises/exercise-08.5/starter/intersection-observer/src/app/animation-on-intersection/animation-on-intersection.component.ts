@@ -11,6 +11,7 @@ import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef} from '@an
 export class AnimationOnIntersectionComponent implements AfterViewInit {
 
   private selector = '.animate-me';
+  private animationClassName = 'fancy';
   private intersectionObserver: IntersectionObserver;
   private config: IntersectionObserverInit = {
     rootMargin: '50px 20px 75px 30px',

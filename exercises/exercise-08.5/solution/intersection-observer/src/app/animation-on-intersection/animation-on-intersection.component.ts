@@ -11,6 +11,7 @@ import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef} from '@an
 export class AnimationOnIntersectionComponent implements AfterViewInit {
 
   private selector = '.animate-me';
+  private animationClassName = 'fancy';
   private intersectionObserver: IntersectionObserver;
   private config: IntersectionObserverInit = {
     rootMargin: '50px 20px 75px 30px',
@@ -36,9 +37,9 @@ export class AnimationOnIntersectionComponent implements AfterViewInit {
   onIntersection(entries: IntersectionObserverEntry[]) {
     entries.forEach(entry => {
       if (this.isVisibleInViewPort(entry)) {
-        this.addClass(entry.target, 'fancy');
+        this.addClass(entry.target, this.animationClassName);
       } else {
-        this.removeClass(entry.target, 'fancy');
+        this.removeClass(entry.target, this.animationClassName);
       }
     });
   }
