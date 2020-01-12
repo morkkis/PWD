@@ -1,11 +1,12 @@
-import {AfterViewInit, Component, ElementRef} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef} from '@angular/core';
 
 // https://googlechrome.github.io/samples/intersectionobserver/
 
 @Component({
   selector: 'app-load-table-data-on-intersection',
   templateUrl: './load-table-data-on-intersection.component.html',
-  styleUrls: ['./load-table-data-on-intersection.component.scss']
+  styleUrls: ['./load-table-data-on-intersection.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoadTableDataOnIntersectionComponent implements AfterViewInit {
 
