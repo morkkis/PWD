@@ -1428,9 +1428,178 @@ $.ajax('/user/post', {
 			<section class="slide-align-top-position">
 				<img style="height: 600px;" class="reset-img" src="../../assets/event-tabel.jpg">
 			</section>
-			<section class="slide-align-top-position" style="padding: 0;">
-				<pre style="height: 100%; width: 100%; margin: 0;">
-					<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim >@Directive({ selector: '[clickOutside]' })
+			<section class="slide-align-top-position">
+				<section class="slide-align-top-position" style="padding: 0;" data-transition="none-out">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim >@Directive({ selector: '[clickOutside]' })
+export class ClickOutsideDirective implements OnChanges, OnDestroy {
+  @Input() isActive: boolean;
+  // ...
+  ngOnChanges(changes: SimpleChanges): void {
+
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+  // ...
+}
+
+</code></pre>
+				</section>
+				<section class="slide-align-top-position" style="padding: 0;" data-transition="none-out">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim >@Directive({ selector: '[clickOutside]' })
+export class ClickOutsideDirective implements OnChanges, OnDestroy {
+  @Input() isActive: boolean;
+  // ...
+  ngOnChanges(changes: SimpleChanges): void {
+	const isActive = changes.isActive.currentValue;
+	if (isActive) {
+	  
+	} 
+
+
+  }
+
+
+
+
+
+
+
+
+
+  // ...
+}
+
+</code></pre>
+				</section>
+				<section class="slide-align-top-position" style="padding: 0;" data-transition="none-out">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim >@Directive({ selector: '[clickOutside]' })
+export class ClickOutsideDirective implements OnChanges, OnDestroy {
+  @Input() isActive: boolean;
+  // ...
+  ngOnChanges(changes: SimpleChanges): void {
+	const isActive = changes.isActive.currentValue;
+	if (isActive) {
+	  this.startClickListening();
+	}
+
+
+  }
+
+
+
+
+
+
+
+
+
+  // ...
+}
+
+</code></pre>
+				</section>
+				<section class="slide-align-top-position" style="padding: 0;" data-transition="none-out">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim >@Directive({ selector: '[clickOutside]' })
+export class ClickOutsideDirective implements OnChanges, OnDestroy {
+  @Input() isActive: boolean;
+  // ...
+  ngOnChanges(changes: SimpleChanges): void {
+	const isActive = changes.isActive.currentValue;
+	if (isActive) {
+	  this.startClickListening();
+	}
+
+
+  }
+  private startClickListening() {
+    document.body.addEventListener('click', this.onClickBody);
+  }
+
+
+
+
+
+
+  // ...
+}
+
+</code></pre>
+				</section>
+				<section class="slide-align-top-position" style="padding: 0;" data-transition="none-out">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim >@Directive({ selector: '[clickOutside]' })
+export class ClickOutsideDirective implements OnChanges, OnDestroy {
+  @Input() isActive: boolean;
+  // ...
+  ngOnChanges(changes: SimpleChanges): void {
+	const isActive = changes.isActive.currentValue;
+	if (isActive) {
+	  this.startClickListening();
+	} else if (isActive !== undefined) {
+	  this.stopClickListening();
+	}
+  }
+  private startClickListening() {
+    document.body.addEventListener('click', this.onClickBody);
+  }
+
+
+
+
+
+
+  // ...
+}
+
+</code></pre>
+				</section>
+				<section class="slide-align-top-position" style="padding: 0;" data-transition="none-out">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim >@Directive({ selector: '[clickOutside]' })
+export class ClickOutsideDirective implements OnChanges, OnDestroy {
+  @Input() isActive: boolean;
+  // ...
+  ngOnChanges(changes: SimpleChanges): void {
+	const isActive = changes.isActive.currentValue;
+	if (isActive) {
+	  this.startClickListening();
+	} else if (isActive !== undefined) {
+	  this.stopClickListening();
+	}
+  }
+  private startClickListening() {
+    document.body.addEventListener('click', this.onClickBody);
+  }
+  private stopClickListening() {
+    document.body.removeEventListener('click', this.onClickBody);
+  }
+
+
+
+  // ...
+}
+
+</code></pre>
+				</section>
+				<section class="slide-align-top-position" style="padding: 0;" data-transition="none-out">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim >@Directive({ selector: '[clickOutside]' })
 export class ClickOutsideDirective implements OnChanges, OnDestroy {
   @Input() isActive: boolean;
   // ...
@@ -1455,6 +1624,14 @@ export class ClickOutsideDirective implements OnChanges, OnDestroy {
 }
 
 </code></pre>
+				</section>
+			</section>
+			<section class="slide-align-top-position">
+				<h5><a href="https://redd.one/blog/debounce-vs-throttle" target="_blank" rel="noopener">Throttle & Debounce</a></h5>
+				<ul  class="columned" style="margin-top: 160px;">
+					<li class="fragment"><b>Throttle</b>A throttled function is called once per N amount of time.</br>Any additional function calls within the specified time interval are ignored.</li>
+					<li class="fragment"><b>Debounce</b>A debounced function is called after N amount of time passes since its last call.</br>It reacts to a seemingly resolved state and implies a delay between the event and the handler function call.</li>
+				</ul>
 			</section>
 			<section>
 				<div style="display: flex; flex-direction: column; line-height: 140px; font-size: 80px;">

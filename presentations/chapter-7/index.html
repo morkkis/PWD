@@ -538,19 +538,19 @@ loading so <picture> and srcset fall off of that -->
 					<h3>Responsive design</h3>
 					<pre style="height: 100%; width: 100%; margin: 0;">
 						<code class="language-css" style="max-height: 100%; padding: 20px;">.img {
-  @media (max-width: 320px) {
+  @media (max-width: 767px) {
     background-image: url(small.jpg);
   }
-  @media (min-width: 321px) {
+  @media (min-width: 768px) {
     background-image: url(large.jpg); 
   }
 }</code>
 					</pre>
 					<pre class="fragment" style="height: 100%; width: 100%; margin: -40px 0 0 0;">
-						<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="preload"media="(max-width: 320px)" as="image"href="small.jpg" ></code>
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="preload"media="(max-width: 767px)" as="image"href="small.jpg" ></code>
 					</pre>
 					<pre class="fragment" style="height: 100%; width: 100%; margin: -40px 0 0 0;">
-						<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="preload"media="(min-width: 321px)" as="image"href="large.jpg" ></code>
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><link rel="preload"media="(min-width: 768px)" as="image"href="large.jpg" ></code>
 					</pre>
 				</section>
 				<section>
@@ -627,13 +627,13 @@ loading so <picture> and srcset fall off of that -->
 					<h3>Server Side Rendering</h3>
 				</section>
 				<section>
-					<h4 style="margin: 0;">Angular website - Without SSR</h4>
+					<h4 style="margin: 0;"><a href="https://angular.io/" target="_blank">Angular website - Without SSR</a></h4>
 					<video height="600" loop muted controls>
 					  <source src="../../assets/spa-ssr-angular-spa.mp4" type="video/mp4"/>
 					</video>
 				</section>
 				<section>
-					<h4 style="margin: 0;">React website - With SSR</h4>
+					<h4 style="margin: 0;"><a href="https://reactjs.org/" target="_blank">React website - With SSR</a></h4>
 					<video height="600" loop muted controls>
 					  <source src="../../assets/spa-ssr-react-ssr.mp4" type="video/mp4"/>
 					</video>
