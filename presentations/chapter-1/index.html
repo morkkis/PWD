@@ -261,6 +261,17 @@ if (fooValue) {
 
 // null</code></pre>
 				</section>
+				<section data-transition="none-out">
+					<div>React Conditional Rendering</div>
+					<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>render() {
+  const count = 0;
+  return (
+    <div>
+      { count && <h1>Messages: {count}</h1> }
+    </div>
+  );
+}</code></pre>
+				</section>
 			</section>
 			<section>
 				<section>
@@ -340,6 +351,13 @@ console.log(obj[propertyName]); // "Howard"
 
 // Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
 </code></pre>
+					<small class="fragment" style=" width: 100%; text-align: start;  margin-top: 30px;">
+						<span>New access to global object: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis" target="_blank">globalThis</a></span>
+						<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>console.log(globalThis);
+
+// Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+</code></pre>
+					</small>
 				</section>
 				<section data-transition="none-out">
 					<pre style="width: 100%;">
@@ -823,6 +841,11 @@ hoist();
 						</tbody>
 					</table>
 				</section>
+				<section>
+					<h3><a href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting" target="_blank">MDN Hoisting Definition</a></h3>
+					<small>"hoisting suggests that variable and function declarations are physically moved to the top of your code, but this is not in fact what happens."</small>
+					<small style="margin-top: 30px;"><a href="https://medium.com/nmc-techblog/what-is-hoisting-in-javascript-bf73980d9dac" target="_blank">What is hoisting in javascript</a></small>
+				</section>
 			</section>
 			<section data-transition="none-out" style="height: calc(100% - 120px);">
 				<img style="display: inline-block; margin: 0; height: 630px;" class="reset-img" src="../../assets/let-vs-var.jpg">
@@ -1151,6 +1174,9 @@ console.log(order.car);
 				</section>
 				<section data-transition="none-out">
 					<div>When to use var, let, const?</div>
+				</section>
+				<section>
+					<h3><a href="https://medium.com/nmc-techblog/advanced-javascript-es6-temporal-dead-zone-default-parameters-and-let-vs-var-deep-dive-ca588fcde21b" target="_blank">TDZ (Temporal Dead Zone)</a></h3>
 				</section>
 			</section>
 			<section>
@@ -2508,6 +2534,28 @@ const son = new Person('Bob', 'Smith', 32)
 console.log(father.getFullName()); // John Doe
 console.log(son.getFullName());  // Bob Smith
 console.log(son.getFullName === father.getFullName);  // false
+</code></pre>
+				</section>
+				
+				<section data-transition="none-in" class="slide-top">
+					<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields" target="_blank">JS Private class fields - Stage 3</a></h4>
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim>class Person {
+	#fullName;
+
+	constructor(firstName, lastName, age) {
+		   this.#fullName = firstName + ' ' + lastName;
+	}
+
+	getFullName() {
+		return this.#fullName;
+	}
+}
+
+const father = new Person('John', 'Doe', 50);
+const son = new Person('Bob', 'Smith', 32)
+console.log(father.getFullName()); // John Doe
+console.log(son.getFullName());  // Bob Smith
 </code></pre>
 				</section>
 			</section>
