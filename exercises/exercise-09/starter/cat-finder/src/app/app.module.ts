@@ -21,7 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     SideBarComponent,
     CardsViewComponent,
-    CardItemComponent
+    CardItemComponent,
   ],
   imports: [
     BrowserModule,

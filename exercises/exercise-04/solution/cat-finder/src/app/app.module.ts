@@ -16,7 +16,7 @@ import { CardItemComponent } from './components/card-item/card-item.component';
     FooterComponent,
     SideBarComponent,
     CardsViewComponent,
-    CardItemComponent
+    CardItemComponent,
   ],
   imports: [
     BrowserModule,

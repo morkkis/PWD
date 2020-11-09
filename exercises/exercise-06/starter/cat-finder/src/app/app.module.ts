@@ -18,7 +18,7 @@ import { CatService } from './services/cat.service';
     FooterComponent,
     SideBarComponent,
     CardsViewComponent,
-    CardItemComponent
+    CardItemComponent,
   ],
   imports: [
     BrowserModule,

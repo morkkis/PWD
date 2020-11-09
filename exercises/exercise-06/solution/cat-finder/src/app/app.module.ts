@@ -19,13 +19,13 @@ import { CatService } from './services/cat.service';
     FooterComponent,
     SideBarComponent,
     CardsViewComponent,
-    CardItemComponent
+    CardItemComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ScrollingModule
+    ScrollingModule,
   ],
   providers: [CatService],
   bootstrap: [AppComponent]
