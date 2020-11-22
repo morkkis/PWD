@@ -2591,6 +2591,27 @@ console.log(son.getFullName());  // Bob Smith
 					<h3><a href="https://www.typescriptlang.org/play/#code/MYGwhgzhAEAKCmAnCB7AdtA3gWAFAEhh0IAXRAV2BJUQAoAHcgIxAEthoAzV5EgOTABbeAC5opRKzQBzADR58+Ri3bRwpAcLESpchUuZsOYaaOhpygpkgCUWBQF8FpkgDFyIEJvjQAvNFo7XwA+ewJ8RHgSckQMEgALVggAOm5eb2gAamgAclys6ASk5PV+IXgAbkc8J1wgA" target="_blank">TypeScript Online Transpile</a></h3>
 					<iframe width="100%" height="560px" src="https://www.typescriptlang.org/play/#code/MYGwhgzhAEAKCmAnCB7AdtA3gWAFAEhh0IAXRAV2BJUQAoAHcgIxAEthoAzV5EgOTABbeAC5opRKzQBzADR58+Ri3bRwpAcLESpchUuZsOYaaOhpygpkgCUWBQF8FpkgDFyIEJvjQAvNFo7XwA+ewJ8RHgSckQMEgALVggAOm5eb2gAamgAclys6ASk5PV+IXgAbkc8J1wgA"></iframe>
 				</section>
+				<section data-transition="none-in" class="slide-top">
+					<pre style="height: 100%; width: 100%;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim data-noescape>class Person {
+	constructor(first, last, age) {
+		this.firstName = first;
+		this.lastName = last;
+		this.age = age;
+		<mark style="background: rgb(100, 100, 100); color: inherit;">this.getFullName = this.getFullName.bind(this);</mark>
+	}
+
+	getFullName() {
+		return this.firstName + ' ' + this.lastName;
+	}
+}
+
+const father = new Person('John', 'Doe', 50);
+const son = new Person('Bob', 'Smith', 32)
+console.log(father.getFullName()); // John Doe
+console.log(son.getFullName());  // Bob Smith
+</code></pre>
+				</section>
 				<section data-transition="none-out">
 					<h3>Bind or Arrow function?</h3>
 				</section>
@@ -2614,8 +2635,8 @@ console.log(son.getFullName());  // Bob Smith
 						<code class="language-ts" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim>class paymentService {
   makePayment(orderId, paymentMethodId, accountCredential) {
     return this.haveAccountCredential(accountCredential)
-      ? this._makePayment(orderId, paymentMethodId);
-      : this.createAccountCredential(orderId, paymentMethodId)
+      ? this._makePayment(orderId, paymentMethodId)
+      : this.createAccountCredential(orderId, paymentMethodId);
   }
 }
 </code></pre>
@@ -2625,8 +2646,8 @@ console.log(son.getFullName());  // Bob Smith
 						<code class="language-ts" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim>class paymentService {
   makePayment(orderId, paymentMethodId, accountCredential) {
     return this.haveAccountCredential(accountCredential)
-      ? this._makePayment(orderId, paymentMethodId);
-      : this.createAccountCredential(orderId, paymentMethodId)
+      ? this._makePayment(orderId, paymentMethodId)
+      : this.createAccountCredential(orderId, paymentMethodId);
   }
 
   private haveAccountCredential(accountCredential) { ... }
@@ -2640,8 +2661,8 @@ console.log(son.getFullName());  // Bob Smith
 						<code class="language-ts" style="padding: 20px; margin-top: -25px; max-height: inherit;" data-trim>class paymentService {
   makePayment(orderId, paymentMethodId, accountCredential) {
     return this.haveAccountCredential(accountCredential)
-      ? this._makePayment(orderId, paymentMethodId);
-      : this.createAccountCredential(orderId, paymentMethodId)
+      ? this._makePayment(orderId, paymentMethodId)
+      : this.createAccountCredential(orderId, paymentMethodId);
   }
 
   createAccountCredential(orderId, paymentMethodId) {
