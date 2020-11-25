@@ -159,17 +159,24 @@
 					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/thinking-in-component/thinking-in-component.png">
 				</section>
 				<section class="slide-align-top-position" data-transition="none-out" >
-					<pre style="height: 100%; width: 100%; margin: 0;">
-						<code class="language-json" style="max-height: 100%; padding: 20px;">[
+					<h4 style="margin: 0;">Interface</h4>
+					<pre style="height: 100%; width: 100%; margin: 0;"><code class="language-ts" style="max-height: 100%; padding: 20px;">{
+  category: string,
+  price: string,
+  name: string,
+  stocked: boolean
+}</code></pre>
+					<div class="fragment" >
+						<h4 style="margin: 20px 0 0">Data</h4>
+						<pre style="height: 100%; width: 100%; margin: 0;"><code class="language-json" style="max-height: 100%; padding: 20px;">[
   {category: "Sporting Goods", price: "$49.99", name: "Football", stocked: true},
   {category: "Sporting Goods", price: "$9.99", name: "Baseball", stocked: true},
   {category: "Sporting Goods", price: "$29.99", name: "Basketball", stocked: false},
   {category: "Electronics", price: "$99.99", name: "iPod Touch", stocked: true},
   {category: "Electronics", price: "$399.99", name: "iPhone 5", stocked: false},
   {category: "Electronics", price: "$199.99", name: "Nexus 7", stocked: true}
-];
-						</code>
-					</pre>
+];</code></pre>
+					</div>
 				</section>
 				<section class="slide-align-top-position" data-transition="none-out" >
 					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/thinking-in-component/thinking-in-component.png">
