@@ -12,25 +12,24 @@ export class AnimationOnIntersectionComponent implements AfterViewInit {
 
   private selector = '.animate-me';
   private animationClassName = 'fancy';
-  private intersectionObserver: IntersectionObserver;
   private config: IntersectionObserverInit = {
     rootMargin: '50px 20px 75px 30px',
     threshold: [0, 0.25, 0.75, 1],
   };
 
-  constructor(private myElement: ElementRef) {
+  constructor(private myElement: ElementRef<HTMLElement>) {
     this.onIntersection = this.onIntersection.bind(this);
   }
 
   ngAfterViewInit(): void {
-    this.intersectionObserver = new IntersectionObserver(this.onIntersection, this.config);
-    this.addElementsToIntersectionObserver();
+    const intersectionObserver = new IntersectionObserver(this.onIntersection, this.config);
+    this.addElementsToIntersectionObserver(intersectionObserver);
   }
 
-  addElementsToIntersectionObserver() {
-    const myImgs: NodeListOf<HTMLElement> = (this.myElement.nativeElement as HTMLElement).querySelectorAll<HTMLElement>(this.selector);
+  addElementsToIntersectionObserver(intersectionObserver: IntersectionObserver) {
+    const myImgs: NodeListOf<HTMLElement> = this.myElement.nativeElement.querySelectorAll<HTMLElement>(this.selector);
     myImgs.forEach(image => {
-      this.intersectionObserver.observe(image);
+      intersectionObserver.observe(image);
     });
   }
 

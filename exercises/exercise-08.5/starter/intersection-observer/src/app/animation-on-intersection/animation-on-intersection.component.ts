@@ -12,7 +12,6 @@ export class AnimationOnIntersectionComponent implements AfterViewInit {
 
   private selector = '.animate-me';
   private animationClassName = 'fancy';
-  private intersectionObserver: IntersectionObserver;
   private config: IntersectionObserverInit = {
     rootMargin: '50px 20px 75px 30px',
     threshold: [0, 0.25, 0.75, 1],
@@ -26,7 +25,7 @@ export class AnimationOnIntersectionComponent implements AfterViewInit {
     // add to observer
   }
 
-  addElementsToIntersectionObserver() { }
+  addElementsToIntersectionObserver(intersectionObserver: IntersectionObserver) { }
 
   onIntersection(entries: IntersectionObserverEntry[]) { }
 
