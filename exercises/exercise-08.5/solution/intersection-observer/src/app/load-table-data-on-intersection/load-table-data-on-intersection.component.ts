@@ -53,7 +53,7 @@ export class LoadTableDataOnIntersectionComponent implements AfterViewInit {
     for (let i = 0; i < n; i++) {
       const newItem = document.createElement('div');
       newItem.classList.add('item');
-      newItem.textContent = 'Item ' + this.counter++;
+      newItem.textContent = 'Item ' + ++this.counter;
       this.scroller.appendChild(newItem);
     }
   }
