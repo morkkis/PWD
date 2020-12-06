@@ -13,16 +13,16 @@ export class LoadTableDataOnIntersectionComponent implements AfterViewInit {
   private scroller: HTMLElement;
   private sentinel: HTMLElement;
   private status: HTMLElement;
-  private counter = 1;
+  private counter = 0;
 
-  constructor(private myElement: ElementRef) {
+  constructor(private myElement: ElementRef<HTMLElement>) {
     this.onIntersection = this.onIntersection.bind(this);
   }
 
   ngAfterViewInit(): void {
-    this.scroller = (this.myElement.nativeElement as HTMLElement).querySelector('#scroller');
-    this.sentinel = (this.myElement.nativeElement as HTMLElement).querySelector('#sentinel');
-    this.status = (this.myElement.nativeElement as HTMLElement).querySelector('#status');
+    this.scroller = this.myElement.nativeElement.querySelector('#scroller');
+    this.sentinel = this.myElement.nativeElement.querySelector('#sentinel');
+    this.status = this.myElement.nativeElement.querySelector('#status');
     const intersectionObserver = new IntersectionObserver(this.onIntersection);
     intersectionObserver.observe(this.sentinel);
   }

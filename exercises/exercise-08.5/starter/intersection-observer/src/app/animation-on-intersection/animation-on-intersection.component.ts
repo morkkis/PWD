@@ -17,7 +17,7 @@ export class AnimationOnIntersectionComponent implements AfterViewInit {
     threshold: [0, 0.25, 0.75, 1],
   };
 
-  constructor(private myElement: ElementRef) {
+  constructor(private myElement: ElementRef<HTMLElement>) {
   }
 
   ngAfterViewInit(): void {
