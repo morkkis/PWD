@@ -1,0 +1,33 @@
+.cfCard {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-between;
+  justify-self: center;
+  margin: auto;
+  padding: 10px;
+  width: 200px;
+}
+
+.cfCardHead {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cfCardName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cfCardPhotoContainer {
+  text-align: center;
+}
+
+.cfCardPhoto {
+  max-height: 150px;
+}
+
+.cfCardAbstractItem {
+  display: flex;
+  justify-content: space-between;
+}
