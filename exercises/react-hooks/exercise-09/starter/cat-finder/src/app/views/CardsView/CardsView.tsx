@@ -8,7 +8,6 @@ import { CardsViewMetadata } from './CardsViewState';
 import { Grid, GridCellProps, AutoSizer, Size } from 'react-virtualized';
 import { toast } from 'react-toastify';
 
-let syncCatList: ICat[];
 const CardsView: React.FC<CardsViewProps> = () => {
   const containerMargin = 20;
   const [catList, setCatList] = useState<ICat[]>([]);
@@ -19,7 +18,6 @@ const CardsView: React.FC<CardsViewProps> = () => {
     scrollerWidth: 17,
     gapSizeBetweenRows: 40,
   });
-  syncCatList = catList;
   const catService: CatService = CatService.getInstance();
 
   const didMount = () => {
@@ -34,7 +32,7 @@ const CardsView: React.FC<CardsViewProps> = () => {
 
   function cellRenderer(cardsInRaw: number, data: GridCellProps) {
     const itemPosition = data.rowIndex * cardsInRaw + data.columnIndex;
-    const catItem = syncCatList[itemPosition];
+    const catItem = catList[itemPosition];
     return catItem ? renderCardItem(data, catItem) : null;
   }
 
@@ -70,24 +68,32 @@ const CardsView: React.FC<CardsViewProps> = () => {
   }
 
   function replaceItemInList(itemToReplace: ICat) {
-    const newCatList = syncCatList.map(item => item.id === itemToReplace.id ? itemToReplace : item);
-    setCatList(newCatList);
+    setCatList((prevCatList: ICat[]) => prevCatList.map(item => item.id === itemToReplace.id ? itemToReplace : item));
   }
 
   function onRemoveClick(catItem: ICat) {
-    const filteredCatList = syncCatList.filter(item => item !== catItem);
-    setCatList(filteredCatList);
+    removeItemFromList(catItem)
     const onError = handleRemoveClickError.bind(undefined, catItem);
     catService.removeLikeCat(catItem.id).then().catch(onError);
+  }
+
+  function removeItemFromList(catItem: ICat) {
+    setCatList((prevCatList: ICat[]) => prevCatList.filter(item => item !== catItem));
   }
 
   function handleRemoveClickError(removedCat: ICat, error: Response) {
     console.warn(error);
     const mess = `Could remove ${removedCat.name} cat`;
     showToastErrorMessage(mess);
-    const newCatList = [...syncCatList, removedCat];
-    newCatList.sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
-    setCatList(newCatList);
+    restoreItemFromList(removedCat)
+  }
+
+  function restoreItemFromList(removedCat: ICat) {
+    setCatList((prevCatList: ICat[]): ICat[] => {
+      const newCatList = [...prevCatList, removedCat]
+      newCatList.sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0)
+      return newCatList;
+    });
   }
 
   function showToastErrorMessage(message: string) {
@@ -96,7 +102,7 @@ const CardsView: React.FC<CardsViewProps> = () => {
 
   function getGridProps(width: number, height: number, isScrolling: boolean) {
     const cardsInRaw = calcCardsInRaw();
-    const rowCount = Math.ceil(syncCatList.length / cardsInRaw);
+    const rowCount = Math.ceil(catList.length / cardsInRaw);
     return {
       cellRenderer: cellRenderer.bind(undefined, cardsInRaw),
       columnCount: cardsInRaw,
