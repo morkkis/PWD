@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import CardsView from './CardsView';
+import { CardsView } from './CardsView';
 
 describe('<CardsView />', () => {
   test('it should mount', () => {

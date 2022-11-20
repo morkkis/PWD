@@ -1,7 +1,3 @@
-import React from 'react';
-
-const CfHeader: React.FC = () => (
+export const CfHeader: React.FC = () => (
   <>CatFinder</>
 );
-
-export default CfHeader;

@@ -1,16 +1,17 @@
 import React from 'react';
+import cn from 'classnames';
 import styles from './CardItem.module.scss';
 
-const CardItem: React.FC = () => {
+export const CardItem: React.FC = () => {
   function renderCardHeader() {
     return (
-      <div className={["cf-card__head", styles.cfCardHead].join(' ')}>
+      <div className={cn('cf-card__head', styles.cfCardHead)}>
         <button
-          className={["cf-card__button cf-card__button--like cf-card__button--active", styles.cfCardHead].join(' ')}>
+          className={cn('cf-card__button cf-card__button--like cf-card__button--active', styles.cfCardHead)}>
           <i className="fas fa-heart"/>
         </button>
-        <div className={["cf-cf_card__name", styles.cfCardName].join(' ')}>Kitten</div>
-        <button className={["cf-card__button cf_card_button--delete"].join(' ')}>
+        <div className={cn('cf-cf_card__name', styles.cfCardName)}>Kitten</div>
+        <button className={cn('cf-card__button cf_card_button--delete')}>
           <i className="fas fa-trash"/>
         </button>
       </div>
@@ -56,12 +57,10 @@ const CardItem: React.FC = () => {
     );
   }
   return (
-    <div className={["cf-card", styles.cfCard].join(' ')}>
+    <div className={cn('cf-card', styles.cfCard)}>
       {renderCardHeader()}
       {renderCardPhoto()}
       {renderCardAbstract()}
     </div>
   );
 };
-
-export default CardItem;

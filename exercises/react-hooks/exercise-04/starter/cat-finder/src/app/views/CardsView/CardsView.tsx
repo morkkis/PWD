@@ -1,8 +1,7 @@
-import React from 'react';
 import styles from './CardsView.module.scss';
-import CardItem from './components/CardItem/CardItem';
+import { CardItem } from './components/CardItem';
 
-const CardsView: React.FC = () => (
+export const CardsView: React.FC = () => (
   <div className={styles.CardList}>
     <CardItem/>
     <CardItem/>
@@ -16,5 +15,3 @@ const CardsView: React.FC = () => (
     <CardItem/>
   </div>
 );
-
-export default CardsView;

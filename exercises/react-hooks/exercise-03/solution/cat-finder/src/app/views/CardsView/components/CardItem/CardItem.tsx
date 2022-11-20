@@ -1,10 +1,8 @@
-import React from 'react';
+import cn from 'classnames';
 import styles from './CardItem.module.scss';
 
-const CardItem: React.FC = () => (
-  <div className={["cf-card", styles.cfCard].join(' ')}>
+export const CardItem: React.FC = () => (
+  <div className={cn('cf-card', styles.cfCard)}>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, vero.
   </div>
 );
-
-export default CardItem;

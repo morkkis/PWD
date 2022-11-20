@@ -1,24 +1,24 @@
-import React from 'react';
-import { BrowserRouter } from "react-router-dom";
-import makeRoutes from './routes'
+import { BrowserRouter } from 'react-router-dom';
+import cn from 'classnames';
+import { RootRoutes } from './routes';
 import style from './App.module.scss'
-import CfHeader from './components/CfHeader/CfHeader';
-import CfSideBar from './components/CfSideBar/CfSideBar';
-import CfFooter from './components/CfFooter/CfFooter';
+import { CfHeader } from './components/CfHeader';
+import { CfSideBar } from './components/CfSideBar';
+import { CfFooter } from './components/CfFooter';
 
 const App: React.FC = () => (
   <BrowserRouter>
-    <div className={['cf', style.cf].join(' ')}>
-      <header className={['cf-header', style.cfHeader].join(' ')}>
+    <div className={cn('cf', style.cf)}>
+      <header className={cn('cf-header', style.cfHeader)}>
         <CfHeader/>
       </header>
-      <div className={['cf-content', style.cfContent].join(' ')}>
-        {makeRoutes()}
+      <div className={cn('cf-content', style.cfContent)}>
+        {<RootRoutes />}
       </div>
-      <aside className={['cf-sidebar', style.cfSidebar].join(' ')}>
+      <aside className={cn('cf-sidebar', style.cfSidebar)}>
         <CfSideBar/>
       </aside>
-      <footer className={['cf-footer', style.cfFooter].join(' ')}>
+      <footer className={cn('cf-footer', style.cfFooter)}>
         <CfFooter/>
       </footer>
     </div>

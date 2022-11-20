@@ -1,58 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './CardsView.module.scss';
-import CardItem from './components/CardItem/CardItem';
-import CatService from '../../services/cat.service';
+import { CardItem, CardItemProps } from './components/CardItem';
+import { catService } from '../../services/cat.service';
 import { ICat } from '../../interfaces/cat.interface';
-import CardsViewProps from './CardsViewProps';
-import { CardsViewMetadata } from './CardsViewState';
-import { Grid, GridCellProps, AutoSizer, Size } from 'react-virtualized';
+import { Grid as _Grid, GridProps, GridCellProps, AutoSizer as _AutoSizer, AutoSizerProps, Size } from 'react-virtualized';
 import { toast } from 'react-toastify';
 
-const CardsView: React.FC<CardsViewProps> = () => {
-  const containerMargin = 20;
+// Fix issue 'AutoSizer' cannot be used as a JSX component
+// looks like @types/react-virtualized doesn't support react 18
+const AutoSizer = _AutoSizer as unknown as React.FC<AutoSizerProps>;
+const Grid = _Grid as unknown as React.FC<GridProps>;
+
+interface CardsViewMetadata {
+  scrollerWidth: number,
+  containerMargin: number,
+  containerWidth: string,
+  gapSizeBetweenRows: number,
+  cardSize: number,
+}
+
+const containerMargin: number = 20;
+const metadata: CardsViewMetadata = {
+  containerMargin,
+  containerWidth: `calc(100% - ${containerMargin * 2}px)`,
+  scrollerWidth: 17,
+  gapSizeBetweenRows: 40,
+  cardSize: 300,
+};
+
+export const CardsView: React.FC = () => {
   const [catList, setCatList] = useState<ICat[]>([]);
-  const [cardSize] = useState<number>(300);
-  const [metadata] = useState<CardsViewMetadata>({
-    containerMargin,
-    containerWidth: `calc(100% - ${containerMargin * 2}px)`,
-    scrollerWidth: 17,
-    gapSizeBetweenRows: 40,
-  });
-  const catService: CatService = CatService.getInstance();
+  const cardsInRaw = useRef<number>(4);
 
-  const didMount = () => {
-    function fetchCatList() {
-      catService.getCatList().then(setCatList);
-    }
-
-    fetchCatList();
-  }
-
-  useEffect(didMount, [catService]);
-
-  function cellRenderer(cardsInRaw: number, data: GridCellProps) {
-    const itemPosition = data.rowIndex * cardsInRaw + data.columnIndex;
-    const catItem = catList[itemPosition];
-    return catItem ? renderCardItem(data, catItem) : null;
-  }
-
-  function renderCardItem(data: GridCellProps, catItem: ICat) {
-    return (
-      <div key={data.key} style={data.style} className={styles.CardItemWrapper}>
-        <CardItem {...getCardItemProps(catItem)} />
-      </div>
-    );
-  }
-
-  function getCardItemProps(data: ICat) {
-    return {
-      data,
-      events: {
-        onLikeClick,
-        onRemoveClick,
-      }
-    }
-  }
+  useEffect(() => {
+    catService.getCatList().then(setCatList);
+  }, []);
 
   function onLikeClick(catItem: ICat) {
     replaceItemInList({...catItem, like: !catItem.like});
@@ -96,22 +78,31 @@ const CardsView: React.FC<CardsViewProps> = () => {
     });
   }
 
-  function showToastErrorMessage(message: string) {
-    toast.error(message);
+  function cellRenderer(data: GridCellProps): React.ReactNode {
+    const itemPosition = data.rowIndex * cardsInRaw.current + data.columnIndex;
+    const catItem = catList[itemPosition];
+    return catItem ? renderCardItem(data, catItem) : null;
   }
 
-  function getGridProps(width: number, height: number, isScrolling: boolean) {
-    const cardsInRaw = calcCardsInRaw();
-    const rowCount = Math.ceil(catList.length / cardsInRaw);
+  function renderCardItem(cellData: GridCellProps, data: ICat): React.ReactNode {
+    const props: CardItemProps = { data, onLikeClick, onRemoveClick };
+    return _renderCardItem(cellData, props);
+  }
+
+  function getGridProps(width: number, height: number, isScrolling: boolean): GridProps {
+    cardsInRaw.current = calcCardsInRaw();
+    const rowCount: number = Math.ceil(catList.length / cardsInRaw.current);
+    const rowHeight: number = metadata.cardSize + metadata.gapSizeBetweenRows;
+    const columnWidth: number = (width - (metadata.containerMargin * 2) - metadata.scrollerWidth) / cardsInRaw.current;
     return {
-      cellRenderer: cellRenderer.bind(undefined, cardsInRaw),
-      columnCount: cardsInRaw,
-      columnWidth: (width - (metadata.containerMargin * 2) - metadata.scrollerWidth) / cardsInRaw,
-      height: height,
+      height,
+      width,
       rowCount,
+      rowHeight,
+      columnWidth,
+      cellRenderer,
       isScrolling,
-      rowHeight: cardSize + metadata.gapSizeBetweenRows,
-      width: width,
+      columnCount: cardsInRaw.current,
       containerStyle: {
         width: metadata.containerWidth,
         maxWidth: metadata.containerWidth,
@@ -120,13 +111,8 @@ const CardsView: React.FC<CardsViewProps> = () => {
     }
   }
 
-  function calcCardsInRaw(): number {
-    const viewWidth = window.innerWidth;
-    return viewWidth >= 1025 ? 4 :
-      viewWidth >= 729 ? 2 : 1;
-  }
-
   let forceGridRerenderOnResize = false;
+
   return (
     <AutoSizer>
       {(data: Size) => {
@@ -138,4 +124,20 @@ const CardsView: React.FC<CardsViewProps> = () => {
   );
 };
 
-export default CardsView;
+function _renderCardItem(cellData: GridCellProps, props: CardItemProps): React.ReactNode {
+  return (
+    <div key={cellData.key} style={cellData.style} className={styles.CardItemWrapper}>
+      <CardItem {...props} />
+    </div>
+  );
+}
+
+function calcCardsInRaw(): number {
+  const viewWidth = window.innerWidth;
+  return viewWidth >= 1025 ? 4 :
+    viewWidth >= 729 ? 2 : 1;
+}
+
+function showToastErrorMessage(message: string) {
+  toast.error(message);
+}

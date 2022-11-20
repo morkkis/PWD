@@ -1,2 +1,1 @@
-import CfHeader from './CfHeader';
-export default CfHeader;
+export * from './CfHeader';

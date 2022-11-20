@@ -1,19 +1,22 @@
 import React from 'react';
+import cn from 'classnames';
 import styles from './CardItem.module.scss';
-import CardItemProps from './CardItemProps';
 import { ICat } from '../../../../interfaces/cat.interface';
 
-const CardItem: React.FC<CardItemProps> = (props: CardItemProps) => {
+export interface CardItemProps {
+  data: ICat;
+}
+
+export const CardItem: React.FC<CardItemProps> = ( {data} : CardItemProps) => {
   function renderCardHeader() {
-    const data: ICat = props.data;
     return (
-      <div className={["cf-card__head", styles.cfCardHead].join(' ')}>
+      <div className={cn('cf-card__head', styles.cfCardHead)}>
         <button
-          className={[`cf-card__button cf-card__button--like ${data.like ? 'cf-card__button--active' : ''}`, styles.cfCardHead].join(' ')}>
+          className={cn('cf-card__button', 'cf-card__button--like', {'cf-card__button--active': data.like}, styles.cfCardHead)}>
           <i className="fas fa-heart"/>
         </button>
-        <div className={["cf-cf_card__name", styles.cfCardName].join(' ')}>{data.name}</div>
-        <button className={["cf-card__button cf_card_button--delete"].join(' ')}>
+        <div className={cn('cf-cf_card__name', styles.cfCardName)}>{data.name}</div>
+        <button className={cn('cf-card__button cf_card_button--delete')}>
           <i className="fas fa-trash"/>
         </button>
       </div>
@@ -21,7 +24,6 @@ const CardItem: React.FC<CardItemProps> = (props: CardItemProps) => {
   }
 
   function renderCardPhoto() {
-    const data: ICat = props.data;
     return (
       <div className={styles.cfCardPhotoContainer}>
         <img
@@ -33,7 +35,6 @@ const CardItem: React.FC<CardItemProps> = (props: CardItemProps) => {
   }
 
   function renderCardAbstract() {
-    const data: ICat = props.data;
     return (
       <div>
         {renderCardBreed()}
@@ -44,11 +45,10 @@ const CardItem: React.FC<CardItemProps> = (props: CardItemProps) => {
   }
 
   function renderCardBreed() {
-    const { data } = props;
     return (
       <div className="cf-card__breed">
         {data.breed}
-        <i className={['fas', data.gender === 'Male' ? "fa-mars" : "fa-venus"].join(' ')} />
+        <i className={cn('fas', data.gender === 'Male' ? 'fa-mars' : 'fa-venus')} />
       </div>
     );
   }
@@ -62,12 +62,10 @@ const CardItem: React.FC<CardItemProps> = (props: CardItemProps) => {
     );
   }
   return (
-    <div className={["cf-card", styles.cfCard].join(' ')}>
+    <div className={cn('cf-card', styles.cfCard)}>
       {renderCardHeader()}
       {renderCardPhoto()}
       {renderCardAbstract()}
     </div>
   );
 };
-
-export default CardItem;

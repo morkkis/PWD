@@ -64,13 +64,43 @@
 				</section>
 				<section>
 					<ol class="list">
-						<li>Initial "cat-finder" project in angular</li>
+						<li>Initial "cat-finder" project in angular or react</li>
 					</ol>
 				</section>
 				<section>
-					<h4>Prerequisites</h4>
+					<h4>Prerequisites React</h4>
 					<ol class="list">
-						<li>node.js 10 (for angular)</li>
+						<li>node.js 14 (for react)</li>
+						<li>npx create-react-app my-app --template typescript</li>
+						<li>git</li>
+						<li>IDE WebStorm/VS Code</li>
+						<li>Network other than AT&T (IW-Guest, IW-Internal)</li>
+					</ol>
+				</section>
+				<section>
+					<h4>Installation</h4>
+					<ol class="list" style="font-size: 23px;">
+						<li>Go To your git folder (or any folder)</li>
+						<li><pre style="width: 100%;height: 100%;"><code class="language-bash" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>npx create-react-app cat-finder --template typescript</code></pre></li>
+						<li><pre style="width: 100%;height: 100%;"><code class="language-bash" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>> cd cat-finder</code></pre></li>
+						<li><pre style="width: 100%;height: 100%;"><code class="language-bash" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>> npm i -D node-sass</code></pre></li>
+						<li><pre style="width: 100%;height: 100%;"><code class="language-bash" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>
+						Change "index.css" to "index.scss" and "App.css" to "App.module.scss"
+						Move "index.scss" to "src/styles"
+						Move the files "App.module.scss", "App.test.tsx", "App.tsx", "logo.svg" to "src/app"
+						index.tsx - change "import './index.css';" to "import './styles/index.scss';", 
+						index.tsx - change "import App from './App';" to "import App from './app/App';",
+						App.tsx - change "import './App.css';" to "import styles from './App.module.scss';"
+						</code></pre></li>
+						<li><pre style="width: 100%;height: 100%;"><code class="language-bash" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>> npm start</code></pre></li>
+						<li>Open the IDE & open "cat-finder" project</li>
+						<li>Walk through the structure</li>
+					</ol>
+				</section>
+				<section>
+					<h4>Prerequisites Angular</h4>
+					<ol class="list">
+						<li>node.js 14 (for angular)</li>
 						<li>angular-cli - npm install -g @angular/cli</li>
 						<li>git</li>
 						<li>IDE WebStorm/VS Code</li>

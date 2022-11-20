@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './CardsView.module.scss';
-import CardItem from './components/CardItem/CardItem';
-import CatService from '../../services/cat.service';
+import { CardItem } from './components/CardItem';
+import { catService } from '../../services/cat.service';
 import { ICat } from '../../interfaces/cat.interface';
-import CardsViewProps from './CardsViewProps';
 
-const CardsView: React.FC<CardsViewProps> = () => {
+export const CardsView: React.FC = () => {
     const [catList, setCatList] = useState<ICat[]>([]);
 
-    const didMount = () => {
-        function fetchCatList() {
-            const catService: CatService = CatService.getInstance();
-            catService.getCatList().then(setCatList);
-        }
-        fetchCatList();
-    }
-
-    useEffect(didMount, []);
+    useEffect(() => {
+        catService.getCatList().then(setCatList);
+    }, []);
 
     return (
       <div className={styles.CardList}>
@@ -24,5 +17,3 @@ const CardsView: React.FC<CardsViewProps> = () => {
       </div>
     );
 };
-
-export default CardsView;

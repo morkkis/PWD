@@ -1,2 +1,1 @@
-import CfFooter from './CfFooter';
-export default CfFooter;
+export * from './CfFooter';

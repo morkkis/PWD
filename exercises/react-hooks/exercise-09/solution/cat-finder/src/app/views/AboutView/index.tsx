@@ -1,2 +1,1 @@
-import AboutView from './AboutView';
-export default AboutView;
+export * from './AboutView';

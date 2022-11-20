@@ -1,49 +1,49 @@
-import React from 'react';
+import cn from 'classnames';
 import styles from './App.module.scss';
 
 function App() {
   return (
-    <div className={["cf", styles.cf].join(' ')}>
-      <header className={["cf-header", styles.cfHeader].join(' ')}>
+    <div className={cn('cf', styles.cf)}>
+      <header className={cn('cf-header', styles.cfHeader)}>
         CatFinder
       </header>
-      <div className={["cf-content", styles.cfContent].join(' ')}>
-        <div className={["cf-card", styles.cfCard].join(' ')}>
+      <div className={cn('cf-content', styles.cfContent)}>
+        <div className={cn('cf-card', styles.cfCard)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, vero.
         </div>
 
-        <div className={["cf-card", styles.cfCard].join(' ')}>
+        <div className={cn('cf-card', styles.cfCard)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, vero.
         </div>
 
-        <div className={["cf-card", styles.cfCard].join(' ')}>
+        <div className={cn('cf-card', styles.cfCard)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, vero.
         </div>
 
-        <div className={["cf-card", styles.cfCard].join(' ')}>
+        <div className={cn('cf-card', styles.cfCard)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, vero.
         </div>
 
-        <div className={["cf-card", styles.cfCard].join(' ')}>
+        <div className={cn('cf-card', styles.cfCard)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, vero.
         </div>
 
-        <div className={["cf-card", styles.cfCard].join(' ')}>
+        <div className={cn('cf-card', styles.cfCard)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, vero.
         </div>
 
-        <div className={["cf-card", styles.cfCard].join(' ')}>
+        <div className={cn('cf-card', styles.cfCard)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, vero.
         </div>
 
-        <div className={["cf-card", styles.cfCard].join(' ')}>
+        <div className={cn('cf-card', styles.cfCard)}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, vero.
         </div>
       </div>
-      <aside className={["cf-sidebar", styles.cfSidebar].join(' ')}>
+      <aside className={cn('cf-sidebar', styles.cfSidebar)}>
         Sidebar
       </aside>
-      <footer className={["cf-footer", styles.cfFooter].join(' ')}>&copy; 2019</footer>
+      <footer className={cn('cf-footer', styles.cfFooter)}>&copy; 2019</footer>
     </div>
   );
 }

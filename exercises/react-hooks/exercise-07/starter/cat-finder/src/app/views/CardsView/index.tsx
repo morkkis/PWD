@@ -1,2 +1,1 @@
-import CardsView from './CardsView';
-export default CardsView;
+export * from './CardsView';
